@@ -1,0 +1,121 @@
+import "../Templates/Plant.cif";
+
+group Bridge:
+    //User-interface plants for Land Traffic, barriers, and bridge deck
+    group UI:
+        LT        : LandTrafficUI();
+        Barrier1  : ThreeStateUI(true);
+        Barrier27 : ThreeStateUI(true);
+        Barrier36 : ThreeStateUI(true);
+        Barrier48 : ThreeStateUI(true);
+        Barrier5  : ThreeStateUI(true);
+
+        Deck      : ThreeStateUI(false);
+    end
+
+    //Emergency Stop at the bridge or from the control UI
+    EmergencyStop : EmergencyStopDef();
+
+    //Land Traffic Approach Signs
+    //#FarEnabled   - True if the far approach sign actuator and sensors are On
+    //#NearEnabled  - True if the near approach sign actuator and sensors are On
+    //#Enabled      - True if the far and near approach sign actuators and sensors are On
+    //#NearDisabled - True if the near approach sign actuator and sensors are Off
+    //#Enabled15TimeOk    - True if the approach signs are enabled for 15 seconds
+    //#Enabled20TimeOk    - True if the approach signs are enabled for 20 seconds
+    //#NearDisabledTimeOk - True if the near approach signs are disabled for X seconds
+    group LTAS:
+        FarActuator   : SingleOutputActuator(false);
+        NearActuator  : SingleOutputActuator(false);
+        ApproachSign1 : SingleLampSign(FarActuator);  //C500
+        ApproachSign2 : SingleLampSign(FarActuator);  //K300
+        ApproachSign3 : SingleLampSign(NearActuator); //C200
+        ApproachSign4 : SingleLampSign(NearActuator); //C100
+        ApproachSign5 : SingleLampSign(NearActuator); //K150
+
+        alg bool FarEnabled   = ApproachSign1.On and ApproachSign2.On and FarActuator.On;
+        alg bool NearEnabled  = ApproachSign3.On and ApproachSign4.On and ApproachSign5.On and NearActuator.On;
+        alg bool Enabled      = FarEnabled and NearEnabled;
+        alg bool NearDisabled = ApproachSign3.Off and ApproachSign4.Off and ApproachSign5.Off and NearActuator.Off;
+
+        Enabled15Timer    : Timer(Enabled,      not Enabled);
+        Enabled20Timer    : Timer(Enabled,      not Enabled);
+        NearDisabledTimer : Timer(NearDisabled, not NearDisabled);
+
+        alg bool Enabled15TimeOk    = Enabled15Timer.Finished    and Enabled;
+        alg bool Enabled20TimeOk    = Enabled20Timer.Finished    and Enabled;
+        alg bool NearDisabledTimeOk = NearDisabledTimer.Finished and NearDisabled;
+    end
+
+    //Land Traffic Stop Signs
+    //#Enabled  - True if all stop sign actuators and sensors are On
+    //#Disabled - True if all the stop sign actuators and sensors are Off
+    //#EnabledTimeOk   - True if the stop signs are enabled for X seconds
+    //#DisabledTimeOk  - True if the stop signs are disabled for X seconds
+    group LTSS:
+        MainLaneActuator   : SingleOutputActuator(false);
+        SwitchLaneActuator : SingleOutputActuator(false);
+
+        StopSign1  : SingleLampSign(SwitchLaneActuator); StopSign2  : SingleLampSign(SwitchLaneActuator);
+        StopSign3  : SingleLampSign(SwitchLaneActuator); StopSign4  : SingleLampSign(SwitchLaneActuator);
+        StopSign5  : SingleLampSign(MainLaneActuator);   StopSign6  : SingleLampSign(MainLaneActuator);
+        StopSign7  : SingleLampSign(MainLaneActuator);   StopSign8  : SingleLampSign(MainLaneActuator);
+        StopSign9  : SingleLampSign(MainLaneActuator);   StopSign10 : SingleLampSign(MainLaneActuator);
+        StopSign11 : SingleLampSign(MainLaneActuator);   StopSign12 : SingleLampSign(MainLaneActuator);
+
+        alg bool Enabled =  StopSign1.On  and StopSign2.On   and StopSign3.On   and StopSign4.On  and
+                            StopSign5.On  and StopSign6.On   and StopSign7.On   and StopSign8.On  and
+                            StopSign9.On  and StopSign10.On  and StopSign11.On  and StopSign12.On and
+                            MainLaneActuator.On and SwitchLaneActuator.On;
+
+        alg bool Disabled = StopSign1.Off and StopSign2.Off  and StopSign3.Off  and StopSign4.Off  and
+                            StopSign5.Off and StopSign6.Off  and StopSign7.Off  and StopSign8.Off  and
+                            StopSign9.Off and StopSign10.Off and StopSign11.Off and StopSign12.Off and
+                            MainLaneActuator.Off and SwitchLaneActuator.Off;
+
+        EnabledTimer  : Timer(Enabled,  not Enabled);
+        DisabledTimer : Timer(Disabled, not Disabled);
+        alg bool EnabledTimeOk  = EnabledTimer.Finished  and Enabled;
+        alg bool DisabledTimeOk = DisabledTimer.Finished and Disabled;
+    end
+
+    //Bridge Barriers
+    //#EnteringClosed - True if the entering barriers (3 & 6) are closed
+    //#LeavingClosed  - True if the leaving  barriers (2 & 7) are closed
+    //#LeavingClosed  - True if the leaving  barriers (2 & 7) are open
+    //#LTClosed       - True if the land traffic barriers (4 & 8) are closed
+    //#AllClosed      - True if all barriers (1, ..., 8) are closed
+    //#AllOpen        - True if all barriers (1, ..., 8) are open
+    //#EnteringClosedTimeOk - True if the entering barriers are closed for X seconds
+    //#LeavingOpenTimeOk    - True if the leaving  barriers are open for X seconds
+    //#LTSoundSignalTimeOk  - True if the sound signal is enabled for X seconds
+    group Barriers:
+        B1 : DoubleInputDoubleOutput(false); B2 : DoubleInputDoubleOutput(false); B3 : DoubleInputDoubleOutput(false);
+        B4 : DoubleInputDoubleOutput(false); B5 : DoubleInputDoubleOutput(false); B6 :DoubleInputDoubleOutput(false);
+        B7 : DoubleInputDoubleOutput(false); B8 : DoubleInputDoubleOutput(false);
+        LightSignals   : SingleOutputActuator(false);
+        LTSoundSignals : SingleOutputActuator(false);
+
+        alg bool EnteringClosed = B3.Closed and B6.Closed;
+        alg bool LeavingClosed  = B2.Closed and B7.Closed;
+        alg bool LeavingOpen    = B2.Open   and B7.Open;
+        alg bool LTClosed       = B4.Closed and B8.Closed;
+        alg bool AllClosed      = B1.Closed and B2.Closed and B3.Closed and B4.Closed and
+                                  B5.Closed and B6.Closed and B7.Closed and B8.Closed;
+        alg bool AllOpen        = B1.Open   and B2.Open   and B3.Open   and B4.Open   and
+                                  B5.Open   and B6.Open   and B7.Open   and B8.Open;
+        EnteringClosedTimer : Timer(EnteringClosed, not EnteringClosed);
+        LeavingOpenTimer    : Timer(LeavingOpen   , not LeavingOpen);
+        LTSoundSignalTimer  : Timer(LTSoundSignals.On, LTSoundSignals.Off);
+
+        alg bool EnteringClosedTimeOk = EnteringClosedTimer.Finished and EnteringClosed;
+        alg bool LeavingOpenTimeOk    = LeavingOpenTimer.Finished    and LeavingOpen;
+        alg bool LTSoundSignalTimeOk  = LTSoundSignalTimer.Finished  and LTSoundSignals.On;
+    end
+
+    //Bridge Deck
+    Deck : DoubleInputDoubleOutput(true);
+
+    //Close request from the emergency center
+    CloseRequest : SingleInputSensor(false);
+end

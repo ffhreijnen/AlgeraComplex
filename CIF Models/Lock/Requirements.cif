@@ -1,0 +1,214 @@
+import "Plant.cif";
+
+group FunctionalRequirements:
+    group def GateReq(controllable c_open, c_close, c_stop; ThreeStateUI Button):
+        requirement c_open  needs
+            Button.Open  and Lock.EmergencyStop.Deactivated;
+        requirement c_close needs
+            Button.Close and Lock.EmergencyStop.Deactivated;
+        requirement c_stop  needs
+            Button.Stop  or  Lock.EmergencyStop.Activated;
+    end
+
+    group Gates_FReq: //Functional requirements for the gates.
+        UpstreamEbGateEast           : GateReq(Lock.UpstreamEb.EastGate.Actuator.c_open, Lock.UpstreamEb.EastGate.Actuator.c_close,
+                                               Lock.UpstreamEb.EastGate.Actuator.c_stop, Lock.UI.UEbGate);
+        UpstreamEbGateWest           : GateReq(Lock.UpstreamEb.WestGate.Actuator.c_open, Lock.UpstreamEb.WestGate.Actuator.c_close,
+                                               Lock.UpstreamEb.WestGate.Actuator.c_stop, Lock.UI.UEbGate);
+        UpstreamFloodGateEast        : GateReq(Lock.UpstreamFlood.EastGate.Actuator.c_open, Lock.UpstreamFlood.EastGate.Actuator.c_close,
+                                               Lock.UpstreamFlood.EastGate.Actuator.c_stop, Lock.UI.UFloodGate);
+        UpstreamFloodGateWest        : GateReq(Lock.UpstreamFlood.WestGate.Actuator.c_open, Lock.UpstreamFlood.WestGate.Actuator.c_close,
+                                               Lock.UpstreamFlood.WestGate.Actuator.c_stop, Lock.UI.UFloodGate);
+        DownstreamEbGateEast         : GateReq(Lock.DownstreamEb.EastGate.Actuator.c_open, Lock.DownstreamEb.EastGate.Actuator.c_close,
+                                               Lock.DownstreamEb.EastGate.Actuator.c_stop, Lock.UI.DEbGate);
+        DownstreamEbGateWest         : GateReq(Lock.DownstreamEb.WestGate.Actuator.c_open, Lock.DownstreamEb.WestGate.Actuator.c_close,
+                                               Lock.DownstreamEb.WestGate.Actuator.c_stop, Lock.UI.DEbGate);
+        DownstreamFloodGateEast      : GateReq(Lock.DownstreamFlood.EastGate.Actuator.c_open, Lock.DownstreamFlood.EastGate.Actuator.c_close,
+                                               Lock.DownstreamFlood.EastGate.Actuator.c_stop, Lock.UI.DFloodGate);
+        DownstreamFloodGateWest      : GateReq(Lock.DownstreamFlood.WestGate.Actuator.c_open, Lock.DownstreamFlood.WestGate.Actuator.c_close,
+                                               Lock.DownstreamFlood.WestGate.Actuator.c_stop, Lock.UI.DFloodGate);
+        DownstreamStormFloodGateEast : GateReq(Lock.DownstreamStormFlood.EastGate.Actuator.c_open, Lock.DownstreamStormFlood.EastGate.Actuator.c_close,
+                                               Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, Lock.UI.DStormFloodGate);
+        DownstreamStormFloodGateWest : GateReq(Lock.DownstreamStormFlood.WestGate.Actuator.c_open, Lock.DownstreamStormFlood.WestGate.Actuator.c_close,
+                                               Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, Lock.UI.DStormFloodGate);
+    end
+
+    group Paddles_FReq: //Functional requirements for the paddles.
+        UpstreamEbPaddleEast           : GateReq(Lock.UpstreamEb.EastPaddle.Actuator.c_open, Lock.UpstreamEb.EastPaddle.Actuator.c_close,
+                                                 Lock.UpstreamEb.EastPaddle.Actuator.c_stop, Lock.UI.UEbPaddle);
+        UpstreamEbPaddleWest           : GateReq(Lock.UpstreamEb.WestPaddle.Actuator.c_open, Lock.UpstreamEb.WestPaddle.Actuator.c_close,
+                                                 Lock.UpstreamEb.WestPaddle.Actuator.c_stop, Lock.UI.UEbPaddle);
+        UpstreamFloodPaddleEast        : GateReq(Lock.UpstreamFlood.EastPaddle.Actuator.c_open, Lock.UpstreamFlood.EastPaddle.Actuator.c_close,
+                                                 Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, Lock.UI.UFloodPaddle);
+        UpstreamFloodPaddleWest        : GateReq(Lock.UpstreamFlood.WestPaddle.Actuator.c_open, Lock.UpstreamFlood.WestPaddle.Actuator.c_close,
+                                                 Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, Lock.UI.UFloodPaddle);
+        DownstreamEbPaddleEast         : GateReq(Lock.DownstreamEb.EastPaddle.Actuator.c_open, Lock.DownstreamEb.EastPaddle.Actuator.c_close,
+                                                 Lock.DownstreamEb.EastPaddle.Actuator.c_stop, Lock.UI.DEbPaddle);
+        DownstreamEbPaddleWest         : GateReq(Lock.DownstreamEb.WestPaddle.Actuator.c_open, Lock.DownstreamEb.WestPaddle.Actuator.c_close,
+                                                 Lock.DownstreamEb.WestPaddle.Actuator.c_stop, Lock.UI.DEbPaddle);
+        DownstreamFloodPaddleEast      : GateReq(Lock.DownstreamFlood.EastPaddle.Actuator.c_open, Lock.DownstreamFlood.EastPaddle.Actuator.c_close,
+                                                 Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, Lock.UI.DFloodPaddle);
+        DownstreamFloodPaddleWest      : GateReq(Lock.DownstreamFlood.WestPaddle.Actuator.c_open, Lock.DownstreamFlood.WestPaddle.Actuator.c_close,
+                                                 Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, Lock.UI.DFloodPaddle);
+        DownstreamStormFloodPaddleEast : GateReq(Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close,
+                                                 Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, Lock.UI.DStormFloodPaddle);
+        DownstreamStormFloodPaddleWest : GateReq(Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close,
+                                                 Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, Lock.UI.DStormFloodPaddle);
+    end
+
+    group VTL_FReq:    //Functional requirements for the Vessel traffic lights.
+        group def IncomingVTLReq(controllable c_r, c_rg, c_g, c_rr; LockTrafficLightUI Button):
+            requirement c_r  needs
+                Button.Red      or  Lock.EmergencyStop.Activated;
+            requirement c_rg needs
+                Button.RedGreen and Lock.EmergencyStop.Deactivated;
+            requirement c_g  needs
+                Button.Green    and Lock.EmergencyStop.Deactivated;
+            requirement c_rr needs
+                Button.RedRed   and Lock.EmergencyStop.Deactivated;
+        end
+
+        group def BridgeVTLReq(controllable c_r, c_rg, c_g; BridgeTrafficLightUI Button):
+            requirement c_r  needs
+                Button.Red      or  Lock.EmergencyStop.Activated;
+            requirement c_rg needs
+                Button.RedGreen and Lock.EmergencyStop.Deactivated;
+            requirement c_g  needs
+                Button.Green    and Lock.EmergencyStop.Deactivated;
+        end
+
+        IncomingDE : IncomingVTLReq(Lock.LTL.DE.Actuator.c_r,  Lock.LTL.DE.Actuator.c_rg, Lock.LTL.DE.Actuator.c_g,
+                                    Lock.LTL.DE.Actuator.c_rr, Lock.UI.DLockTrafficLight);
+        IncomingDW : IncomingVTLReq(Lock.LTL.DW.Actuator.c_r,  Lock.LTL.DW.Actuator.c_rg, Lock.LTL.DW.Actuator.c_g,
+                                    Lock.LTL.DW.Actuator.c_rr, Lock.UI.DLockTrafficLight);
+        IncomingUE : IncomingVTLReq(Lock.LTL.UE.Actuator.c_r,  Lock.LTL.UE.Actuator.c_rg, Lock.LTL.UE.Actuator.c_g,
+                                    Lock.LTL.UE.Actuator.c_rr, Lock.UI.ULockTrafficLight);
+        IncomingUW : IncomingVTLReq(Lock.LTL.UW.Actuator.c_r,  Lock.LTL.UW.Actuator.c_rg, Lock.LTL.UW.Actuator.c_g,
+                                    Lock.LTL.UW.Actuator.c_rr, Lock.UI.ULockTrafficLight);
+        BridgeUE : BridgeVTLReq(Lock.BTL.UE.Actuator.c_r, Lock.BTL.UE.Actuator.c_rg, Lock.BTL.UE.Actuator.c_g,
+                                Lock.UI.UBridgeTraffigLight);
+        BridgeUW : BridgeVTLReq(Lock.BTL.UW.Actuator.c_r, Lock.BTL.UW.Actuator.c_rg, Lock.BTL.UW.Actuator.c_g,
+                                Lock.UI.UBridgeTraffigLight);
+    end
+end
+
+group SafetyRequirements:
+    group Requirement_I: //The incoming traffic signs can only show a green sign aspect, when the gates are fully open.
+        requirement {Lock.LTL.DE.Actuator.c_g, Lock.LTL.DW.Actuator.c_g} needs
+            Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and
+            Lock.DownstreamStormFlood.GatesOpen;
+
+        requirement {Lock.LTL.UE.Actuator.c_g, Lock.LTL.UW.Actuator.c_g} needs
+            Lock.UpstreamEb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+    end
+
+    group Requirement_II: //The bridge traffic signs can only show a green sign aspect, when the gates are fully open.
+        requirement {Lock.BTL.UE.Actuator.c_g, Lock.BTL.UW.Actuator.c_g} needs
+            Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and
+            Lock.DownstreamStormFlood.GatesOpen;
+    end
+
+    group Requirement_III: //The gates can only close when the incoming traffic signs display a red or redred sign aspect.
+        requirement {Lock.DownstreamEb.EastGate.Actuator.c_close, Lock.DownstreamEb.WestGate.Actuator.c_close} needs
+            Lock.LTL.DRedOrRedRed;
+
+        requirement {Lock.DownstreamFlood.EastGate.Actuator.c_close, Lock.DownstreamFlood.WestGate.Actuator.c_close} needs
+            Lock.LTL.DRedOrRedRed;
+
+        requirement {Lock.DownstreamStormFlood.EastGate.Actuator.c_close, Lock.DownstreamStormFlood.WestGate.Actuator.c_close} needs
+            Lock.LTL.DRedOrRedRed;
+
+        requirement {Lock.UpstreamEb.EastGate.Actuator.c_close, Lock.UpstreamEb.WestGate.Actuator.c_close} needs
+            Lock.LTL.URedOrRedRed;
+
+        requirement {Lock.UpstreamFlood.EastGate.Actuator.c_close, Lock.UpstreamFlood.WestGate.Actuator.c_close} needs
+            Lock.LTL.URedOrRedRed;
+
+    end
+
+    group Requirement_IV: //The gates can only close when the bridge traffic signs display a red sign aspect.
+        requirement {Lock.DownstreamEb.EastGate.Actuator.c_close, Lock.DownstreamEb.WestGate.Actuator.c_close} needs
+            Lock.BTL.Red;
+
+        requirement {Lock.DownstreamFlood.EastGate.Actuator.c_close, Lock.DownstreamFlood.WestGate.Actuator.c_close} needs
+            Lock.BTL.Red;
+
+        requirement {Lock.DownstreamStormFlood.EastGate.Actuator.c_close, Lock.DownstreamStormFlood.WestGate.Actuator.c_close} needs
+            Lock.BTL.Red;
+    end
+
+    group Requirement_V: //The gates can only open when one set of gates and paddles on the other side is closed
+        requirement {Lock.DownstreamEb.EastGate.Actuator.c_open, Lock.DownstreamEb.WestGate.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.DownstreamFlood.EastGate.Actuator.c_open, Lock.DownstreamFlood.WestGate.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.DownstreamStormFlood.EastGate.Actuator.c_open, Lock.DownstreamStormFlood.WestGate.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.UpstreamEb.EastGate.Actuator.c_open, Lock.UpstreamEb.WestGate.Actuator.c_open} needs
+            Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+
+        requirement {Lock.UpstreamFlood.EastGate.Actuator.c_open, Lock.UpstreamFlood.WestGate.Actuator.c_open} needs
+            Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    end
+
+    group Requirement_VI:  //The paddles can only open when one set of gates and paddles on the other side is closed
+        requirement {Lock.DownstreamEb.EastPaddle.Actuator.c_open, Lock.DownstreamEb.WestPaddle.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.DownstreamFlood.EastPaddle.Actuator.c_open, Lock.DownstreamFlood.WestPaddle.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open} needs
+            Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+
+        requirement {Lock.UpstreamEb.EastPaddle.Actuator.c_open, Lock.UpstreamEb.WestPaddle.Actuator.c_open} needs
+            Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+
+        requirement {Lock.UpstreamFlood.EastPaddle.Actuator.c_open, Lock.UpstreamFlood.WestPaddle.Actuator.c_open} needs
+            Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    end
+
+    group Requirement_VII: //The gates can only open when there is equal water over the gates.
+        requirement {Lock.DownstreamEb.EastGate.Actuator.c_open, Lock.DownstreamEb.WestGate.Actuator.c_open} needs
+            Lock.EqualWaterDownstream.On;
+
+        requirement {Lock.DownstreamFlood.EastGate.Actuator.c_open, Lock.DownstreamFlood.WestGate.Actuator.c_open} needs
+            Lock.EqualWaterDownstream.On;
+
+        requirement {Lock.DownstreamStormFlood.EastGate.Actuator.c_open, Lock.DownstreamStormFlood.WestGate.Actuator.c_open} needs
+            Lock.EqualWaterDownstream.On;
+
+        requirement {Lock.UpstreamEb.EastGate.Actuator.c_open, Lock.UpstreamEb.WestGate.Actuator.c_open} needs
+            Lock.EqualWaterUpstream.On;
+
+        requirement {Lock.UpstreamFlood.EastGate.Actuator.c_open, Lock.UpstreamFlood.WestGate.Actuator.c_open} needs
+            Lock.EqualWaterUpstream.On;
+    end
+
+    group requirement_VIII: //Gates can only be open when the paddles are open.
+        requirement Lock.DownstreamEb.EastGate.Closed         or Lock.DownstreamEb.EastPaddle.Open;
+        requirement Lock.DownstreamEb.WestGate.Closed         or Lock.DownstreamEb.WestPaddle.Open;
+        requirement Lock.DownstreamFlood.EastGate.Closed      or Lock.DownstreamFlood.EastPaddle.Open;
+        requirement Lock.DownstreamFlood.WestGate.Closed      or Lock.DownstreamFlood.WestPaddle.Open;
+        requirement Lock.DownstreamStormFlood.EastGate.Closed or Lock.DownstreamStormFlood.EastPaddle.Open;
+        requirement Lock.DownstreamStormFlood.WestGate.Closed or Lock.DownstreamStormFlood.WestPaddle.Open;
+        requirement Lock.UpstreamEb.EastGate.Closed           or Lock.UpstreamEb.EastPaddle.Open;
+        requirement Lock.UpstreamEb.WestGate.Closed           or Lock.UpstreamEb.WestPaddle.Open;
+        requirement Lock.UpstreamFlood.EastGate.Closed        or Lock.UpstreamFlood.EastPaddle.Open;
+        requirement Lock.UpstreamFlood.WestGate.Closed        or Lock.UpstreamFlood.WestPaddle.Open;
+    end
+
+    group Requirement_IX: //The Bridge traffic signs can only show a green sign aspect, when the downstream traffic lights display a red or redred sign.
+        requirement Lock.BTL.UE.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
+        requirement Lock.BTL.UW.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
+    end
+
+    group Requirement_X: //The incoming traffic signs can only show a green sign aspect, when the bridge traffic signs display a red sign aspect.
+        requirement Lock.LTL.DE.Actuator.c_g needs Lock.BTL.Red;
+        requirement Lock.LTL.DW.Actuator.c_g needs Lock.BTL.Red;
+    end
+end
+

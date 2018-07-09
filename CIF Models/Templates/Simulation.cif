@@ -1,0 +1,294 @@
+//Basic definitions
+
+//Single Output Actuator
+//@InitialLocationOn - true if the initial and marked location is On, false if Off
+automaton def SingleOutputActuator(alg bool InitialLocationOn):
+    controllable c_on, c_off;
+    location Off:
+        initial not InitialLocationOn;
+        edge c_on  goto On;
+
+    location On:
+        initial InitialLocationOn;
+        edge c_off goto Off;
+end
+
+//Single Input Sensor
+//@InitialLocationOn - true if the initial and marked location is On, false if Off
+automaton def SingleInputSensor(alg bool InitialLocationOn):
+    uncontrollable u_on, u_off;
+    location Off:
+        initial not InitialLocationOn;
+        edge u_on  goto On;
+
+    location On:
+        initial InitialLocationOn;
+        edge u_off goto Off;
+end
+
+//Single IO Dynamics
+//@Sensor - the sensor for which dynamics are provided
+//@On  - the invariant for which the sensor can switch to the On location
+//@Off - the invariant for which the sensor can switch to the Off location
+automaton def SingleIODynamics(SingleInputSensor Sensor; alg bool On, Off):
+    location: initial;
+        edge Sensor.u_on  when On;
+        edge Sensor.u_off when Off;
+end
+
+//Double Output Actuator
+automaton def DoubleOutputActuator():
+    controllable c_open, c_close, c_stop, c_endStopClosing, c_endStopOpening;
+    location Rest:
+        initial;
+        edge c_open  goto Opening;
+        edge c_close goto Closing;
+    location Opening:
+        edge c_stop, c_endStopOpening goto Rest;
+    location Closing:
+        edge c_stop, c_endStopClosing goto Rest;
+end
+
+//Double Input Sensor
+//@InitialLocationClosed - true if the initial and marked location is Closed, false if the Open
+automaton def DoubleInputSensor(alg bool InitialLocationClosed):
+    uncontrollable u_open_on, u_open_off, u_closed_on, u_closed_off;
+    location Closed:
+        initial InitialLocationClosed;
+        edge u_closed_off  goto Intermediate;
+    location Intermediate:
+        edge u_closed_on   goto Closed;
+        edge u_open_on    goto Open;
+    location Open:
+        initial not InitialLocationClosed;
+        edge u_open_off      goto Intermediate;
+end
+
+//Double IO Dynamics
+//@Sensor - the sensor for which dynamics are provided
+//@Actuator - the actuator which belongs to @Sensor
+automaton def DoubleIODynamics(DoubleInputSensor Sensor;
+                                 alg real ClosedDegree, OpenDegree, Degree):
+    location: initial;
+        edge Sensor.u_open_on    when Degree >= OpenDegree;
+        edge Sensor.u_closed_off when Degree <  OpenDegree;
+        edge Sensor.u_closed_on  when Degree <= ClosedDegree;
+        edge Sensor.u_open_off   when Degree >  ClosedDegree;
+end
+
+//Lock Traffic Light Actuator
+automaton def LockTrafficLightActuator():
+    controllable c_r, c_rr, c_rg, c_g;
+    location RedRed:
+        marked;
+        edge c_r  goto Red;
+    location Red:
+        initial; marked;
+        edge c_rr goto RedRed;
+        edge c_rg goto RedGreen;
+    location RedGreen:
+        edge c_r  goto Red;
+        edge c_g  goto Green;
+    location Green:
+        edge c_r  goto Red;
+end
+
+//Bridge Traffic Light Actuator
+automaton def BridgeTrafficLightActuator():
+    controllable c_r, c_rg, c_g;
+    location Red:
+        marked; initial;
+        edge c_rg goto RedGreen;
+    location RedGreen:
+        edge c_r  goto Red;
+        edge c_g  goto Green;
+    location Green:
+        edge c_r  goto Red;
+end
+
+//Simulation timer
+//@TimerLength the duration of the timer in seconds
+automaton def SimTimer(alg real TimerLength):
+    cont t = 0 der if On: 1.0 else 0.0 end;
+    controllable c_on, c_reset;
+    uncontrollable u_timeout;
+    location Off:
+        initial;
+        edge c_on goto On;
+    location On:
+        edge c_reset do t:= 0 goto Off;
+        edge u_timeout when t >= TimerLength goto Finished;
+    location Finished:
+        edge c_reset do t := 0 goto Off;
+end
+
+//Three-state UI
+//@InitialOpen - true if the initial and marked location is Open, false if Closed
+automaton def ThreeStateUI(alg bool InitialOpen):
+    uncontrollable u_open, u_close, u_stop;
+    monitor;
+    location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop  goto Stop;
+    location Close:
+        initial not InitialOpen;
+        edge u_open  goto Open;
+        edge u_stop  goto Stop;
+    location Stop:
+        edge u_close goto Close;
+        edge u_open  goto Open;
+end
+
+//Land traffic UI, similar to three-state UI but different location names
+automaton def LandTrafficUI():
+    uncontrollable u_activate, u_deactivate, u_stop;
+    monitor;
+    location Deactivated:
+        initial; marked;
+        edge u_activate   goto Activated;
+        edge u_stop       goto Stopped;
+    location Activated:
+        edge u_deactivate goto Deactivated;
+        edge u_stop       goto Stopped;
+    location Stopped:
+        edge u_activate   goto Activated;
+        edge u_deactivate goto Deactivated;
+end
+
+//Two state UI
+automaton def EmergencyStopDef():
+    uncontrollable u_activate, u_reset;
+    location Deactivated:
+        initial; marked;
+        edge u_activate goto Activated;
+    location Activated:
+        edge u_reset    goto Deactivated;
+end
+
+//Lock Traffic Light UI
+automaton def LockTrafficLightUI():
+    uncontrollable u_r, u_rr, u_rg, u_g;
+    monitor;
+    location RedRed:
+        initial; marked;
+        edge u_r  goto Red;
+    location Red:
+        marked;
+        edge u_rr goto RedRed;
+        edge u_rg goto RedGreen;
+    location RedGreen:
+        edge u_r  goto Red;
+        edge u_g  goto Green;
+    location Green:
+        edge u_r  goto Red;
+end
+
+//Bridge Traffic Light UI
+automaton def BridgeTrafficLightUI():
+    uncontrollable u_r, u_rg, u_g;
+    monitor;
+    location Red:
+        initial; marked;
+        edge u_rg goto RedGreen;
+    location RedGreen:
+        edge u_g goto Green;
+        edge u_r goto Red;
+    location Green:
+        edge u_r  goto Red;
+end
+
+//Plant component models
+automaton def Button():
+    uncontrollable u_pushed, u_released;
+    location Released:
+        initial;
+        edge u_pushed goto Pushed;
+    location Pushed:
+        edge u_released goto Released;
+end
+
+//Approach sign and stop sign template for the sensor and dynamics
+//@Actuator - the actuator which belongs to Sensor (multiple signs can be actuated by the same actuator)
+//#On  - true if Actuator.On and Sensor.On
+//#Off - true if Actuator.Off and Sensor.Off
+group def SingleLampSign(SingleOutputActuator Actuator):
+    Sensor   : SingleInputSensor(false);
+    Dynamics : SingleIODynamics(Sensor, Actuator.On, Actuator.Off);
+
+    alg bool On  = Actuator.On  and Sensor.On;
+    alg bool Off = Actuator.Off and Sensor.Off;
+end
+
+//Lock Traffic light template for the sensors, actuator, and dynamics
+//#RedRed   - true if Actuator.RedRed and Sensors measure RedRed
+//#Red      - true if Actuator.Red and Sensors measure Red
+//#RedGreen - true if Actuator.RedGreen and Sensors measure Green
+//#Green    - true if Actuator.Green and Sensors measure Green
+group def LockTrafficLight():
+    Actuator   : LockTrafficLightActuator();
+
+    SensorR1   : SingleInputSensor(true);
+    SensorG    : SingleInputSensor(false);
+    SensorR2   : SingleInputSensor(false);
+
+    DynamicsR1 : SingleIODynamics(SensorR1, not Actuator.Green, Actuator.Green);
+    DynamicsG  : SingleIODynamics(SensorG, Actuator.Green or Actuator.RedGreen,
+                                  Actuator.Red or Actuator.RedRed);
+    DynamicsR2 : SingleIODynamics(SensorR2, Actuator.RedRed, not Actuator.RedRed);
+
+    alg bool RedRed   = Actuator.RedRed   and SensorR1.On  and SensorG.Off and SensorR2.On;
+    alg bool Red      = Actuator.Red      and SensorR1.On  and SensorG.Off and SensorR2.Off;
+    alg bool RedGreen = Actuator.RedGreen and SensorR1.On  and SensorG.On  and SensorR2.Off;
+    alg bool Green    = Actuator.Green    and SensorR1.Off and SensorG.On  and SensorR2.Off;
+end
+
+//Bridge Traffic Light template for the sensors, actuator, and dynamics
+//#Red      - true if Actuator.Red and Sensors measure Red
+//#RedGreen - true if Actuator.RedGreen and Sensors measure Green
+//#Green    - true if Actuator.Green and Sensors measure Green
+group def BridgeTrafficLight():
+    Actuator  : BridgeTrafficLightActuator();
+
+    SensorR   : SingleInputSensor(true);
+    SensorG   : SingleInputSensor(false);
+
+    DynamicsR : SingleIODynamics(SensorR, not Actuator.Green, Actuator.Green);
+    DynamicsG : SingleIODynamics(SensorG, not Actuator.Red, Actuator.Red);
+
+    alg bool Red      = Actuator.Red      and SensorR.On  and SensorG.Off;
+    alg bool RedGreen = Actuator.RedGreen and SensorR.On  and SensorG.On;
+    alg bool Green    = Actuator.Green    and SensorR.Off and SensorG.On;
+end
+
+//Double input - double output template for the sensor, actuator, and dynamics
+//@InitialLocationClosed - true if the initial and marked location is Closed, false if Open
+group def DoubleInputDoubleOutput(alg bool InitialLocationClosed):
+    cont Degree = if InitialLocationClosed: 0.0 else 90.0 end
+              der if Actuator.Opening and Degree < 90.0: +30.0
+                elif Actuator.Closing and Degree > 0.0 : -30.0
+                else 0.0 end;
+    Actuator : DoubleOutputActuator();
+    Sensor   : DoubleInputSensor(InitialLocationClosed);
+    Dynamics : DoubleIODynamics(Sensor, 0.0, 90.0, Degree);
+
+    alg bool Open   = Sensor.Open;
+end
+
+group def GatePaddleSet():
+    EastGate         : DoubleInputDoubleOutput(true);
+    WestGate         : DoubleInputDoubleOutput(true);
+    EastPaddle       : DoubleInputDoubleOutput(true);
+    WestPaddle       : DoubleInputDoubleOutput(true);
+end
+
+automaton def EqualWaterSensor(alg bool InitialLocationOn, OnGuard):
+    uncontrollable u_on, u_off;
+    location Off:
+        initial not InitialLocationOn;
+        edge u_on  when OnGuard goto On;
+
+    location On:
+        initial InitialLocationOn;
+        edge u_off when not OnGuard goto Off;
+end

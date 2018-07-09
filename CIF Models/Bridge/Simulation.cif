@@ -1,0 +1,73 @@
+import "../Templates/Simulation.cif";
+
+const int TimeScaler = 10;
+
+group Bridge:
+    group UI:
+        LT        : LandTrafficUI();
+        Barrier1  : ThreeStateUI(true);
+        Barrier27 : ThreeStateUI(true);
+        Barrier36 : ThreeStateUI(true);
+        Barrier48 : ThreeStateUI(true);
+        Barrier5  : ThreeStateUI(true);
+
+        Deck      : ThreeStateUI(false);
+    end
+
+    EmergencyStop : EmergencyStopDef();
+
+    //Land Traffic Approach Signs
+    group LTAS:
+        FarActuator   : SingleOutputActuator(false);
+        NearActuator  : SingleOutputActuator(false);
+        ApproachSign1 : SingleLampSign(FarActuator);  //C500
+        ApproachSign2 : SingleLampSign(FarActuator);  //K300
+        ApproachSign3 : SingleLampSign(NearActuator); //C200
+        ApproachSign4 : SingleLampSign(NearActuator); //C100
+        ApproachSign5 : SingleLampSign(NearActuator); //K150
+
+        Enabled15Timer    : SimTimer(15.0/TimeScaler);
+        Enabled20Timer    : SimTimer(20.0/TimeScaler);
+        NearDisabledTimer : SimTimer(60.0/TimeScaler);
+    end
+    //Land Traffic Stop Signs
+    group LTSS:
+        MainLaneActuator   : SingleOutputActuator(false);
+        SwitchLaneActuator : SingleOutputActuator(false);
+        StopSign1  : SingleLampSign(SwitchLaneActuator);
+        StopSign2  : SingleLampSign(SwitchLaneActuator);
+        StopSign3  : SingleLampSign(SwitchLaneActuator);
+        StopSign4  : SingleLampSign(SwitchLaneActuator);
+        StopSign5  : SingleLampSign(MainLaneActuator);
+        StopSign6  : SingleLampSign(MainLaneActuator);
+        StopSign7  : SingleLampSign(MainLaneActuator);
+        StopSign8  : SingleLampSign(MainLaneActuator);
+        StopSign9  : SingleLampSign(MainLaneActuator);
+        StopSign10 : SingleLampSign(MainLaneActuator);
+        StopSign11 : SingleLampSign(MainLaneActuator);
+        StopSign12 : SingleLampSign(MainLaneActuator);
+
+        EnabledTimer  : SimTimer(15.0/TimeScaler);
+        DisabledTimer : SimTimer(60.0/TimeScaler);
+    end
+
+    //Bridge Barriers
+    group Barriers:
+        B1 : DoubleInputDoubleOutput(false); B2 : DoubleInputDoubleOutput(false); B3 : DoubleInputDoubleOutput(false);
+        B4 : DoubleInputDoubleOutput(false); B5 : DoubleInputDoubleOutput(false); B6 : DoubleInputDoubleOutput(false);
+        B7 : DoubleInputDoubleOutput(false); B8 : DoubleInputDoubleOutput(false);
+        LightSignals   : SingleOutputActuator(false);
+        LTSoundSignals : SingleOutputActuator(false);
+
+        EnteringClosedTimer : SimTimer(1.0/TimeScaler);
+        LeavingOpenTimer    : SimTimer(1.0/TimeScaler);
+        LTSoundSignalTimer  : SimTimer(6.0/TimeScaler);
+    end
+
+    //Bridge Deck
+    Deck : DoubleInputDoubleOutput(true);
+
+    //CloseRequest from the emergency center
+    CloseRequest : SingleInputSensor(false);
+
+end

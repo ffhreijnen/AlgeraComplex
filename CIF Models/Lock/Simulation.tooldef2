@@ -1,0 +1,24 @@
+from "lib:cif3" import *;
+
+// Output files
+string mrg_path       = "generated_files/Supervisor_Hybrid.cif"; //Location of supervisor & simulation/hybrid merged.
+
+// Input files
+string sup_path       = "generated_files/Supervisor.cif";        //Location of supervisor.
+string sim_path       = "Visualization.cif";                     //Location of simulation/hybrid model.
+
+// Merge supervisor with hybrid plant simulation model.
+outln("File \"%s\": generating...", mrg_path);
+cif3merge(sup_path, sim_path, "-o", mrg_path);
+outln("File \"%s\": generated.", mrg_path);
+
+// Simulate the supervisor/hybrid plants simulation model.
+outln("Simulating \"%s\"...", mrg_path);
+outln();
+cif3sim(mrg_path,
+        "-i svg",
+        "-a first",
+        "--frame-rate=10",
+        "--speed=1",
+        "--max-delay=10.0",
+        "--option-dialog=yes");

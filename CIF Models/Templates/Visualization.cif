@@ -1,0 +1,49 @@
+import "Simulation.cif";
+
+group def StopSignV(alg int n; alg bool SensorOn):
+    svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end;
+end
+
+group def PreSignV(alg string ID; alg bool SensorOn):
+    svgout id "PreSign_" + ID  attr "fill" value if SensorOn: "orange" else "grey" end;
+end
+
+group def BarrierV(alg int n; alg bool Closed; alg real Degree):
+    svgout id "Barrier" +<string>n attr "fill-opacity"   value if Closed: 100 else 0 end;
+    svgout id "Barrier" +<string>n attr "stroke-opacity" value if Closed: 100 else 0 end;
+    svgout id "prog_B"  +<string>n attr "width" value scale(Degree, 90, 0, 0.01, 100);
+end
+
+group def ButtonV(alg int n; Button Button):
+    svgin  id "Button" + <string>n event if Button.Released: Button.u_pushed else Button.u_released end;
+    svgout id "Button" + <string>n + "V" attr "fill" value if Button.Pushed: "yellowgreen" else "indianred" end;
+end
+
+group def TheeStateButtonV(alg int n; ThreeStateUI Button):
+    svgin  id "Button" + <string>n event Button.u_close;
+    svgin  id "Button" + <string>(n+1) event Button.u_open;
+    svgin  id "Button" + <string>(n+2) event Button.u_stop;
+    svgout id "Button" + <string>n + "V" attr "fill" value if Button.Close: "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Open: "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+2) + "V" attr "fill" value if Button.Stop: "yellowgreen" else "indianred" end;
+end
+
+group def IncomingVTLButtonV(alg int n; LockTrafficLightUI Button):
+    svgin  id "Button" + <string>n     event Button.u_r;
+    svgin  id "Button" + <string>(n+1) event Button.u_g;
+    svgin  id "Button" + <string>(n+2) event Button.u_rg;
+    svgin  id "Button" + <string>(n+3) event Button.u_rr;
+    svgout id "Button" + <string> n    + "V" attr "fill" value if Button.Red:      "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Green:    "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+2) + "V" attr "fill" value if Button.RedGreen: "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+3) + "V" attr "fill" value if Button.RedRed:   "yellowgreen" else "indianred" end;
+end
+
+group def BridgeVTLButtonV(alg int n; BridgeTrafficLightUI Button):
+    svgin  id "Button" + <string>n           event Button.u_r;
+    svgin  id "Button" + <string>(n+1)       event Button.u_g;
+    svgin  id "Button" + <string>(n+1) + "b" event Button.u_rg;
+    svgout id "Button" + <string> n    + "V" attr "fill" value if Button.Red:      "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Green:    "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(n+1) + "bV" attr "fill" value if Button.RedGreen: "yellowgreen" else "indianred" end;
+end

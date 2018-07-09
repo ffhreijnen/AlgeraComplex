@@ -1,0 +1,53 @@
+import "../Templates/Plant.cif";
+
+group Lock:
+    group UI:
+        UEbGate             : ThreeStateUI(false);
+        UFloodGate          : ThreeStateUI(false);
+        DEbGate             : ThreeStateUI(false);
+        DFloodGate          : ThreeStateUI(false);
+        DStormFloodGate     : ThreeStateUI(false);
+
+        UEbPaddle           : ThreeStateUI(false);
+        UFloodPaddle        : ThreeStateUI(false);
+        DEbPaddle           : ThreeStateUI(false);
+        DFloodPaddle        : ThreeStateUI(false);
+        DStormFloodPaddle   : ThreeStateUI(false);
+
+        DLockTrafficLight   : LockTrafficLightUI();
+        ULockTrafficLight   : LockTrafficLightUI();
+
+        UBridgeTraffigLight : BridgeTrafficLightUI();
+    end
+
+    //Emergency Stop at the lock or from the control UI
+    EmergencyStop : EmergencyStopDef();
+
+    //Lock traffic lights
+    //@DRedOrRedRed - True when both downstream traffic lights display a red, or double red sign aspect
+    //@URedOrRedRed - True when both upstream   traffic lights display a red, or double red sign aspect
+    group LTL:
+        DE : LockTrafficLight(); DW : LockTrafficLight();
+        UE : LockTrafficLight(); UW : LockTrafficLight();
+        alg bool DRedOrRedRed = (DE.Red and DW.Red) or (DE.RedRed and DW.RedRed);
+        alg bool URedOrRedRed = (UE.Red and UW.Red) or (UE.RedRed and UW.RedRed);
+    end
+
+    //Bridge traffic lights
+    //@Red = True when both traffic lights display a red sign aspect
+    group BTL:
+        UE : BridgeTrafficLight(); UW : BridgeTrafficLight();
+        alg bool Red = UE.Red and UW.Red;
+    end
+
+    //Sets of 2 gates and 2 paddles
+    UpstreamEb           : GatePaddleSet();
+    UpstreamFlood        : GatePaddleSet();
+    DownstreamEb         : GatePaddleSet();
+    DownstreamFlood      : GatePaddleSet();
+    DownstreamStormFlood : GatePaddleSet();
+
+    //Equal water sensors
+    EqualWaterUpstream   : SingleInputSensor(false);
+    EqualWaterDownstream : SingleInputSensor(true);
+end

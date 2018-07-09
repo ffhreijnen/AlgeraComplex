@@ -1,0 +1,3949 @@
+group Lock:
+  group UI:
+    automaton UEbGate:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton UFloodGate:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DEbGate:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DFloodGate:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DStormFloodGate:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton UEbPaddle:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton UFloodPaddle:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DEbPaddle:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DFloodPaddle:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DStormFloodPaddle:
+      monitor;
+      uncontrollable u_open;
+      uncontrollable u_close;
+      uncontrollable u_stop;
+      alg bool InitialOpen = false;
+      location Open:
+        initial InitialOpen;
+        edge u_close goto Close;
+        edge u_stop goto Stop;
+      location Close:
+        initial not InitialOpen;
+        edge u_open goto Open;
+        edge u_stop goto Stop;
+      location Stop:
+        edge u_close goto Close;
+        edge u_open goto Open;
+    end
+    automaton DLockTrafficLight:
+      monitor;
+      uncontrollable u_r;
+      uncontrollable u_rr;
+      uncontrollable u_rg;
+      uncontrollable u_g;
+      location RedRed:
+        initial;
+        marked;
+        edge u_r goto Red;
+      location Red:
+        marked;
+        edge u_rr goto RedRed;
+        edge u_rg goto RedGreen;
+      location RedGreen:
+        edge u_r goto Red;
+        edge u_g goto Green;
+      location Green:
+        edge u_r goto Red;
+    end
+    automaton ULockTrafficLight:
+      monitor;
+      uncontrollable u_r;
+      uncontrollable u_rr;
+      uncontrollable u_rg;
+      uncontrollable u_g;
+      location RedRed:
+        initial;
+        marked;
+        edge u_r goto Red;
+      location Red:
+        marked;
+        edge u_rr goto RedRed;
+        edge u_rg goto RedGreen;
+      location RedGreen:
+        edge u_r goto Red;
+        edge u_g goto Green;
+      location Green:
+        edge u_r goto Red;
+    end
+    automaton UBridgeTraffigLight:
+      monitor;
+      uncontrollable u_r;
+      uncontrollable u_rg;
+      uncontrollable u_g;
+      location Red:
+        initial;
+        marked;
+        edge u_rg goto RedGreen;
+      location RedGreen:
+        edge u_g goto Green;
+        edge u_r goto Red;
+      location Green:
+        edge u_r goto Red;
+    end
+  end
+  automaton EmergencyStop:
+    uncontrollable u_activate;
+    uncontrollable u_reset;
+    location Deactivated:
+      initial;
+      marked;
+      edge u_activate goto Activated;
+    location Activated:
+      edge u_reset goto Deactivated;
+  end
+  group LTL:
+    group DE:
+      alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+      alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+      alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rr;
+        controllable c_rg;
+        controllable c_g;
+        location RedRed:
+          marked;
+          edge c_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge c_rr goto RedRed;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR1:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorR2:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR1:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR1.u_on when On;
+          edge SensorR1.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = Actuator.Green or Actuator.RedGreen;
+        alg bool Off = Actuator.Red or Actuator.RedRed;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+      automaton DynamicsR2:
+        alg bool On = Actuator.RedRed;
+        alg bool Off = not Actuator.RedRed;
+        location:
+          initial;
+          edge SensorR2.u_on when On;
+          edge SensorR2.u_off when Off;
+      end
+    end
+    group DW:
+      alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+      alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+      alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rr;
+        controllable c_rg;
+        controllable c_g;
+        location RedRed:
+          marked;
+          edge c_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge c_rr goto RedRed;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR1:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorR2:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR1:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR1.u_on when On;
+          edge SensorR1.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = Actuator.Green or Actuator.RedGreen;
+        alg bool Off = Actuator.Red or Actuator.RedRed;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+      automaton DynamicsR2:
+        alg bool On = Actuator.RedRed;
+        alg bool Off = not Actuator.RedRed;
+        location:
+          initial;
+          edge SensorR2.u_on when On;
+          edge SensorR2.u_off when Off;
+      end
+    end
+    group UE:
+      alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+      alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+      alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rr;
+        controllable c_rg;
+        controllable c_g;
+        location RedRed:
+          marked;
+          edge c_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge c_rr goto RedRed;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR1:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorR2:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR1:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR1.u_on when On;
+          edge SensorR1.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = Actuator.Green or Actuator.RedGreen;
+        alg bool Off = Actuator.Red or Actuator.RedRed;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+      automaton DynamicsR2:
+        alg bool On = Actuator.RedRed;
+        alg bool Off = not Actuator.RedRed;
+        location:
+          initial;
+          edge SensorR2.u_on when On;
+          edge SensorR2.u_off when Off;
+      end
+    end
+    group UW:
+      alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+      alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+      alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rr;
+        controllable c_rg;
+        controllable c_g;
+        location RedRed:
+          marked;
+          edge c_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge c_rr goto RedRed;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR1:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorR2:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR1:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR1.u_on when On;
+          edge SensorR1.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = Actuator.Green or Actuator.RedGreen;
+        alg bool Off = Actuator.Red or Actuator.RedRed;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+      automaton DynamicsR2:
+        alg bool On = Actuator.RedRed;
+        alg bool Off = not Actuator.RedRed;
+        location:
+          initial;
+          edge SensorR2.u_on when On;
+          edge SensorR2.u_off when Off;
+      end
+    end
+  end
+  group BTL:
+    group UE:
+      alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
+      alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rg;
+        controllable c_g;
+        location Red:
+          initial;
+          marked;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR.u_on when On;
+          edge SensorR.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = not Actuator.Red;
+        alg bool Off = Actuator.Red;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+    end
+    group UW:
+      alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
+      alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
+      alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
+      automaton Actuator:
+        controllable c_r;
+        controllable c_rg;
+        controllable c_g;
+        location Red:
+          initial;
+          marked;
+          edge c_rg goto RedGreen;
+        location RedGreen:
+          edge c_r goto Red;
+          edge c_g goto Green;
+        location Green:
+          edge c_r goto Red;
+      end
+      automaton SensorR:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = true;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton SensorG:
+        uncontrollable u_on;
+        uncontrollable u_off;
+        alg bool InitialLocationOn = false;
+        location Off:
+          initial not InitialLocationOn;
+          edge u_on goto On;
+        location On:
+          initial InitialLocationOn;
+          edge u_off goto Off;
+      end
+      automaton DynamicsR:
+        alg bool On = not Actuator.Green;
+        alg bool Off = Actuator.Green;
+        location:
+          initial;
+          edge SensorR.u_on when On;
+          edge SensorR.u_off when Off;
+      end
+      automaton DynamicsG:
+        alg bool On = not Actuator.Red;
+        alg bool Off = Actuator.Red;
+        location:
+          initial;
+          edge SensorG.u_on when On;
+          edge SensorG.u_off when Off;
+      end
+    end
+  end
+  group UpstreamEb:
+    group EastGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamEb.EastGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamEb.EastGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamEb.WestGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamEb.WestGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group EastPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamEb.EastPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamEb.EastPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamEb.WestPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamEb.WestPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+  end
+  group UpstreamFlood:
+    group EastGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamFlood.EastGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamFlood.EastGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamFlood.WestGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamFlood.WestGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group EastPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamFlood.EastPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamFlood.EastPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.UpstreamFlood.WestPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.UpstreamFlood.WestPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+  end
+  group DownstreamEb:
+    group EastGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamEb.EastGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamEb.EastGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamEb.WestGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamEb.WestGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group EastPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamEb.EastPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamEb.EastPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamEb.WestPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamEb.WestPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+  end
+  group DownstreamFlood:
+    group EastGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamFlood.EastGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamFlood.EastGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamFlood.WestGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamFlood.WestGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group EastPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamFlood.EastPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamFlood.EastPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamFlood.WestPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamFlood.WestPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+  end
+  group DownstreamStormFlood:
+    group EastGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamStormFlood.EastGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamStormFlood.EastGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestGate:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamStormFlood.WestGate.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamStormFlood.WestGate.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group EastPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamStormFlood.EastPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamStormFlood.EastPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+    group WestPaddle:
+      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg bool Open = Sensor.Open;
+      alg bool InitialLocationClosed = true;
+      automaton Actuator:
+        controllable c_open;
+        controllable c_close;
+        controllable c_stop;
+        controllable c_endStopClosing;
+        controllable c_endStopOpening;
+        location Rest:
+          initial;
+          edge c_open goto Opening;
+          edge c_close goto Closing;
+        location Opening:
+          edge c_stop, c_endStopOpening goto Rest;
+        location Closing:
+          edge c_stop, c_endStopClosing goto Rest;
+      end
+      automaton Sensor:
+        uncontrollable u_open_on;
+        uncontrollable u_open_off;
+        uncontrollable u_closed_on;
+        uncontrollable u_closed_off;
+        alg bool InitialLocationClosed = .Lock.DownstreamStormFlood.WestPaddle.InitialLocationClosed;
+        location Closed:
+          initial InitialLocationClosed;
+          edge u_closed_off goto Intermediate;
+        location Intermediate:
+          edge u_closed_on goto Closed;
+          edge u_open_on goto Open;
+        location Open:
+          initial not InitialLocationClosed;
+          edge u_open_off goto Intermediate;
+      end
+      automaton Dynamics:
+        alg real ClosedDegree = 0.0;
+        alg real OpenDegree = 90.0;
+        alg real Degree = .Lock.DownstreamStormFlood.WestPaddle.Degree;
+        location:
+          initial;
+          edge Sensor.u_open_on when Degree >= OpenDegree;
+          edge Sensor.u_closed_off when Degree < OpenDegree;
+          edge Sensor.u_closed_on when Degree <= ClosedDegree;
+          edge Sensor.u_open_off when Degree > ClosedDegree;
+      end
+    end
+  end
+  automaton EqualWaterUpstream:
+    uncontrollable u_on;
+    uncontrollable u_off;
+    alg bool InitialLocationOn = false;
+    alg bool OnGuard = Water.H_Chamber >= Water.H_Upstream;
+    location Off:
+      initial not InitialLocationOn;
+      edge u_on when OnGuard goto On;
+    location On:
+      initial InitialLocationOn;
+      edge u_off when not OnGuard goto Off;
+  end
+  automaton EqualWaterDownstream:
+    uncontrollable u_on;
+    uncontrollable u_off;
+    alg bool InitialLocationOn = true;
+    alg bool OnGuard = Water.H_Chamber <= Water.H_Downstream;
+    location Off:
+      initial not InitialLocationOn;
+      edge u_on when OnGuard goto On;
+    location On:
+      initial InitialLocationOn;
+      edge u_off when not OnGuard goto Off;
+  end
+  group Water:
+    const real H_Upstream = 10.0;
+    const real H_Downstream = 2.0;
+    cont H_Chamber = 2.0 der if DownstreamOpen and H_Chamber > H_Downstream: -2.0 elif UpstreamOpen and H_Chamber < H_Upstream: +2.0 else 0.0 end;
+    alg bool DownstreamOpen = (DownstreamEb.EastPaddle.Open or DownstreamEb.WestPaddle.Open or DownstreamEb.EastGate.Open or DownstreamEb.WestGate.Open) and (DownstreamFlood.EastPaddle.Open or DownstreamFlood.WestPaddle.Open or DownstreamFlood.EastGate.Open or DownstreamFlood.WestGate.Open) and (DownstreamStormFlood.EastPaddle.Open or DownstreamStormFlood.WestPaddle.Open or DownstreamStormFlood.EastGate.Open or DownstreamStormFlood.WestGate.Open);
+    alg bool UpstreamOpen = (UpstreamEb.EastPaddle.Open or UpstreamEb.WestPaddle.Open or UpstreamEb.EastGate.Open or UpstreamEb.WestGate.Open) and (UpstreamFlood.EastPaddle.Open or UpstreamFlood.WestPaddle.Open or UpstreamFlood.EastGate.Open or UpstreamFlood.WestGate.Open);
+  end
+end
+group sup:
+  group FunctionalRequirements:
+    group Gates_FReq:
+      group UpstreamEbGateEast:
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.UI.UEbGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs Lock.UI.UEbGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_stop needs Lock.UI.UEbGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamEbGateWest:
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.UI.UEbGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs Lock.UI.UEbGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_stop needs Lock.UI.UEbGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamFloodGateEast:
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.UI.UFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.UI.UFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_stop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamFloodGateWest:
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.UI.UFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.UI.UFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_stop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamEbGateEast:
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.UI.DEbGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.UI.DEbGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_stop needs Lock.UI.DEbGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamEbGateWest:
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.UI.DEbGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.UI.DEbGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_stop needs Lock.UI.DEbGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamFloodGateEast:
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UI.DFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.UI.DFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_stop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamFloodGateWest:
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UI.DFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.UI.DFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_stop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamStormFloodGateEast:
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamStormFloodGateWest:
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+      end
+    end
+    group Paddles_FReq:
+      group UpstreamEbPaddleEast:
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs Lock.UI.UEbPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_close needs Lock.UI.UEbPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_stop needs Lock.UI.UEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamEbPaddleWest:
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs Lock.UI.UEbPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_close needs Lock.UI.UEbPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_stop needs Lock.UI.UEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamFloodPaddleEast:
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group UpstreamFloodPaddleWest:
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamEbPaddleEast:
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs Lock.UI.DEbPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_close needs Lock.UI.DEbPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_stop needs Lock.UI.DEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamEbPaddleWest:
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs Lock.UI.DEbPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_close needs Lock.UI.DEbPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_stop needs Lock.UI.DEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamFloodPaddleEast:
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamFloodPaddleWest:
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamStormFloodPaddleEast:
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+      group DownstreamStormFloodPaddleWest:
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+      end
+    end
+    group VTL_FReq:
+      group IncomingDE:
+        requirement invariant .Lock.LTL.DE.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.LTL.DE.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.DE.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
+      end
+      group IncomingDW:
+        requirement invariant .Lock.LTL.DW.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.LTL.DW.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.DW.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
+      end
+      group IncomingUE:
+        requirement invariant .Lock.LTL.UE.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.LTL.UE.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.UE.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
+      end
+      group IncomingUW:
+        requirement invariant .Lock.LTL.UW.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.LTL.UW.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.LTL.UW.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
+      end
+      group BridgeUE:
+        requirement invariant .Lock.BTL.UE.Actuator.c_r needs Lock.UI.UBridgeTraffigLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.BTL.UE.Actuator.c_rg needs Lock.UI.UBridgeTraffigLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.UI.UBridgeTraffigLight.Green and Lock.EmergencyStop.Deactivated;
+      end
+      group BridgeUW:
+        requirement invariant .Lock.BTL.UW.Actuator.c_r needs Lock.UI.UBridgeTraffigLight.Red or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.BTL.UW.Actuator.c_rg needs Lock.UI.UBridgeTraffigLight.RedGreen and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.UI.UBridgeTraffigLight.Green and Lock.EmergencyStop.Deactivated;
+      end
+    end
+  end
+  group SafetyRequirements:
+    group Requirement_I:
+      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+      requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UpstreamEb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+      requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UpstreamEb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+    end
+    group Requirement_II:
+      requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+      requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    end
+    group Requirement_III:
+      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
+      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
+      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
+      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
+    end
+    group Requirement_IV:
+      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.BTL.Red;
+      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.BTL.Red;
+      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.BTL.Red;
+      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.BTL.Red;
+      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.BTL.Red;
+      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.BTL.Red;
+    end
+    group Requirement_V:
+      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    end
+    group Requirement_VI:
+      requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
+      requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+      requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    end
+    group Requirement_VII:
+      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+    end
+    group requirement_VIII:
+      requirement invariant Lock.DownstreamEb.EastGate.Closed or Lock.DownstreamEb.EastPaddle.Open;
+      requirement invariant Lock.DownstreamEb.WestGate.Closed or Lock.DownstreamEb.WestPaddle.Open;
+      requirement invariant Lock.DownstreamFlood.EastGate.Closed or Lock.DownstreamFlood.EastPaddle.Open;
+      requirement invariant Lock.DownstreamFlood.WestGate.Closed or Lock.DownstreamFlood.WestPaddle.Open;
+      requirement invariant Lock.DownstreamStormFlood.EastGate.Closed or Lock.DownstreamStormFlood.EastPaddle.Open;
+      requirement invariant Lock.DownstreamStormFlood.WestGate.Closed or Lock.DownstreamStormFlood.WestPaddle.Open;
+      requirement invariant Lock.UpstreamEb.EastGate.Closed or Lock.UpstreamEb.EastPaddle.Open;
+      requirement invariant Lock.UpstreamEb.WestGate.Closed or Lock.UpstreamEb.WestPaddle.Open;
+      requirement invariant Lock.UpstreamFlood.EastGate.Closed or Lock.UpstreamFlood.EastPaddle.Open;
+      requirement invariant Lock.UpstreamFlood.WestGate.Closed or Lock.UpstreamFlood.WestPaddle.Open;
+    end
+    group Requirement_IX:
+      requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
+      requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
+    end
+    group Requirement_X:
+      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.BTL.Red;
+      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.BTL.Red;
+    end
+  end
+  group Lock:
+    group UI:
+      plant automaton UEbGate:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.UEbGate.u_close goto Close;
+          edge .Lock.UI.UEbGate.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.UEbGate.u_open goto Open;
+          edge .Lock.UI.UEbGate.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.UEbGate.u_close goto Close;
+          edge .Lock.UI.UEbGate.u_open goto Open;
+      end
+      plant automaton UFloodGate:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.UFloodGate.u_close goto Close;
+          edge .Lock.UI.UFloodGate.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.UFloodGate.u_open goto Open;
+          edge .Lock.UI.UFloodGate.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.UFloodGate.u_close goto Close;
+          edge .Lock.UI.UFloodGate.u_open goto Open;
+      end
+      plant automaton DEbGate:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DEbGate.u_close goto Close;
+          edge .Lock.UI.DEbGate.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DEbGate.u_open goto Open;
+          edge .Lock.UI.DEbGate.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DEbGate.u_close goto Close;
+          edge .Lock.UI.DEbGate.u_open goto Open;
+      end
+      plant automaton DFloodGate:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DFloodGate.u_close goto Close;
+          edge .Lock.UI.DFloodGate.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DFloodGate.u_open goto Open;
+          edge .Lock.UI.DFloodGate.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DFloodGate.u_close goto Close;
+          edge .Lock.UI.DFloodGate.u_open goto Open;
+      end
+      plant automaton DStormFloodGate:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DStormFloodGate.u_close goto Close;
+          edge .Lock.UI.DStormFloodGate.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DStormFloodGate.u_open goto Open;
+          edge .Lock.UI.DStormFloodGate.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DStormFloodGate.u_close goto Close;
+          edge .Lock.UI.DStormFloodGate.u_open goto Open;
+      end
+      plant automaton UEbPaddle:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.UEbPaddle.u_close goto Close;
+          edge .Lock.UI.UEbPaddle.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.UEbPaddle.u_open goto Open;
+          edge .Lock.UI.UEbPaddle.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.UEbPaddle.u_close goto Close;
+          edge .Lock.UI.UEbPaddle.u_open goto Open;
+      end
+      plant automaton UFloodPaddle:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.UFloodPaddle.u_close goto Close;
+          edge .Lock.UI.UFloodPaddle.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.UFloodPaddle.u_open goto Open;
+          edge .Lock.UI.UFloodPaddle.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.UFloodPaddle.u_close goto Close;
+          edge .Lock.UI.UFloodPaddle.u_open goto Open;
+      end
+      plant automaton DEbPaddle:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DEbPaddle.u_close goto Close;
+          edge .Lock.UI.DEbPaddle.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DEbPaddle.u_open goto Open;
+          edge .Lock.UI.DEbPaddle.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DEbPaddle.u_close goto Close;
+          edge .Lock.UI.DEbPaddle.u_open goto Open;
+      end
+      plant automaton DFloodPaddle:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DFloodPaddle.u_close goto Close;
+          edge .Lock.UI.DFloodPaddle.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DFloodPaddle.u_open goto Open;
+          edge .Lock.UI.DFloodPaddle.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DFloodPaddle.u_close goto Close;
+          edge .Lock.UI.DFloodPaddle.u_open goto Open;
+      end
+      plant automaton DStormFloodPaddle:
+        monitor;
+        alg bool InitialOpen = false;
+        location Open:
+          initial InitialOpen;
+          marked InitialOpen;
+          edge .Lock.UI.DStormFloodPaddle.u_close goto Close;
+          edge .Lock.UI.DStormFloodPaddle.u_stop goto Stop;
+        location Close:
+          initial not InitialOpen;
+          marked not InitialOpen;
+          edge .Lock.UI.DStormFloodPaddle.u_open goto Open;
+          edge .Lock.UI.DStormFloodPaddle.u_stop goto Stop;
+        location Stop:
+          edge .Lock.UI.DStormFloodPaddle.u_close goto Close;
+          edge .Lock.UI.DStormFloodPaddle.u_open goto Open;
+      end
+      plant automaton DLockTrafficLight:
+        monitor;
+        location RedRed:
+          marked;
+          edge .Lock.UI.DLockTrafficLight.u_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge .Lock.UI.DLockTrafficLight.u_rr goto RedRed;
+          edge .Lock.UI.DLockTrafficLight.u_rg goto RedGreen;
+        location RedGreen:
+          edge .Lock.UI.DLockTrafficLight.u_r goto Red;
+          edge .Lock.UI.DLockTrafficLight.u_g goto Green;
+        location Green:
+          edge .Lock.UI.DLockTrafficLight.u_r goto Red;
+      end
+      plant automaton ULockTrafficLight:
+        monitor;
+        location RedRed:
+          marked;
+          edge .Lock.UI.ULockTrafficLight.u_r goto Red;
+        location Red:
+          initial;
+          marked;
+          edge .Lock.UI.ULockTrafficLight.u_rr goto RedRed;
+          edge .Lock.UI.ULockTrafficLight.u_rg goto RedGreen;
+        location RedGreen:
+          edge .Lock.UI.ULockTrafficLight.u_r goto Red;
+          edge .Lock.UI.ULockTrafficLight.u_g goto Green;
+        location Green:
+          edge .Lock.UI.ULockTrafficLight.u_r goto Red;
+      end
+      plant automaton UBridgeTraffigLight:
+        monitor;
+        location Red:
+          initial;
+          marked;
+          edge .Lock.UI.UBridgeTraffigLight.u_rg goto RedGreen;
+        location RedGreen:
+          edge .Lock.UI.UBridgeTraffigLight.u_g goto Green;
+          edge .Lock.UI.UBridgeTraffigLight.u_r goto Red;
+        location Green:
+          edge .Lock.UI.UBridgeTraffigLight.u_r goto Red;
+      end
+    end
+    plant automaton EmergencyStop:
+      location Deactivated:
+        initial;
+        marked;
+        edge .Lock.EmergencyStop.u_activate goto Activated;
+      location Activated:
+        edge .Lock.EmergencyStop.u_reset goto Deactivated;
+    end
+    group LTL:
+      alg bool DRedOrRedRed = DE.Red and DW.Red or DE.RedRed and DW.RedRed;
+      alg bool URedOrRedRed = UE.Red and UW.Red or UE.RedRed and UW.RedRed;
+      group DE:
+        alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+        alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+        alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+        plant automaton Actuator:
+          location RedRed:
+            marked;
+            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge .Lock.LTL.DE.Actuator.c_rr goto RedRed;
+            edge .Lock.LTL.DE.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+            edge .Lock.LTL.DE.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR1:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DE.SensorR1.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DE.SensorR1.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DE.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DE.SensorG.u_off goto Off;
+        end
+        plant automaton SensorR2:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DE.SensorR2.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DE.SensorR2.u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DE.SensorR1.u_on when On;
+            edge .Lock.LTL.DE.SensorR1.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = Actuator.Green or Actuator.RedGreen;
+          alg bool Off = Actuator.Red or Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DE.SensorG.u_on when On;
+            edge .Lock.LTL.DE.SensorG.u_off when Off;
+        end
+        plant automaton DynamicsR2:
+          alg bool On = Actuator.RedRed;
+          alg bool Off = not Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DE.SensorR2.u_on when On;
+            edge .Lock.LTL.DE.SensorR2.u_off when Off;
+        end
+      end
+      group DW:
+        alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+        alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+        alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+        plant automaton Actuator:
+          location RedRed:
+            marked;
+            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge .Lock.LTL.DW.Actuator.c_rr goto RedRed;
+            edge .Lock.LTL.DW.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+            edge .Lock.LTL.DW.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR1:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DW.SensorR1.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DW.SensorR1.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DW.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DW.SensorG.u_off goto Off;
+        end
+        plant automaton SensorR2:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.DW.SensorR2.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.DW.SensorR2.u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DW.SensorR1.u_on when On;
+            edge .Lock.LTL.DW.SensorR1.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = Actuator.Green or Actuator.RedGreen;
+          alg bool Off = Actuator.Red or Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DW.SensorG.u_on when On;
+            edge .Lock.LTL.DW.SensorG.u_off when Off;
+        end
+        plant automaton DynamicsR2:
+          alg bool On = Actuator.RedRed;
+          alg bool Off = not Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.DW.SensorR2.u_on when On;
+            edge .Lock.LTL.DW.SensorR2.u_off when Off;
+        end
+      end
+      group UE:
+        alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+        alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+        alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+        plant automaton Actuator:
+          location RedRed:
+            marked;
+            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge .Lock.LTL.UE.Actuator.c_rr goto RedRed;
+            edge .Lock.LTL.UE.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+            edge .Lock.LTL.UE.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR1:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UE.SensorR1.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UE.SensorR1.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UE.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UE.SensorG.u_off goto Off;
+        end
+        plant automaton SensorR2:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UE.SensorR2.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UE.SensorR2.u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UE.SensorR1.u_on when On;
+            edge .Lock.LTL.UE.SensorR1.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = Actuator.Green or Actuator.RedGreen;
+          alg bool Off = Actuator.Red or Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UE.SensorG.u_on when On;
+            edge .Lock.LTL.UE.SensorG.u_off when Off;
+        end
+        plant automaton DynamicsR2:
+          alg bool On = Actuator.RedRed;
+          alg bool Off = not Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UE.SensorR2.u_on when On;
+            edge .Lock.LTL.UE.SensorR2.u_off when Off;
+        end
+      end
+      group UW:
+        alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
+        alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR1.On and SensorG.On and SensorR2.Off;
+        alg bool Green = Actuator.Green and SensorR1.Off and SensorG.On and SensorR2.Off;
+        plant automaton Actuator:
+          location RedRed:
+            marked;
+            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge .Lock.LTL.UW.Actuator.c_rr goto RedRed;
+            edge .Lock.LTL.UW.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+            edge .Lock.LTL.UW.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR1:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UW.SensorR1.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UW.SensorR1.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UW.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UW.SensorG.u_off goto Off;
+        end
+        plant automaton SensorR2:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.LTL.UW.SensorR2.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.LTL.UW.SensorR2.u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UW.SensorR1.u_on when On;
+            edge .Lock.LTL.UW.SensorR1.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = Actuator.Green or Actuator.RedGreen;
+          alg bool Off = Actuator.Red or Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UW.SensorG.u_on when On;
+            edge .Lock.LTL.UW.SensorG.u_off when Off;
+        end
+        plant automaton DynamicsR2:
+          alg bool On = Actuator.RedRed;
+          alg bool Off = not Actuator.RedRed;
+          location:
+            initial;
+            marked;
+            edge .Lock.LTL.UW.SensorR2.u_on when On;
+            edge .Lock.LTL.UW.SensorR2.u_off when Off;
+        end
+      end
+    end
+    group BTL:
+      alg bool Red = UE.Red and UW.Red;
+      group UE:
+        alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
+        alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
+        plant automaton Actuator:
+          location Red:
+            initial;
+            marked;
+            edge .Lock.BTL.UE.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.BTL.UE.Actuator.c_r goto Red;
+            edge .Lock.BTL.UE.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.BTL.UE.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.BTL.UE.SensorR.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.BTL.UE.SensorR.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.BTL.UE.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.BTL.UE.SensorG.u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.BTL.UE.SensorR.u_on when On;
+            edge .Lock.BTL.UE.SensorR.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = not Actuator.Red;
+          alg bool Off = Actuator.Red;
+          location:
+            initial;
+            marked;
+            edge .Lock.BTL.UE.SensorG.u_on when On;
+            edge .Lock.BTL.UE.SensorG.u_off when Off;
+        end
+      end
+      group UW:
+        alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
+        alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
+        alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
+        plant automaton Actuator:
+          location Red:
+            initial;
+            marked;
+            edge .Lock.BTL.UW.Actuator.c_rg goto RedGreen;
+          location RedGreen:
+            edge .Lock.BTL.UW.Actuator.c_r goto Red;
+            edge .Lock.BTL.UW.Actuator.c_g goto Green;
+          location Green:
+            edge .Lock.BTL.UW.Actuator.c_r goto Red;
+        end
+        plant automaton SensorR:
+          alg bool InitialLocationOn = true;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.BTL.UW.SensorR.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.BTL.UW.SensorR.u_off goto Off;
+        end
+        plant automaton SensorG:
+          alg bool InitialLocationOn = false;
+          location Off:
+            initial not InitialLocationOn;
+            marked not InitialLocationOn;
+            edge .Lock.BTL.UW.SensorG.u_on goto On;
+          location On:
+            initial InitialLocationOn;
+            marked InitialLocationOn;
+            edge .Lock.BTL.UW.SensorG.u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          alg bool On = not Actuator.Green;
+          alg bool Off = Actuator.Green;
+          location:
+            initial;
+            marked;
+            edge .Lock.BTL.UW.SensorR.u_on when On;
+            edge .Lock.BTL.UW.SensorR.u_off when Off;
+        end
+        plant automaton DynamicsG:
+          alg bool On = not Actuator.Red;
+          alg bool Off = Actuator.Red;
+          location:
+            initial;
+            marked;
+            edge .Lock.BTL.UW.SensorG.u_on when On;
+            edge .Lock.BTL.UW.SensorG.u_off when Off;
+        end
+      end
+    end
+    group UpstreamEb:
+      alg bool GatesOpen = EastGate.Open and WestGate.Open;
+      alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
+      alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
+      alg bool PaddlesOpen = EastPaddle.Open and WestPaddle.Open;
+      alg bool PaddlesClosed = EastPaddle.Closed and WestPaddle.Closed;
+      alg bool PaddlesMoving = EastPaddle.Moving or WestPaddle.Moving;
+      alg bool Closed = GatesClosed and PaddlesClosed;
+      alg bool Moving = GatesMoving or PaddlesMoving;
+      group EastGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEb.EastGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.EastGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_on, .Lock.UpstreamEb.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_on, .Lock.UpstreamEb.EastGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEb.WestGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.WestGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_on, .Lock.UpstreamEb.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_on, .Lock.UpstreamEb.WestGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group EastPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.EastPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_on, .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_on, .Lock.UpstreamEb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.WestPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_on, .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_on, .Lock.UpstreamEb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group UpstreamFlood:
+      alg bool GatesOpen = EastGate.Open and WestGate.Open;
+      alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
+      alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
+      alg bool PaddlesOpen = EastPaddle.Open and WestPaddle.Open;
+      alg bool PaddlesClosed = EastPaddle.Closed and WestPaddle.Closed;
+      alg bool PaddlesMoving = EastPaddle.Moving or WestPaddle.Moving;
+      alg bool Closed = GatesClosed and PaddlesClosed;
+      alg bool Moving = GatesMoving or PaddlesMoving;
+      group EastGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.EastGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_open_on, .Lock.UpstreamFlood.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamFlood.EastGate.Sensor.u_closed_on, .Lock.UpstreamFlood.EastGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.WestGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_open_on, .Lock.UpstreamFlood.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamFlood.WestGate.Sensor.u_closed_on, .Lock.UpstreamFlood.WestGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group EastPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.EastPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_open_on, .Lock.UpstreamFlood.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamFlood.EastPaddle.Sensor.u_closed_on, .Lock.UpstreamFlood.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.WestPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_open_on, .Lock.UpstreamFlood.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamFlood.WestPaddle.Sensor.u_closed_on, .Lock.UpstreamFlood.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group DownstreamEb:
+      alg bool GatesOpen = EastGate.Open and WestGate.Open;
+      alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
+      alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
+      alg bool PaddlesOpen = EastPaddle.Open and WestPaddle.Open;
+      alg bool PaddlesClosed = EastPaddle.Closed and WestPaddle.Closed;
+      alg bool PaddlesMoving = EastPaddle.Moving or WestPaddle.Moving;
+      alg bool Closed = GatesClosed and PaddlesClosed;
+      alg bool Moving = GatesMoving or PaddlesMoving;
+      group EastGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEb.EastGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.EastGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_on, .Lock.DownstreamEb.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_on, .Lock.DownstreamEb.EastGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEb.WestGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.WestGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_on, .Lock.DownstreamEb.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_on, .Lock.DownstreamEb.WestGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group EastPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.EastPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_on, .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_on, .Lock.DownstreamEb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.WestPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_on, .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_on, .Lock.DownstreamEb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group DownstreamFlood:
+      alg bool GatesOpen = EastGate.Open and WestGate.Open;
+      alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
+      alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
+      alg bool PaddlesOpen = EastPaddle.Open and WestPaddle.Open;
+      alg bool PaddlesClosed = EastPaddle.Closed and WestPaddle.Closed;
+      alg bool PaddlesMoving = EastPaddle.Moving or WestPaddle.Moving;
+      alg bool Closed = GatesClosed and PaddlesClosed;
+      alg bool Moving = GatesMoving or PaddlesMoving;
+      group EastGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.EastGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_open_on, .Lock.DownstreamFlood.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamFlood.EastGate.Sensor.u_closed_on, .Lock.DownstreamFlood.EastGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.WestGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_open_on, .Lock.DownstreamFlood.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamFlood.WestGate.Sensor.u_closed_on, .Lock.DownstreamFlood.WestGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group EastPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.EastPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_open_on, .Lock.DownstreamFlood.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamFlood.EastPaddle.Sensor.u_closed_on, .Lock.DownstreamFlood.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.WestPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_open_on, .Lock.DownstreamFlood.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamFlood.WestPaddle.Sensor.u_closed_on, .Lock.DownstreamFlood.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group DownstreamStormFlood:
+      alg bool GatesOpen = EastGate.Open and WestGate.Open;
+      alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
+      alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
+      alg bool PaddlesOpen = EastPaddle.Open and WestPaddle.Open;
+      alg bool PaddlesClosed = EastPaddle.Closed and WestPaddle.Closed;
+      alg bool PaddlesMoving = EastPaddle.Moving or WestPaddle.Moving;
+      alg bool Closed = GatesClosed and PaddlesClosed;
+      alg bool Moving = GatesMoving or PaddlesMoving;
+      group EastGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.EastGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_open_on, .Lock.DownstreamStormFlood.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamStormFlood.EastGate.Sensor.u_closed_on, .Lock.DownstreamStormFlood.EastGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestGate:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.WestGate.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_open_on, .Lock.DownstreamStormFlood.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamStormFlood.WestGate.Sensor.u_closed_on, .Lock.DownstreamStormFlood.WestGate.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs not Sensor.Closed;
+      end
+      group EastPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.EastPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_open_on, .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_closed_on, .Lock.DownstreamStormFlood.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+      group WestPaddle:
+        alg bool Moving = not Actuator.Rest;
+        alg bool Closed = Actuator.Rest and Sensor.Closed;
+        alg bool Open = Actuator.Rest and Sensor.Open;
+        alg bool InitialLocationClosed = true;
+        plant automaton Actuator:
+          location Rest:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close goto Closing;
+          location Opening:
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+          location Closing:
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.WestPaddle.InitialLocationClosed;
+          location Closed:
+            initial InitialLocationClosed;
+            marked InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_closed_off goto Intermediate;
+          location Intermediate:
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_open_on goto Open;
+          location Open:
+            initial not InitialLocationClosed;
+            marked not InitialLocationClosed;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_open_on, .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_closed_on, .Lock.DownstreamStormFlood.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    plant automaton EqualWaterUpstream:
+      alg bool InitialLocationOn = false;
+      location Off:
+        initial not InitialLocationOn;
+        marked not InitialLocationOn;
+        edge .Lock.EqualWaterUpstream.u_on goto On;
+      location On:
+        initial InitialLocationOn;
+        marked InitialLocationOn;
+        edge .Lock.EqualWaterUpstream.u_off goto Off;
+    end
+    plant automaton EqualWaterDownstream:
+      alg bool InitialLocationOn = true;
+      location Off:
+        initial not InitialLocationOn;
+        marked not InitialLocationOn;
+        edge .Lock.EqualWaterDownstream.u_on goto On;
+      location On:
+        initial InitialLocationOn;
+        marked InitialLocationOn;
+        edge .Lock.EqualWaterDownstream.u_off goto Off;
+    end
+  end
+  supervisor automaton sup:
+    alphabet .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_rr, .Lock.LTL.DE.Actuator.c_rg, .Lock.LTL.DE.Actuator.c_g, .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_rr, .Lock.LTL.DW.Actuator.c_rg, .Lock.LTL.DW.Actuator.c_g, .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_rr, .Lock.LTL.UE.Actuator.c_rg, .Lock.LTL.UE.Actuator.c_g, .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_rr, .Lock.LTL.UW.Actuator.c_rg, .Lock.LTL.UW.Actuator.c_g, .Lock.BTL.UE.Actuator.c_rg, .Lock.BTL.UE.Actuator.c_r, .Lock.BTL.UE.Actuator.c_g, .Lock.BTL.UW.Actuator.c_rg, .Lock.BTL.UW.Actuator.c_r, .Lock.BTL.UW.Actuator.c_g, .Lock.UpstreamEb.EastGate.Actuator.c_open, .Lock.UpstreamEb.EastGate.Actuator.c_close, .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamEb.WestGate.Actuator.c_open, .Lock.UpstreamEb.WestGate.Actuator.c_close, .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamEb.EastPaddle.Actuator.c_open, .Lock.UpstreamEb.EastPaddle.Actuator.c_close, .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamEb.WestPaddle.Actuator.c_open, .Lock.UpstreamEb.WestPaddle.Actuator.c_close, .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastGate.Actuator.c_open, .Lock.UpstreamFlood.EastGate.Actuator.c_close, .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestGate.Actuator.c_open, .Lock.UpstreamFlood.WestGate.Actuator.c_close, .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastPaddle.Actuator.c_open, .Lock.UpstreamFlood.EastPaddle.Actuator.c_close, .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestPaddle.Actuator.c_open, .Lock.UpstreamFlood.WestPaddle.Actuator.c_close, .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEb.EastGate.Actuator.c_open, .Lock.DownstreamEb.EastGate.Actuator.c_close, .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamEb.WestGate.Actuator.c_open, .Lock.DownstreamEb.WestGate.Actuator.c_close, .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamEb.EastPaddle.Actuator.c_open, .Lock.DownstreamEb.EastPaddle.Actuator.c_close, .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEb.WestPaddle.Actuator.c_open, .Lock.DownstreamEb.WestPaddle.Actuator.c_close, .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastGate.Actuator.c_open, .Lock.DownstreamFlood.EastGate.Actuator.c_close, .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestGate.Actuator.c_open, .Lock.DownstreamFlood.WestGate.Actuator.c_close, .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastGate.Actuator.c_open, .Lock.DownstreamStormFlood.EastGate.Actuator.c_close, .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestGate.Actuator.c_open, .Lock.DownstreamStormFlood.WestGate.Actuator.c_close, .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing;
+    location:
+      initial;
+      marked;
+      edge .Lock.BTL.UE.Actuator.c_g when true;
+      edge .Lock.BTL.UE.Actuator.c_r when true;
+      edge .Lock.BTL.UE.Actuator.c_rg when true;
+      edge .Lock.BTL.UW.Actuator.c_g when true;
+      edge .Lock.BTL.UW.Actuator.c_r when true;
+      edge .Lock.BTL.UW.Actuator.c_rg when true;
+      edge .Lock.DownstreamEb.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEb.EastGate.Actuator.c_open when Lock.DownstreamEb.EastPaddle.Actuator.Rest and Lock.DownstreamEb.EastPaddle.Sensor.Open;
+      edge .Lock.DownstreamEb.EastGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_close when not Lock.DownstreamEb.EastPaddle.Sensor.Intermediate and (Lock.DownstreamEb.EastGate.Actuator.Rest and Lock.DownstreamEb.EastGate.Sensor.Closed) or Lock.DownstreamEb.EastPaddle.Sensor.Intermediate;
+      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop when true;
+      edge .Lock.DownstreamEb.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEb.WestGate.Actuator.c_open when Lock.DownstreamEb.WestPaddle.Actuator.Rest and Lock.DownstreamEb.WestPaddle.Sensor.Open;
+      edge .Lock.DownstreamEb.WestGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_close when Lock.DownstreamEb.WestGate.Actuator.Rest and Lock.DownstreamEb.WestGate.Sensor.Closed;
+      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_open when Lock.DownstreamFlood.EastPaddle.Actuator.Rest and Lock.DownstreamFlood.EastPaddle.Sensor.Open;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_close when Lock.DownstreamFlood.EastGate.Actuator.Rest and Lock.DownstreamFlood.EastGate.Sensor.Closed;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop when true;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_open when Lock.DownstreamFlood.WestPaddle.Actuator.Rest and Lock.DownstreamFlood.WestPaddle.Sensor.Open;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_close when Lock.DownstreamFlood.WestGate.Actuator.Rest and Lock.DownstreamFlood.WestGate.Sensor.Closed;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_open when Lock.DownstreamStormFlood.EastPaddle.Actuator.Rest and Lock.DownstreamStormFlood.EastPaddle.Sensor.Open;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close when Lock.DownstreamStormFlood.EastGate.Actuator.Rest and Lock.DownstreamStormFlood.EastGate.Sensor.Closed;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop when true;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_open when Lock.DownstreamStormFlood.WestPaddle.Sensor.Open and Lock.DownstreamStormFlood.WestPaddle.Actuator.Rest;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop when true;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close when Lock.DownstreamStormFlood.WestGate.Sensor.Closed and Lock.DownstreamStormFlood.WestGate.Actuator.Rest;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.LTL.DE.Actuator.c_g when true;
+      edge .Lock.LTL.DE.Actuator.c_r when true;
+      edge .Lock.LTL.DE.Actuator.c_rg when true;
+      edge .Lock.LTL.DE.Actuator.c_rr when true;
+      edge .Lock.LTL.DW.Actuator.c_g when true;
+      edge .Lock.LTL.DW.Actuator.c_r when true;
+      edge .Lock.LTL.DW.Actuator.c_rg when true;
+      edge .Lock.LTL.DW.Actuator.c_rr when true;
+      edge .Lock.LTL.UE.Actuator.c_g when true;
+      edge .Lock.LTL.UE.Actuator.c_r when true;
+      edge .Lock.LTL.UE.Actuator.c_rg when true;
+      edge .Lock.LTL.UE.Actuator.c_rr when true;
+      edge .Lock.LTL.UW.Actuator.c_g when true;
+      edge .Lock.LTL.UW.Actuator.c_r when true;
+      edge .Lock.LTL.UW.Actuator.c_rg when true;
+      edge .Lock.LTL.UW.Actuator.c_rr when true;
+      edge .Lock.UpstreamEb.EastGate.Actuator.c_close when true;
+      edge .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEb.EastGate.Actuator.c_open when Lock.UpstreamEb.EastPaddle.Actuator.Rest and Lock.UpstreamEb.EastPaddle.Sensor.Open;
+      edge .Lock.UpstreamEb.EastGate.Actuator.c_stop when true;
+      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_close when not Lock.UpstreamEb.EastPaddle.Sensor.Intermediate and (Lock.UpstreamEb.EastGate.Actuator.Rest and Lock.UpstreamEb.EastGate.Sensor.Closed) or Lock.UpstreamEb.EastPaddle.Sensor.Intermediate;
+      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_open when true;
+      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop when true;
+      edge .Lock.UpstreamEb.WestGate.Actuator.c_close when true;
+      edge .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEb.WestGate.Actuator.c_open when Lock.UpstreamEb.WestPaddle.Actuator.Rest and Lock.UpstreamEb.WestPaddle.Sensor.Open;
+      edge .Lock.UpstreamEb.WestGate.Actuator.c_stop when true;
+      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_close when Lock.UpstreamEb.WestGate.Actuator.Rest and Lock.UpstreamEb.WestGate.Sensor.Closed;
+      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_open when true;
+      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_open when Lock.UpstreamFlood.EastPaddle.Actuator.Rest and Lock.UpstreamFlood.EastPaddle.Sensor.Open;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop when true;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_close when Lock.UpstreamFlood.EastGate.Actuator.Rest and Lock.UpstreamFlood.EastGate.Sensor.Closed;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_open when true;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop when true;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_open when Lock.UpstreamFlood.WestPaddle.Actuator.Rest and Lock.UpstreamFlood.WestPaddle.Sensor.Open;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop when true;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_close when Lock.UpstreamFlood.WestGate.Actuator.Rest and Lock.UpstreamFlood.WestGate.Sensor.Closed;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_open when true;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop when true;
+  end
+end
+group Button_223224:
+  alg int n = 22;
+  svgin id "Button" + <string>n event Lock.UI.UEbGate.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.UEbGate.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.UEbGate.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.UEbGate.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.UEbGate.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.UEbGate.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_252627:
+  alg int n = 25;
+  svgin id "Button" + <string>n event Lock.UI.UFloodGate.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.UFloodGate.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.UFloodGate.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.UFloodGate.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.UFloodGate.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.UFloodGate.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_282930:
+  alg int n = 28;
+  svgin id "Button" + <string>n event Lock.UI.DEbGate.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DEbGate.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DEbGate.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DEbGate.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DEbGate.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DEbGate.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_313233:
+  alg int n = 31;
+  svgin id "Button" + <string>n event Lock.UI.DFloodGate.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DFloodGate.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DFloodGate.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DFloodGate.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DFloodGate.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DFloodGate.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_343536:
+  alg int n = 34;
+  svgin id "Button" + <string>n event Lock.UI.DStormFloodGate.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DStormFloodGate.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DStormFloodGate.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DStormFloodGate.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DStormFloodGate.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DStormFloodGate.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_373839:
+  alg int n = 37;
+  svgin id "Button" + <string>n event Lock.UI.UEbPaddle.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.UEbPaddle.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.UEbPaddle.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.UEbPaddle.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.UEbPaddle.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.UEbPaddle.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_404142:
+  alg int n = 40;
+  svgin id "Button" + <string>n event Lock.UI.UFloodPaddle.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.UFloodPaddle.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.UFloodPaddle.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.UFloodPaddle.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.UFloodPaddle.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.UFloodPaddle.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_434445:
+  alg int n = 43;
+  svgin id "Button" + <string>n event Lock.UI.DEbPaddle.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DEbPaddle.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DEbPaddle.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DEbPaddle.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DEbPaddle.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DEbPaddle.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_464748:
+  alg int n = 46;
+  svgin id "Button" + <string>n event Lock.UI.DFloodPaddle.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DFloodPaddle.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DFloodPaddle.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DFloodPaddle.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DFloodPaddle.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DFloodPaddle.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_495051:
+  alg int n = 49;
+  svgin id "Button" + <string>n event Lock.UI.DStormFloodPaddle.u_close file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DStormFloodPaddle.u_open file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DStormFloodPaddle.u_stop file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DStormFloodPaddle.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DStormFloodPaddle.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DStormFloodPaddle.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_52535455:
+  alg int n = 52;
+  svgin id "Button" + <string>n event Lock.UI.ULockTrafficLight.u_r file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.ULockTrafficLight.u_g file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.ULockTrafficLight.u_rg file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 3) event Lock.UI.ULockTrafficLight.u_rr file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.ULockTrafficLight.Red: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.ULockTrafficLight.Green: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.ULockTrafficLight.RedGreen: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 3) + "V" attr "fill" value if Lock.UI.ULockTrafficLight.RedRed: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_56575859:
+  alg int n = 56;
+  svgin id "Button" + <string>n event Lock.UI.DLockTrafficLight.u_r file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.DLockTrafficLight.u_g file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 2) event Lock.UI.DLockTrafficLight.u_rg file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 3) event Lock.UI.DLockTrafficLight.u_rr file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.DLockTrafficLight.Red: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.DLockTrafficLight.Green: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Lock.UI.DLockTrafficLight.RedGreen: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 3) + "V" attr "fill" value if Lock.UI.DLockTrafficLight.RedRed: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group Button_202122:
+  alg int n = 20;
+  svgin id "Button" + <string>n event Lock.UI.UBridgeTraffigLight.u_r file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) event Lock.UI.UBridgeTraffigLight.u_g file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(n + 1) + "b" event Lock.UI.UBridgeTraffigLight.u_rg file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>n + "V" attr "fill" value if Lock.UI.UBridgeTraffigLight.Red: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Lock.UI.UBridgeTraffigLight.Green: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(n + 1) + "bV" attr "fill" value if Lock.UI.UBridgeTraffigLight.RedGreen: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group EmergencyStopV:
+  svgin id "EmergencyStopLock" event if Lock.EmergencyStop.Deactivated: Lock.EmergencyStop.u_activate else Lock.EmergencyStop.u_reset end file "../../LockBridge/Image.svg";
+  svgout id "EmergencyStopLockV" attr "fill" value if Lock.EmergencyStop.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_upstream_ebb_east:
+  alg string GateID = "UpstreamEbEastGate";
+  alg string PaddleID = "BVHeboost";
+  alg bool PaddleClosed = Lock.UpstreamEb.EastPaddle.Sensor.Closed;
+  alg int x = 633;
+  alg int y = 413;
+  alg int OpenDegree = 77;
+  alg real Degree = Lock.UpstreamEb.EastGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_upstream_ebb_west:
+  alg string GateID = "UpstreamEbWestGate";
+  alg string PaddleID = "BVHebwest";
+  alg bool PaddleClosed = Lock.UpstreamEb.WestPaddle.Sensor.Closed;
+  alg int x = 560;
+  alg int y = 413;
+  alg int OpenDegree = -77;
+  alg real Degree = Lock.UpstreamEb.WestGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_upstream_flood_east:
+  alg string GateID = "UpstreamFloodEastGate";
+  alg string PaddleID = "BVHvloedoost";
+  alg bool PaddleClosed = Lock.UpstreamFlood.EastPaddle.Sensor.Closed;
+  alg int x = 633;
+  alg int y = 445;
+  alg int OpenDegree = -77;
+  alg real Degree = Lock.UpstreamFlood.EastGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_upstream_flood_west:
+  alg string GateID = "UpstreamFloodWestGate";
+  alg string PaddleID = "BVHvloedwest";
+  alg bool PaddleClosed = Lock.UpstreamFlood.WestPaddle.Sensor.Closed;
+  alg int x = 560;
+  alg int y = 445;
+  alg int OpenDegree = 77;
+  alg real Degree = Lock.UpstreamFlood.WestGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_ebb_east:
+  alg string GateID = "DownstreamEbEastGate";
+  alg string PaddleID = "BNHeboost";
+  alg bool PaddleClosed = Lock.DownstreamEb.EastPaddle.Sensor.Closed;
+  alg int x = 633;
+  alg int y = 811;
+  alg int OpenDegree = 77;
+  alg real Degree = Lock.DownstreamEb.EastGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_ebb_west:
+  alg string GateID = "DownstreamEbWestGate";
+  alg string PaddleID = "BNHebwest";
+  alg bool PaddleClosed = Lock.DownstreamEb.WestPaddle.Sensor.Closed;
+  alg int x = 560;
+  alg int y = 811;
+  alg int OpenDegree = -77;
+  alg real Degree = Lock.DownstreamEb.WestGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_flood_east:
+  alg string GateID = "DownstreamFloodEastGate";
+  alg string PaddleID = "BNHvloedoost";
+  alg bool PaddleClosed = Lock.DownstreamFlood.EastPaddle.Sensor.Closed;
+  alg int x = 633;
+  alg int y = 838;
+  alg int OpenDegree = -77;
+  alg real Degree = Lock.DownstreamFlood.EastGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_flood_west:
+  alg string GateID = "DownstreamFloodWestGate";
+  alg string PaddleID = "BNHvloedwest";
+  alg bool PaddleClosed = Lock.DownstreamFlood.WestPaddle.Sensor.Closed;
+  alg int x = 560;
+  alg int y = 838;
+  alg int OpenDegree = 77;
+  alg real Degree = Lock.DownstreamFlood.WestGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_stormflood_east:
+  alg string GateID = "DownstreamStormFloodEastGate";
+  alg string PaddleID = "BNHstormvloedoost";
+  alg bool PaddleClosed = Lock.DownstreamStormFlood.EastPaddle.Sensor.Closed;
+  alg int x = 633;
+  alg int y = 900;
+  alg int OpenDegree = -77;
+  alg real Degree = Lock.DownstreamStormFlood.EastGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group lockdoor_downstream_stormflood_west:
+  alg string GateID = "DownstreamStormFloodWestGate";
+  alg string PaddleID = "BNHstormvloedwest";
+  alg bool PaddleClosed = Lock.DownstreamStormFlood.WestPaddle.Sensor.Closed;
+  alg int x = 560;
+  alg int y = 900;
+  alg int OpenDegree = 77;
+  alg real Degree = Lock.DownstreamStormFlood.WestGate.Degree;
+  svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y) file "../../LockBridge/Image.svg";
+  svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed: "grey" else "lightblue" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_east_Rgr:
+  alg string a = "seinBVHoostRgr";
+  alg string color = "red";
+  alg bool b = Lock.LTL.UE.SensorR1.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_west_Rgr:
+  alg string a = "seinBVHwestRgr";
+  alg string color = "red";
+  alg bool b = Lock.LTL.UW.SensorR1.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_east_rGr:
+  alg string a = "seinBVHoostrGr";
+  alg string color = "green";
+  alg bool b = Lock.LTL.UE.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_west_rGr:
+  alg string a = "seinBVHwestrGr";
+  alg string color = "green";
+  alg bool b = Lock.LTL.UW.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_east_rgR:
+  alg string a = "seinBVHoostrgR";
+  alg string color = "red";
+  alg bool b = Lock.LTL.UE.SensorR2.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_upstream_west_rgR:
+  alg string a = "seinBVHwestrgR";
+  alg string color = "red";
+  alg bool b = Lock.LTL.UW.SensorR2.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_east_Rgr:
+  alg string a = "seinBNHoostRgr";
+  alg string color = "red";
+  alg bool b = Lock.LTL.DE.SensorR1.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_west_Rgr:
+  alg string a = "seinBNHwestRgr";
+  alg string color = "red";
+  alg bool b = Lock.LTL.DW.SensorR1.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_east_rGr:
+  alg string a = "seinBNHoostrGr";
+  alg string color = "green";
+  alg bool b = Lock.LTL.DE.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_west_rGr:
+  alg string a = "seinBNHwestrGr";
+  alg string color = "green";
+  alg bool b = Lock.LTL.DW.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_east_rgR:
+  alg string a = "seinBNHoostrgR";
+  alg string color = "red";
+  alg bool b = Lock.LTL.DE.SensorR2.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group shippingsign_downstream_west_rgR:
+  alg string a = "seinBNHwestrgR";
+  alg string color = "red";
+  alg bool b = Lock.LTL.DW.SensorR2.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group bridgesign_east_Rg:
+  alg string a = "scheepvaartsein_BVH_east_r";
+  alg string color = "red";
+  alg bool b = Lock.BTL.UE.SensorR.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group bridgesign_east_rG:
+  alg string a = "scheepvaartsein_BVH_east_g";
+  alg string color = "green";
+  alg bool b = Lock.BTL.UE.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group bridgesign_west_Rg:
+  alg string a = "scheepvaartsein_BVH_west_r";
+  alg string color = "red";
+  alg bool b = Lock.BTL.UW.SensorR.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+group bridgesign_west_rG:
+  alg string a = "scheepvaartsein_BVH_west_g";
+  alg string color = "green";
+  alg bool b = Lock.BTL.UW.SensorG.On;
+  svgout id a attr "fill" value if b: color else "grey" end file "../../LockBridge/Image.svg";
+end
+svgout id "water_chamber" attr "fill" value if Lock.Water.H_Chamber >= 10: "#000080" elif Lock.Water.H_Chamber <= 2.0: "#9ecaff" else "#0000ff" end file "../../LockBridge/Image.svg";

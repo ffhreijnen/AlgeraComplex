@@ -1,0 +1,22 @@
+from "lib:cif3" import *;
+
+// Output files
+string sup_path       = "generated_files/Supervisor.cif"; //Location of supervisor.
+
+// Input files
+string plant_req_path = "Requirements.cif";               //Location of plant & requirement models.
+
+// Create directory for generated files.
+mkdir("generated_files", force=true);
+
+// Synthesise supervisor.
+outln("File \"%s\": synthesizing...", sup_path);
+cif3datasynth(plant_req_path,
+    "--option-dialog=1",
+    "-o", sup_path,
+    "-n", fmt("sup"),
+    "-t normal",
+    "-m debug",
+    "--stats=timing",
+    "--bdd-table=400000");
+outln("File \"%s\": synthesized.", sup_path);

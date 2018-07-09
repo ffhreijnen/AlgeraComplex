@@ -1,0 +1,75 @@
+svgfile "../LockBridge/Image.svg";
+
+import  "Simulation.cif";
+import  "../Templates/Visualization.cif";
+
+Button_223224 : TheeStateButtonV(22, Lock.UI.UEbGate);
+Button_252627 : TheeStateButtonV(25, Lock.UI.UFloodGate);
+Button_282930 : TheeStateButtonV(28, Lock.UI.DEbGate);
+Button_313233 : TheeStateButtonV(31, Lock.UI.DFloodGate);
+Button_343536 : TheeStateButtonV(34, Lock.UI.DStormFloodGate);
+
+Button_373839 : TheeStateButtonV(37, Lock.UI.UEbPaddle);
+Button_404142 : TheeStateButtonV(40, Lock.UI.UFloodPaddle);
+Button_434445 : TheeStateButtonV(43, Lock.UI.DEbPaddle);
+Button_464748 : TheeStateButtonV(46, Lock.UI.DFloodPaddle);
+Button_495051 : TheeStateButtonV(49, Lock.UI.DStormFloodPaddle);
+
+Button_52535455 : IncomingVTLButtonV(52, Lock.UI.ULockTrafficLight);
+Button_56575859 : IncomingVTLButtonV(56, Lock.UI.DLockTrafficLight);
+Button_202122   : BridgeVTLButtonV(20, Lock.UI.UBridgeTraffigLight);
+
+
+group EmergencyStopV:
+    svgin  id "EmergencyStopLock"  event if Lock.EmergencyStop.Deactivated: Lock.EmergencyStop.u_activate
+                                   else Lock.EmergencyStop.u_reset end;
+    svgout id "EmergencyStopLockV" attr "fill" value if Lock.EmergencyStop.Activated: "yellowgreen" else "indianred" end;
+end
+
+group def lockdoor(alg string GateID, PaddleID; alg bool PaddleClosed; alg int x, y, OpenDegree; alg real Degree):
+    svgout id GateID attr "transform" value fmt("rotate(%s, %s, %s)", scale(Degree, 0, 90, 0.01, OpenDegree), x, y);
+    svgout id "schuif" + PaddleID attr "fill" value if PaddleClosed : "grey" else "lightblue" end;
+end
+
+group def signlight(alg string a, color; alg bool b):
+    svgout id a attr "fill" value if b: color else "grey" end;
+end
+
+// used to represent lock valves
+// first input: svgID of valve, second input: color an open valve.
+// third input: bool that represents valve state. fourth input: bool that represents door state
+// fifth and sixth input: opacities for visualization
+
+
+lockdoor_upstream_ebb_east :            lockdoor("UpstreamEbEastGate",          "BVHeboost",         Lock.UpstreamEb.EastPaddle.Sensor.Closed,           633, 413,  77, Lock.UpstreamEb.EastGate.Degree);
+lockdoor_upstream_ebb_west :            lockdoor("UpstreamEbWestGate",          "BVHebwest",         Lock.UpstreamEb.WestPaddle.Sensor.Closed,           560, 413, -77, Lock.UpstreamEb.WestGate.Degree);
+lockdoor_upstream_flood_east :          lockdoor("UpstreamFloodEastGate",       "BVHvloedoost",      Lock.UpstreamFlood.EastPaddle.Sensor.Closed,        633, 445, -77, Lock.UpstreamFlood.EastGate.Degree);
+lockdoor_upstream_flood_west :          lockdoor("UpstreamFloodWestGate",       "BVHvloedwest",      Lock.UpstreamFlood.WestPaddle.Sensor.Closed,        560, 445,  77, Lock.UpstreamFlood.WestGate.Degree);
+lockdoor_downstream_ebb_east :          lockdoor("DownstreamEbEastGate",        "BNHeboost",         Lock.DownstreamEb.EastPaddle.Sensor.Closed,         633, 811,  77, Lock.DownstreamEb.EastGate.Degree);
+lockdoor_downstream_ebb_west :          lockdoor("DownstreamEbWestGate",        "BNHebwest",         Lock.DownstreamEb.WestPaddle.Sensor.Closed,         560, 811, -77, Lock.DownstreamEb.WestGate.Degree);
+lockdoor_downstream_flood_east :        lockdoor("DownstreamFloodEastGate",     "BNHvloedoost",      Lock.DownstreamFlood.EastPaddle.Sensor.Closed,      633, 838, -77, Lock.DownstreamFlood.EastGate.Degree);
+lockdoor_downstream_flood_west :        lockdoor("DownstreamFloodWestGate",     "BNHvloedwest",      Lock.DownstreamFlood.WestPaddle.Sensor.Closed,      560, 838,  77, Lock.DownstreamFlood.WestGate.Degree);
+lockdoor_downstream_stormflood_east :   lockdoor("DownstreamStormFloodEastGate","BNHstormvloedoost", Lock.DownstreamStormFlood.EastPaddle.Sensor.Closed, 633, 900, -77, Lock.DownstreamStormFlood.EastGate.Degree);
+lockdoor_downstream_stormflood_west :   lockdoor("DownstreamStormFloodWestGate","BNHstormvloedwest", Lock.DownstreamStormFlood.WestPaddle.Sensor.Closed, 560, 900,  77, Lock.DownstreamStormFlood.WestGate.Degree);
+
+
+// lock signlights
+
+shippingsign_upstream_east_Rgr   : signlight("seinBVHoostRgr","red",   Lock.LTL.UE.SensorR1.On);
+shippingsign_upstream_west_Rgr   : signlight("seinBVHwestRgr","red",   Lock.LTL.UW.SensorR1.On);
+shippingsign_upstream_east_rGr   : signlight("seinBVHoostrGr","green", Lock.LTL.UE.SensorG.On);
+shippingsign_upstream_west_rGr   : signlight("seinBVHwestrGr","green", Lock.LTL.UW.SensorG.On);
+shippingsign_upstream_east_rgR   : signlight("seinBVHoostrgR","red",   Lock.LTL.UE.SensorR2.On);
+shippingsign_upstream_west_rgR   : signlight("seinBVHwestrgR","red",   Lock.LTL.UW.SensorR2.On);
+shippingsign_downstream_east_Rgr : signlight("seinBNHoostRgr","red",   Lock.LTL.DE.SensorR1.On);
+shippingsign_downstream_west_Rgr : signlight("seinBNHwestRgr","red",   Lock.LTL.DW.SensorR1.On);
+shippingsign_downstream_east_rGr : signlight("seinBNHoostrGr","green", Lock.LTL.DE.SensorG.On);
+shippingsign_downstream_west_rGr : signlight("seinBNHwestrGr","green", Lock.LTL.DW.SensorG.On);
+shippingsign_downstream_east_rgR : signlight("seinBNHoostrgR","red",   Lock.LTL.DE.SensorR2.On);
+shippingsign_downstream_west_rgR : signlight("seinBNHwestrgR","red",   Lock.LTL.DW.SensorR2.On);
+bridgesign_east_Rg               : signlight("scheepvaartsein_BVH_east_r","red",   Lock.BTL.UE.SensorR.On);
+bridgesign_east_rG               : signlight("scheepvaartsein_BVH_east_g","green", Lock.BTL.UE.SensorG.On);
+bridgesign_west_Rg               : signlight("scheepvaartsein_BVH_west_r","red",   Lock.BTL.UW.SensorR.On);
+bridgesign_west_rG               : signlight("scheepvaartsein_BVH_west_g","green", Lock.BTL.UW.SensorG.On);
+
+svgout id "water_chamber" attr "fill" value if Lock.Water.H_Chamber >= 10: "#000080" elif Lock.Water.H_Chamber <=  2.0: "#9ecaff" else "#0000ff" end;

@@ -1,0 +1,62 @@
+import "../Templates/Simulation.cif";
+
+group Lock:
+    group UI:
+        UEbGate             : ThreeStateUI(false);
+        UFloodGate          : ThreeStateUI(false);
+        DEbGate             : ThreeStateUI(false);
+        DFloodGate          : ThreeStateUI(false);
+        DStormFloodGate     : ThreeStateUI(false);
+
+        UEbPaddle           : ThreeStateUI(false);
+        UFloodPaddle        : ThreeStateUI(false);
+        DEbPaddle           : ThreeStateUI(false);
+        DFloodPaddle        : ThreeStateUI(false);
+        DStormFloodPaddle   : ThreeStateUI(false);
+
+        DLockTrafficLight   : LockTrafficLightUI();
+        ULockTrafficLight   : LockTrafficLightUI();
+
+        UBridgeTraffigLight : BridgeTrafficLightUI();
+    end
+
+    EmergencyStop : EmergencyStopDef();
+
+    group LTL:
+        DE : LockTrafficLight(); DW : LockTrafficLight();
+        UE : LockTrafficLight(); UW : LockTrafficLight();
+    end
+
+    //Bridge traffic lights
+    //@Red = True when both traffic lights display a red sign aspect
+    group BTL:
+        UE : BridgeTrafficLight(); UW : BridgeTrafficLight();
+    end
+
+    UpstreamEb           : GatePaddleSet();
+    UpstreamFlood        : GatePaddleSet();
+    DownstreamEb         : GatePaddleSet();
+    DownstreamFlood      : GatePaddleSet();
+    DownstreamStormFlood : GatePaddleSet();
+
+    EqualWaterUpstream   : EqualWaterSensor(false, Water.H_Chamber >= Water.H_Upstream);
+    EqualWaterDownstream : EqualWaterSensor(true,  Water.H_Chamber <= Water.H_Downstream);
+
+    group Water:
+        const real H_Upstream = 10.0, H_Downstream = 2.0;
+        cont       H_Chamber  = 2.0 der if DownstreamOpen and H_Chamber > H_Downstream: -2.0
+                                      elif UpstreamOpen   and H_Chamber < H_Upstream  : +2.0
+                                      else 0 end;
+        alg bool DownstreamOpen = (DownstreamEb.EastPaddle.Open         or DownstreamEb.WestPaddle.Open    or
+                                   DownstreamEb.EastGate.Open           or DownstreamEb.WestGate.Open)     and
+                                  (DownstreamFlood.EastPaddle.Open      or DownstreamFlood.WestPaddle.Open or
+                                   DownstreamFlood.EastGate.Open        or DownstreamFlood.WestGate.Open)  and
+                                  (DownstreamStormFlood.EastPaddle.Open or DownstreamStormFlood.WestPaddle.Open or
+                                   DownstreamStormFlood.EastGate.Open   or DownstreamStormFlood.WestGate.Open);
+
+        alg bool UpstreamOpen   = (UpstreamEb.EastPaddle.Open           or UpstreamEb.WestPaddle.Open    or
+                                   UpstreamEb.EastGate.Open             or UpstreamEb.WestGate.Open)     and
+                                  (UpstreamFlood.EastPaddle.Open        or UpstreamFlood.WestPaddle.Open or
+                                   UpstreamFlood.EastGate.Open          or UpstreamFlood.WestGate.Open);
+    end
+end

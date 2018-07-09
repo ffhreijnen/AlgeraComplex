@@ -1,0 +1,65 @@
+svgfile "../LockBridge/Image.svg";
+
+import "Simulation.cif";
+import "../Templates/Visualization.cif";
+
+presign_C_100 : PreSignV("C_500", Bridge.LTAS.ApproachSign1.Sensor.On);
+presign_C_200 : PreSignV("K_300", Bridge.LTAS.ApproachSign2.Sensor.On);
+presign_C_500 : PreSignV("C_200", Bridge.LTAS.ApproachSign3.Sensor.On);
+presign_K_150 : PreSignV("C_100", Bridge.LTAS.ApproachSign4.Sensor.On);
+presign_K_250 : PreSignV("K_150", Bridge.LTAS.ApproachSign5.Sensor.On);
+
+stopsign1  : StopSignV(1,  Bridge.LTSS.StopSign1.Sensor.On);
+stopsign2  : StopSignV(2,  Bridge.LTSS.StopSign2.Sensor.On);
+stopsign3  : StopSignV(3,  Bridge.LTSS.StopSign3.Sensor.On);
+stopsign4  : StopSignV(4,  Bridge.LTSS.StopSign4.Sensor.On);
+stopsign5  : StopSignV(5,  Bridge.LTSS.StopSign5.Sensor.On);
+stopsign6  : StopSignV(6,  Bridge.LTSS.StopSign6.Sensor.On);
+stopsign7  : StopSignV(7,  Bridge.LTSS.StopSign7.Sensor.On);
+stopsign8  : StopSignV(8,  Bridge.LTSS.StopSign8.Sensor.On);
+stopsign9  : StopSignV(9,  Bridge.LTSS.StopSign9.Sensor.On);
+stopsign10 : StopSignV(10, Bridge.LTSS.StopSign10.Sensor.On);
+stopsign11 : StopSignV(11, Bridge.LTSS.StopSign11.Sensor.On);
+stopsign12 : StopSignV(12, Bridge.LTSS.StopSign12.Sensor.On);
+
+barrier1 : BarrierV(1, Bridge.Barriers.B1.Sensor.Closed, Bridge.Barriers.B1.Degree);
+barrier2 : BarrierV(2, Bridge.Barriers.B2.Sensor.Closed, Bridge.Barriers.B2.Degree);
+barrier3 : BarrierV(3, Bridge.Barriers.B3.Sensor.Closed, Bridge.Barriers.B3.Degree);
+barrier4 : BarrierV(4, Bridge.Barriers.B4.Sensor.Closed, Bridge.Barriers.B4.Degree);
+barrier5 : BarrierV(5, Bridge.Barriers.B5.Sensor.Closed, Bridge.Barriers.B5.Degree);
+barrier6 : BarrierV(6, Bridge.Barriers.B6.Sensor.Closed, Bridge.Barriers.B6.Degree);
+barrier7 : BarrierV(7, Bridge.Barriers.B7.Sensor.Closed, Bridge.Barriers.B7.Degree);
+barrier8 : BarrierV(8, Bridge.Barriers.B8.Sensor.Closed, Bridge.Barriers.B8.Degree);
+
+Button_234    : TheeStateButtonV(2,  Bridge.UI.Barrier36);
+Button_567    : TheeStateButtonV(5,  Bridge.UI.Barrier27);
+Button_8910   : TheeStateButtonV(8,  Bridge.UI.Barrier1);
+Button_111213 : TheeStateButtonV(11, Bridge.UI.Barrier5);
+Button_141516 : TheeStateButtonV(14, Bridge.UI.Barrier48);
+Button_171819 : TheeStateButtonV(17, Bridge.UI.Deck);
+
+group LTLButtonV:
+    svgin id  "Button1a" event Bridge.UI.LT.u_activate;
+    svgin id  "Button1b" event Bridge.UI.LT.u_stop;
+    svgin id  "Button1c" event Bridge.UI.LT.u_deactivate;
+    svgout id "Button1aV" attr "fill" value if Bridge.UI.LT.Activated:   "yellowgreen" else "indianred" end;
+    svgout id "Button1bV" attr "fill" value if Bridge.UI.LT.Stopped:     "yellowgreen" else "indianred" end;
+    svgout id "Button1cV" attr "fill" value if Bridge.UI.LT.Deactivated: "yellowgreen" else "indianred" end;
+end
+
+group EmergencyStopV:
+    svgin  id "EmergencyStop"  event if Bridge.EmergencyStop.Deactivated: Bridge.EmergencyStop.u_activate
+                                   else Bridge.EmergencyStop.u_reset end;
+    svgout id "EmergencyStopV" attr "fill" value if Bridge.EmergencyStop.Activated: "yellowgreen" else "indianred" end;
+end
+
+group CloseRequestV:
+    svgin  id "RequestClose"  event if Bridge.CloseRequest.Off: Bridge.CloseRequest.u_on
+                                  else Bridge.CloseRequest.u_off end;
+    svgout id "RequestClose" attr "fill" value if Bridge.CloseRequest.On: "yellowgreen" else "indianred" end;
+end
+
+
+svgout id "prog_Deck" attr "width" value scale(Bridge.Deck.Degree, 0, 90, 0.01, 100);
+svgout id "SoundSignal" attr "visibility" value if Bridge.Barriers.LTSoundSignals.On: "visible" else "hidden" end;
+svgout id "Deck" attr "visibility" value if Bridge.Deck.Sensor.Open: "hidden" else "visible" end;

@@ -1,0 +1,208 @@
+import "Plant.cif";
+
+group FunctionalRequirements:
+    //Functional requirements for the land traffic
+    group LT_FReq:
+        requirement Bridge.LTAS.NearActuator.c_on       needs
+            Bridge.UI.LT.Activated;
+        requirement Bridge.LTAS.FarActuator.c_on        needs
+            Bridge.UI.LT.Activated;
+        requirement Bridge.LTSS.MainLaneActuator.c_on   needs
+            Bridge.UI.LT.Activated;
+        requirement Bridge.LTSS.SwitchLaneActuator.c_on needs
+            Bridge.UI.LT.Activated;
+        requirement Bridge.Barriers.LightSignals.c_on   needs
+            Bridge.UI.LT.Activated;
+
+        requirement Bridge.LTAS.NearActuator.c_off       needs
+            Bridge.UI.LT.Deactivated;
+        requirement Bridge.LTAS.FarActuator.c_off        needs
+            Bridge.UI.LT.Deactivated;
+        requirement Bridge.LTSS.MainLaneActuator.c_off   needs
+            Bridge.UI.LT.Deactivated;
+        requirement Bridge.LTSS.SwitchLaneActuator.c_off needs
+            Bridge.UI.LT.Deactivated;
+        requirement Bridge.Barriers.LightSignals.c_off   needs
+            Bridge.UI.LT.Deactivated;
+    end
+
+    //Functional requirements for the barriers
+    group Barriers_FReq:
+        group def BarrierReq(controllable c_open, c_close, c_stop; ThreeStateUI Button):
+            requirement c_open  needs
+                Button.Open  and Bridge.EmergencyStop.Deactivated;
+            requirement c_close needs
+                Button.Close and Bridge.EmergencyStop.Deactivated;
+            requirement c_stop  needs
+                Button.Stop  or  Bridge.EmergencyStop.Activated;
+        end
+
+        Barrier1UI : BarrierReq(Bridge.Barriers.B1.Actuator.c_open, Bridge.Barriers.B1.Actuator.c_close,
+                                Bridge.Barriers.B1.Actuator.c_stop, Bridge.UI.Barrier1);
+        Barrier2UI : BarrierReq(Bridge.Barriers.B2.Actuator.c_open, Bridge.Barriers.B2.Actuator.c_close,
+                                Bridge.Barriers.B2.Actuator.c_stop, Bridge.UI.Barrier27);
+        Barrier3UI : BarrierReq(Bridge.Barriers.B3.Actuator.c_open, Bridge.Barriers.B3.Actuator.c_close,
+                                Bridge.Barriers.B3.Actuator.c_stop, Bridge.UI.Barrier36);
+        Barrier4UI : BarrierReq(Bridge.Barriers.B4.Actuator.c_open, Bridge.Barriers.B4.Actuator.c_close,
+                                Bridge.Barriers.B4.Actuator.c_stop, Bridge.UI.Barrier48);
+        Barrier5UI : BarrierReq(Bridge.Barriers.B5.Actuator.c_open, Bridge.Barriers.B5.Actuator.c_close,
+                                Bridge.Barriers.B5.Actuator.c_stop, Bridge.UI.Barrier5);
+        Barrier6UI : BarrierReq(Bridge.Barriers.B6.Actuator.c_open, Bridge.Barriers.B6.Actuator.c_close,
+                                Bridge.Barriers.B6.Actuator.c_stop, Bridge.UI.Barrier36);
+        Barrier7UI : BarrierReq(Bridge.Barriers.B7.Actuator.c_open, Bridge.Barriers.B7.Actuator.c_close,
+                                Bridge.Barriers.B7.Actuator.c_stop, Bridge.UI.Barrier27);
+        Barrier8UI : BarrierReq(Bridge.Barriers.B8.Actuator.c_open, Bridge.Barriers.B8.Actuator.c_close,
+                                Bridge.Barriers.B8.Actuator.c_stop, Bridge.UI.Barrier48);
+    end
+
+    //Functional requirement for the bridge deck
+    group Deck_FReq:
+        requirement Bridge.Deck.Actuator.c_open  needs
+            Bridge.UI.Deck.Open  and Bridge.EmergencyStop.Deactivated;
+        requirement Bridge.Deck.Actuator.c_close needs
+            Bridge.UI.Deck.Close and Bridge.EmergencyStop.Deactivated;
+        requirement Bridge.Deck.Actuator.c_stop  needs
+            Bridge.UI.Deck.Stop  or  Bridge.EmergencyStop.Activated;
+    end
+end
+
+group SafetyRequirements:
+    group Requirement_I:   //The stop signs can only enable when the approach signs are enabled for 15 seconds.
+        requirement Bridge.LTSS.MainLaneActuator.c_on needs
+            Bridge.LTAS.Enabled15Timer.Finished;
+        requirement Bridge.LTSS.MainLaneActuator.c_on needs
+            Bridge.LTAS.Enabled;
+
+        requirement Bridge.LTSS.SwitchLaneActuator.c_on needs
+            Bridge.LTAS.Enabled15Timer.Finished;
+        requirement Bridge.LTSS.SwitchLaneActuator.c_on needs
+            Bridge.LTAS.Enabled;
+
+        requirement Bridge.Barriers.LightSignals.c_on needs
+            Bridge.LTAS.Enabled15Timer.Finished;
+        requirement Bridge.Barriers.LightSignals.c_on needs
+            Bridge.LTAS.Enabled;
+    end
+
+    group Requirement_II:  //The sound signal can only enable when the approach signs are enabled for 20 seconds
+                           //If the Barriers are closed, the SoundSignals should not start.
+                           //The sound signal can only disable when the barriers are closed.
+        requirement Bridge.Barriers.LTSoundSignals.c_on needs
+            Bridge.LTAS.Enabled20TimeOk and Bridge.UI.LT.Activated;
+        requirement Bridge.Barriers.LTSoundSignals.c_on needs
+            not Bridge.Barriers.LTClosed;
+        requirement Bridge.Barriers.LTSoundSignals.c_off needs
+            Bridge.Barriers.LTClosed;
+    end
+
+    group Requirement_III: //The entering barriers can only close when the stop signs are enabled for 15 seconds
+        requirement Bridge.Barriers.B3.Actuator.c_close needs
+            Bridge.LTSS.EnabledTimer.Finished;
+        requirement Bridge.Barriers.B3.Actuator.c_close needs
+           Bridge.LTSS.Enabled;
+
+        requirement Bridge.Barriers.B6.Actuator.c_close needs
+            Bridge.LTSS.EnabledTimer.Finished;
+        requirement Bridge.Barriers.B6.Actuator.c_close needs
+           Bridge.LTSS.Enabled;
+    end
+
+    group Requirement_IV:  //The leaving barriers can only close when the entering barriers are closed for 1 second.
+        requirement Bridge.Barriers.B2.Actuator.c_close needs
+            Bridge.Barriers.EnteringClosedTimer.Finished;
+        requirement Bridge.Barriers.B2.Actuator.c_close needs
+            Bridge.Barriers.EnteringClosed;
+
+        requirement Bridge.Barriers.B7.Actuator.c_close needs
+            Bridge.Barriers.EnteringClosedTimer.Finished;
+        requirement Bridge.Barriers.B7.Actuator.c_close needs
+            Bridge.Barriers.EnteringClosed;
+    end
+
+    group Requirement_V: //The rush-hour and land-traffic barriers can only close if the leaving barriers are closed.
+        requirement Bridge.Barriers.B1.Actuator.c_close needs
+            Bridge.Barriers.LeavingClosed;
+        requirement Bridge.Barriers.B4.Actuator.c_close needs
+            Bridge.Barriers.LeavingClosed;
+        requirement Bridge.Barriers.B5.Actuator.c_close needs
+            Bridge.Barriers.LeavingClosed;
+        requirement Bridge.Barriers.B8.Actuator.c_close needs
+            Bridge.Barriers.LeavingClosed;
+    end
+
+    group Requirement_VI: //The land-traffic barriers can only close if the sound signal has been enabled for 6 seconds.
+        requirement Bridge.Barriers.B4.Actuator.c_close needs
+            Bridge.Barriers.LTSoundSignalTimeOk;
+        requirement Bridge.Barriers.B8.Actuator.c_close needs
+            Bridge.Barriers.LTSoundSignalTimeOk;
+    end
+
+    group Requirement_VII: //The bridge can only open when all barriers are closed.
+        requirement Bridge.Deck.Actuator.c_open needs
+            Bridge.Barriers.AllClosed;
+    end
+
+    group Requirement_VIII:  //The barriers can only open when the bridge is closed.
+        requirement Bridge.Barriers.B1.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B2.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B3.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B4.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B5.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B6.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B7.Actuator.c_open needs
+            Bridge.Deck.Closed;
+        requirement Bridge.Barriers.B8.Actuator.c_open needs
+            Bridge.Deck.Closed;
+    end
+
+    group Requirement_IX:    //The entering barriers can only open when the leaving barriers are open.
+        requirement Bridge.Barriers.B3.Actuator.c_open needs
+            Bridge.Barriers.LeavingOpenTimer.Finished;
+        requirement Bridge.Barriers.B3.Actuator.c_open needs
+            Bridge.Barriers.LeavingOpen;
+
+        requirement Bridge.Barriers.B6.Actuator.c_open needs
+            Bridge.Barriers.LeavingOpenTimer.Finished;
+        requirement Bridge.Barriers.B6.Actuator.c_open needs
+            Bridge.Barriers.LeavingOpen;
+    end
+
+    group Requirement_X:   //The stop signs can only switch off when the barriers are open.
+        requirement Bridge.LTSS.MainLaneActuator.c_off needs
+            Bridge.Barriers.AllOpen;
+        requirement Bridge.LTSS.SwitchLaneActuator.c_off needs
+            Bridge.Barriers.AllOpen;
+        requirement Bridge.Barriers.LightSignals.c_off needs
+            Bridge.Barriers.AllOpen;
+    end
+
+    group Requirement_XI:  //The near approach signs can only turn of when the stop signs are off for 60 seconds.
+        requirement Bridge.LTAS.NearActuator.c_off needs
+            Bridge.LTSS.DisabledTimer.Finished;
+        requirement Bridge.LTAS.NearActuator.c_off needs
+            Bridge.LTSS.Disabled;
+    end
+
+    group Requirement_XII: //The far approach signs can only turn of when the near approach signs are off for 60 seconds.
+        requirement Bridge.LTAS.FarActuator.c_off needs
+            Bridge.LTAS.NearDisabledTimer.Finished;
+        requirement Bridge.LTAS.FarActuator.c_off needs
+            Bridge.LTAS.NearDisabled;
+    end
+
+    group Requirement_XIII:   //If the CloseRequest is given, the barriers are not allowed to close, and the deck is not allowed to open
+        requirement Bridge.CloseRequest.On disables
+            {Bridge.Barriers.B1.Actuator.c_close, Bridge.Barriers.B2.Actuator.c_close,
+             Bridge.Barriers.B3.Actuator.c_close, Bridge.Barriers.B4.Actuator.c_close,
+             Bridge.Barriers.B5.Actuator.c_close, Bridge.Barriers.B6.Actuator.c_close,
+             Bridge.Barriers.B7.Actuator.c_close, Bridge.Barriers.B8.Actuator.c_close,
+             Bridge.Deck.Actuator.c_open};
+
+    end
+ end
