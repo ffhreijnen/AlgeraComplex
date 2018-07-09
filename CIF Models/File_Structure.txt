@@ -1,0 +1,43 @@
+Input files:
+[Templates/Plant.cif]         Templates for the plant model.
+[Templates/Simulation.cif]    Templates for the simulation model.
+[Templates/Visualization.cif] Templates for the visualization.
+
+[Bridge/Plant.cif]            EFSA model of the bridge plant.
+[Bridge/Requirements.cif]     State-based requirement model for the bridge.
+[Bridge/Simulation.cif]	      Hybrid EFSA model of the bridge plant.
+[Bridge/Visualization.cif]    Mapping of hybridg bridge plant to visualization.
+
+[Lock/Plant.cif]              EFSA model of the lock plant.
+[Lock/Requirements.cif]       State-based requirement model for the lock.
+[Lock/Simulation.cif]	      Hybrid EFSA model of the lock plant.
+[Lock/Visualization.cif]      Mapping of hybridg lock plant to visualization.
+
+[LockBridge.Requirements.cif] State-based requirement model for the lock-bridge combination.
+[Image.svg]					  The svg visualization of the lock-bridge combination.
+
+
+Output files:
+[Bridge/generated_files/Supervisor.cif] 	       Synthesized supervisor, using [Synthesis.tooldef2].
+[Bridge/generated_files/Supervisor_Hybrid.cif]     Hybrid controlled system, using [Simulation.tooldef2].
+
+[Lock/generated_files/Supervisor.cif] 	           Synthesized supervisor, using [Synthesis.tooldef2].
+[Lock/generated_files/Supervisor_Hybrid.cif]       Hybrid controlled system, using [Simulation.tooldef2].
+
+[LockBridge/generated_files/Supervisor.cif] 	   Synthesized supervisor, using [Synthesis.tooldef2].
+[LockBridge/generated_files/Supervisor_Hybrid.cif] Hybrid controlled system, using [Simulation.tooldef2].
+
+
+Executable files:
+[Bridge/Synthesis.tooldef2]      Execute to synthesise [Bridge/generated_files/Supervisor.cif] from [Bridge/Plant.cif] and [Bridge/Requirements.cif].
+[Bridge/Simulation.tooldef2]     Execute to generate and simulate [Bridge/generated_files/Supervisor_Hybrid.cif] 
+                                 from [Bridge/generated_files/Supervisor.cif], [Bridge/Simulation.cif], and [Bridge/Visualization.cif].
+
+[Lock/Synthesis.tooldef2]        Execute to synthesise [Lock/generated_files/Supervisor.cif] from [Lock/Plant.cif] and [Lock/Requirements.cif].
+[Lock/Simulation.tooldef2]       Execute to generate and simulate [Lock/Generated_files/Supervisor_Hybrid.cif] 
+                                 from [Lock/Generated_files/Supervisor.cif], [Lock/Simulation.cif], and [Lock/Visualization.cif].
+
+[LockBridge/Synthesis.tooldef2]  Execute to synthesise [LockBridge/generated_files/Supervisor.cif] from [Bridge/Plant.cif], [Lock/Plant.cif], 
+                                 [Bridge/Requirements.cif], [Lock/Requirements.cif], and [LockBridge/Requirement.cif].
+[LockBridge/Simulation.tooldef2] Execute to generate and simulate [LockBridge/generated_files/Supervisor_Hybrid.cif] 
+                                 from [LockBridge/generated_files/Supervisor.cif], [Bridge/Simulation.cif], [Lock/Simulation.cif], [Bridge/Visualization.cif], and [Lock/Visualization.cif].
