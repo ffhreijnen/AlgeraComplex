@@ -2,22 +2,22 @@ import "../Templates/Simulation.cif";
 
 group Lock:
     group UI:
-        UEbGate             : ThreeStateUI(false);
-        UFloodGate          : ThreeStateUI(false);
-        DEbGate             : ThreeStateUI(false);
-        DFloodGate          : ThreeStateUI(false);
-        DStormFloodGate     : ThreeStateUI(false);
+        UEbbGate            : MovableComponentsCommands(false);
+        UFloodGate          : MovableComponentsCommands(false);
+        DEbbGate            : MovableComponentsCommands(false);
+        DFloodGate          : MovableComponentsCommands(false);
+        DStormFloodGate     : MovableComponentsCommands(false);
 
-        UEbPaddle           : ThreeStateUI(false);
-        UFloodPaddle        : ThreeStateUI(false);
-        DEbPaddle           : ThreeStateUI(false);
-        DFloodPaddle        : ThreeStateUI(false);
-        DStormFloodPaddle   : ThreeStateUI(false);
+        UEbbPaddle          : MovableComponentsCommands(false);
+        UFloodPaddle        : MovableComponentsCommands(false);
+        DEbbPaddle          : MovableComponentsCommands(false);
+        DFloodPaddle        : MovableComponentsCommands(false);
+        DStormFloodPaddle   : MovableComponentsCommands(false);
 
-        DLockTrafficLight   : LockTrafficLightUI();
-        ULockTrafficLight   : LockTrafficLightUI();
+        DLockTrafficLight   : LockTrafficLightCommands();
+        ULockTrafficLight   : LockTrafficLightCommands();
 
-        UBridgeTraffigLight : BridgeTrafficLightUI();
+        DBridgeTraffigLight : BridgeTrafficLightCommands();
     end
 
     EmergencyStop : EmergencyStopDef();
@@ -28,35 +28,48 @@ group Lock:
     end
 
     //Bridge traffic lights
-    //@Red = True when both traffic lights display a red sign aspect
     group BTL:
-        UE : BridgeTrafficLight(); UW : BridgeTrafficLight();
+        DE : BridgeTrafficLight(); DW : BridgeTrafficLight();
     end
 
-    UpstreamEb           : GatePaddleSet();
+    UpstreamEbb          : GatePaddleSet();
     UpstreamFlood        : GatePaddleSet();
-    DownstreamEb         : GatePaddleSet();
+    DownstreamEbb        : GatePaddleSet();
     DownstreamFlood      : GatePaddleSet();
     DownstreamStormFlood : GatePaddleSet();
 
-    EqualWaterUpstream   : EqualWaterSensor(false, Water.H_Chamber >= Water.H_Upstream);
-    EqualWaterDownstream : EqualWaterSensor(true,  Water.H_Chamber <= Water.H_Downstream);
+    EqualWaterUpstream   : SingleInputSensor(false);
+    EqualWaterDownstream : SingleInputSensor(true);
 
-    group Water:
-        const real H_Upstream = 10.0, H_Downstream = 2.0;
-        cont       H_Chamber  = 2.0 der if DownstreamOpen and H_Chamber > H_Downstream: -2.0
-                                      elif UpstreamOpen   and H_Chamber < H_Upstream  : +2.0
-                                      else 0 end;
-        alg bool DownstreamOpen = (DownstreamEb.EastPaddle.Open         or DownstreamEb.WestPaddle.Open    or
-                                   DownstreamEb.EastGate.Open           or DownstreamEb.WestGate.Open)     and
+    automaton Water:
+        const real h_upstream = 10.0, h_downstream = 2.0;
+        cont       h         = 2.0 der if UpstreamOpen   and h < h_upstream  : +1
+                                     elif DownstreamOpen and h > h_downstream: -1
+                                     else 0 end;
+        alg bool DownstreamOpen = (DownstreamEbb.EastPaddle.Open        or DownstreamEbb.WestPaddle.Open   or
+                                   DownstreamEbb.EastGate.Open          or DownstreamEbb.WestGate.Open)    and
                                   (DownstreamFlood.EastPaddle.Open      or DownstreamFlood.WestPaddle.Open or
                                    DownstreamFlood.EastGate.Open        or DownstreamFlood.WestGate.Open)  and
                                   (DownstreamStormFlood.EastPaddle.Open or DownstreamStormFlood.WestPaddle.Open or
                                    DownstreamStormFlood.EastGate.Open   or DownstreamStormFlood.WestGate.Open);
 
-        alg bool UpstreamOpen   = (UpstreamEb.EastPaddle.Open           or UpstreamEb.WestPaddle.Open    or
-                                   UpstreamEb.EastGate.Open             or UpstreamEb.WestGate.Open)     and
+        alg bool UpstreamOpen   = (UpstreamEbb.EastPaddle.Open          or UpstreamEbb.WestPaddle.Open   or
+                                   UpstreamEbb.EastGate.Open            or UpstreamEbb.WestGate.Open)    and
                                   (UpstreamFlood.EastPaddle.Open        or UpstreamFlood.WestPaddle.Open or
                                    UpstreamFlood.EastGate.Open          or UpstreamFlood.WestGate.Open);
+        location Low:
+            initial;
+            edge when h > h_downstream  goto Middle;
+            edge EqualWaterUpstream.u_off;
+            edge EqualWaterDownstream.u_on;
+        location Middle:
+            edge when h <= h_downstream goto Low;
+            edge when h >= h_upstream   goto High;
+            edge EqualWaterUpstream.u_off;
+            edge EqualWaterDownstream.u_off;
+        location High:
+            edge when h < h_upstream    goto Middle;
+            edge EqualWaterUpstream.u_on;
+            edge EqualWaterDownstream.u_off;
     end
 end

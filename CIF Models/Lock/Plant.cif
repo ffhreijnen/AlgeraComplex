@@ -2,48 +2,52 @@ import "../Templates/Plant.cif";
 
 group Lock:
     group UI:
-        UEbGate             : ThreeStateUI(false);
-        UFloodGate          : ThreeStateUI(false);
-        DEbGate             : ThreeStateUI(false);
-        DFloodGate          : ThreeStateUI(false);
-        DStormFloodGate     : ThreeStateUI(false);
+        UEbbGate            : MovableComponentsCommands(false);
+        UFloodGate          : MovableComponentsCommands(false);
+        DEbbGate            : MovableComponentsCommands(false);
+        DFloodGate          : MovableComponentsCommands(false);
+        DStormFloodGate     : MovableComponentsCommands(false);
 
-        UEbPaddle           : ThreeStateUI(false);
-        UFloodPaddle        : ThreeStateUI(false);
-        DEbPaddle           : ThreeStateUI(false);
-        DFloodPaddle        : ThreeStateUI(false);
-        DStormFloodPaddle   : ThreeStateUI(false);
+        UEbbPaddle           : MovableComponentsCommands(false);
+        UFloodPaddle        : MovableComponentsCommands(false);
+        DEbbPaddle          : MovableComponentsCommands(false);
+        DFloodPaddle        : MovableComponentsCommands(false);
+        DStormFloodPaddle   : MovableComponentsCommands(false);
 
-        DLockTrafficLight   : LockTrafficLightUI();
-        ULockTrafficLight   : LockTrafficLightUI();
+        DLockTrafficLight   : LockTrafficLightCommands();
+        ULockTrafficLight   : LockTrafficLightCommands();
 
-        UBridgeTraffigLight : BridgeTrafficLightUI();
+        DBridgeTraffigLight : BridgeTrafficLightCommands();
     end
 
-    //Emergency Stop at the lock or from the control UI
-    EmergencyStop : EmergencyStopDef();
+    //Emergency Stop at the lock.
+    EmergencyStop : EmergencyStopCommand();
 
     //Lock traffic lights
-    //@DRedOrRedRed - True when both downstream traffic lights display a red, or double red sign aspect
-    //@URedOrRedRed - True when both upstream   traffic lights display a red, or double red sign aspect
+    //@DRed    - True when both downstream traffic lights display a red aspect.
+    //@DRedRed - True when both downstream traffic lights display a double red aspect.
+    //@URed    - True when both upstream   traffic lights display a red aspect.
+    //@URedRed - True when both upstream   traffic lights display a double red aspect.
     group LTL:
         DE : LockTrafficLight(); DW : LockTrafficLight();
         UE : LockTrafficLight(); UW : LockTrafficLight();
-        alg bool DRedOrRedRed = (DE.Red and DW.Red) or (DE.RedRed and DW.RedRed);
-        alg bool URedOrRedRed = (UE.Red and UW.Red) or (UE.RedRed and UW.RedRed);
+        alg bool DRed    = (DE.Red    and DW.Red);
+        alg bool DRedRed = (DE.RedRed and DW.RedRed);
+        alg bool URed    = (UE.Red    and UW.Red);
+        alg bool URedRed = (UE.RedRed and UW.RedRed);
     end
 
     //Bridge traffic lights
-    //@Red = True when both traffic lights display a red sign aspect
+    //@Red = True when both traffic lights display a red aspect.
     group BTL:
-        UE : BridgeTrafficLight(); UW : BridgeTrafficLight();
-        alg bool Red = UE.Red and UW.Red;
+        DE : BridgeTrafficLight(); DW : BridgeTrafficLight();
+        alg bool DRed = DE.Red and DW.Red;
     end
 
     //Sets of 2 gates and 2 paddles
-    UpstreamEb           : GatePaddleSet();
+    UpstreamEbb          : GatePaddleSet();
     UpstreamFlood        : GatePaddleSet();
-    DownstreamEb         : GatePaddleSet();
+    DownstreamEbb        : GatePaddleSet();
     DownstreamFlood      : GatePaddleSet();
     DownstreamStormFlood : GatePaddleSet();
 

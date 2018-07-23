@@ -2,13 +2,11 @@ const int[10..10] TimeScaler = 10;
 group Bridge:
   group UI:
     automaton LT:
-      monitor;
       uncontrollable u_activate;
       uncontrollable u_deactivate;
       uncontrollable u_stop;
       location Deactivated:
         initial;
-        marked;
         edge u_activate goto Activated;
         edge u_stop goto Stopped;
       location Activated:
@@ -19,7 +17,6 @@ group Bridge:
         edge u_deactivate goto Deactivated;
     end
     automaton Barrier1:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -37,7 +34,6 @@ group Bridge:
         edge u_open goto Open;
     end
     automaton Barrier27:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -55,7 +51,6 @@ group Bridge:
         edge u_open goto Open;
     end
     automaton Barrier36:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -73,7 +68,6 @@ group Bridge:
         edge u_open goto Open;
     end
     automaton Barrier48:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -91,7 +85,6 @@ group Bridge:
         edge u_open goto Open;
     end
     automaton Barrier5:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -109,7 +102,6 @@ group Bridge:
         edge u_open goto Open;
     end
     automaton Deck:
-      monitor;
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -132,7 +124,6 @@ group Bridge:
     uncontrollable u_reset;
     location Deactivated:
       initial;
-      marked;
       edge u_activate goto Activated;
     location Activated:
       edge u_reset goto Deactivated;
@@ -275,50 +266,50 @@ group Bridge:
           edge Sensor.u_off when Off;
       end
     end
-    automaton Enabled15Timer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton On15Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 15.0 / TimeScaler;
+      alg real T = 15.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
-    automaton Enabled20Timer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton On20Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 20.0 / TimeScaler;
+      alg real T = 20.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
-    automaton NearDisabledTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton NearOff60Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 60.0 / TimeScaler;
+      alg real T = 60.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
   end
   group LTSS:
@@ -620,46 +611,46 @@ group Bridge:
           edge Sensor.u_off when Off;
       end
     end
-    automaton EnabledTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton On15Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 15.0 / TimeScaler;
+      alg real T = 15.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
-    automaton DisabledTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton Off60Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 60.0 / TimeScaler;
+      alg real T = 60.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
   end
   group Barriers:
     group B1:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -667,9 +658,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -688,25 +679,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B1.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B1.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B2:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -714,9 +706,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -735,25 +727,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B2.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B2.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B3:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -761,9 +754,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -782,25 +775,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B3.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B3.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B4:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -808,9 +802,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -829,25 +823,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B4.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B4.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B5:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -855,9 +850,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -876,25 +871,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B5.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B5.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B6:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -902,9 +898,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -923,25 +919,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B6.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B6.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B7:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -949,9 +946,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -970,25 +967,26 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B7.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B7.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     group B8:
-      cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+      alg real a = Dynamics.a;
       alg bool Open = Sensor.Open;
       alg bool InitialLocationClosed = false;
       automaton Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
         location Rest:
@@ -996,9 +994,9 @@ group Bridge:
           edge c_open goto Opening;
           edge c_close goto Closing;
         location Opening:
-          edge c_stop, c_endStopOpening goto Rest;
+          edge c_emrgStop, c_endStopOpening goto Rest;
         location Closing:
-          edge c_stop, c_endStopClosing goto Rest;
+          edge c_emrgStop, c_endStopClosing goto Rest;
       end
       automaton Sensor:
         uncontrollable u_open_on;
@@ -1017,15 +1015,16 @@ group Bridge:
           edge u_open_off goto Intermediate;
       end
       automaton Dynamics:
-        alg real ClosedDegree = 0.0;
-        alg real OpenDegree = 90.0;
-        alg real Degree = .Bridge.Barriers.B8.Degree;
+        const real a_open = 3.0;
+        const real a_closed = 0.0;
+        cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+        alg bool InitialLocationClosed = .Bridge.Barriers.B8.InitialLocationClosed;
         location:
           initial;
-          edge Sensor.u_open_on when Degree >= OpenDegree;
-          edge Sensor.u_closed_off when Degree < OpenDegree;
-          edge Sensor.u_closed_on when Degree <= ClosedDegree;
-          edge Sensor.u_open_off when Degree > ClosedDegree;
+          edge Sensor.u_open_on when a >= a_open;
+          edge Sensor.u_closed_off when a < a_open;
+          edge Sensor.u_closed_on when a <= a_closed;
+          edge Sensor.u_open_off when a > a_closed;
       end
     end
     automaton LightSignals:
@@ -1039,7 +1038,7 @@ group Bridge:
         initial InitialLocationOn;
         edge c_off goto Off;
     end
-    automaton LTSoundSignals:
+    automaton SoundSignals:
       controllable c_on;
       controllable c_off;
       alg bool InitialLocationOn = false;
@@ -1050,60 +1049,60 @@ group Bridge:
         initial InitialLocationOn;
         edge c_off goto Off;
     end
-    automaton EnteringClosedTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton B3B6Closed1Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 1.0 / TimeScaler;
+      alg real T = 1.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
-    automaton LeavingOpenTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton B2B7Open1Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 1.0 / TimeScaler;
+      alg real T = 1.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
-    automaton LTSoundSignalTimer:
-      cont t = 0.0 der if On: 1.0 else 0.0 end;
+    automaton SoundOn6Timer:
+      cont Y = 0.0 der if Running: -1.0 else 0.0 end;
       controllable c_on;
       controllable c_reset;
       uncontrollable u_timeout;
-      alg real TimerLength = 6.0 / TimeScaler;
+      alg real T = 6.0 / TimeScaler;
       location Off:
         initial;
-        edge c_on goto On;
-      location On:
-        edge c_reset do t := 0.0 goto Off;
-        edge u_timeout when t >= TimerLength goto Finished;
+        edge c_on do Y := T goto Running;
+      location Running:
+        edge c_reset goto Off;
+        edge u_timeout when Y <= 0 goto Finished;
       location Finished:
-        edge c_reset do t := 0.0 goto Off;
+        edge c_reset goto Off;
     end
   end
   group Deck:
-    cont Degree = if InitialLocationClosed: 0.0 else 90.0 end der if Actuator.Opening and Degree < 90.0: +30.0 elif Actuator.Closing and Degree > 0.0: -30.0 else 0.0 end;
+    alg real a = Dynamics.a;
     alg bool Open = Sensor.Open;
     alg bool InitialLocationClosed = true;
     automaton Actuator:
       controllable c_open;
       controllable c_close;
-      controllable c_stop;
+      controllable c_emrgStop;
       controllable c_endStopClosing;
       controllable c_endStopOpening;
       location Rest:
@@ -1111,9 +1110,9 @@ group Bridge:
         edge c_open goto Opening;
         edge c_close goto Closing;
       location Opening:
-        edge c_stop, c_endStopOpening goto Rest;
+        edge c_emrgStop, c_endStopOpening goto Rest;
       location Closing:
-        edge c_stop, c_endStopClosing goto Rest;
+        edge c_emrgStop, c_endStopClosing goto Rest;
     end
     automaton Sensor:
       uncontrollable u_open_on;
@@ -1132,15 +1131,16 @@ group Bridge:
         edge u_open_off goto Intermediate;
     end
     automaton Dynamics:
-      alg real ClosedDegree = 0.0;
-      alg real OpenDegree = 90.0;
-      alg real Degree = .Bridge.Deck.Degree;
+      const real a_open = 3.0;
+      const real a_closed = 0.0;
+      cont a = if InitialLocationClosed: a_closed else a_open end der if Actuator.Opening and a < a_open: +1.0 elif Actuator.Closing and a > a_closed: -1.0 else 0.0 end;
+      alg bool InitialLocationClosed = .Bridge.Deck.InitialLocationClosed;
       location:
         initial;
-        edge Sensor.u_open_on when Degree >= OpenDegree;
-        edge Sensor.u_closed_off when Degree < OpenDegree;
-        edge Sensor.u_closed_on when Degree <= ClosedDegree;
-        edge Sensor.u_open_off when Degree > ClosedDegree;
+        edge Sensor.u_open_on when a >= a_open;
+        edge Sensor.u_closed_off when a < a_open;
+        edge Sensor.u_closed_on when a <= a_closed;
+        edge Sensor.u_open_off when a > a_closed;
     end
   end
   automaton CloseRequest:
@@ -1156,151 +1156,178 @@ group Bridge:
   end
 end
 group sup:
-  group FunctionalRequirements:
-    group LT_FReq:
-      requirement invariant .Bridge.LTAS.NearActuator.c_on needs Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.LTAS.FarActuator.c_on needs Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.UI.LT.Deactivated;
-      requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.UI.LT.Deactivated;
-      requirement invariant .Bridge.LTSS.MainLaneActuator.c_off needs Bridge.UI.LT.Deactivated;
-      requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_off needs Bridge.UI.LT.Deactivated;
-      requirement invariant .Bridge.Barriers.LightSignals.c_off needs Bridge.UI.LT.Deactivated;
-    end
-    group Barriers_FReq:
-      group Barrier1UI:
-        requirement invariant .Bridge.Barriers.B1.Actuator.c_open needs Bridge.UI.Barrier1.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.UI.Barrier1.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B1.Actuator.c_stop needs Bridge.UI.Barrier1.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier2UI:
-        requirement invariant .Bridge.Barriers.B2.Actuator.c_open needs Bridge.UI.Barrier27.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.UI.Barrier27.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B2.Actuator.c_stop needs Bridge.UI.Barrier27.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier3UI:
-        requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.UI.Barrier36.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.UI.Barrier36.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B3.Actuator.c_stop needs Bridge.UI.Barrier36.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier4UI:
-        requirement invariant .Bridge.Barriers.B4.Actuator.c_open needs Bridge.UI.Barrier48.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.UI.Barrier48.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B4.Actuator.c_stop needs Bridge.UI.Barrier48.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier5UI:
-        requirement invariant .Bridge.Barriers.B5.Actuator.c_open needs Bridge.UI.Barrier5.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.UI.Barrier5.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B5.Actuator.c_stop needs Bridge.UI.Barrier5.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier6UI:
-        requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.UI.Barrier36.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.UI.Barrier36.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B6.Actuator.c_stop needs Bridge.UI.Barrier36.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier7UI:
-        requirement invariant .Bridge.Barriers.B7.Actuator.c_open needs Bridge.UI.Barrier27.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.UI.Barrier27.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B7.Actuator.c_stop needs Bridge.UI.Barrier27.Stop or Bridge.EmergencyStop.Activated;
-      end
-      group Barrier8UI:
-        requirement invariant .Bridge.Barriers.B8.Actuator.c_open needs Bridge.UI.Barrier48.Open and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.UI.Barrier48.Close and Bridge.EmergencyStop.Deactivated;
-        requirement invariant .Bridge.Barriers.B8.Actuator.c_stop needs Bridge.UI.Barrier48.Stop or Bridge.EmergencyStop.Activated;
-      end
-    end
-    group Deck_FReq:
-      requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.UI.Deck.Open and Bridge.EmergencyStop.Deactivated;
-      requirement invariant .Bridge.Deck.Actuator.c_close needs Bridge.UI.Deck.Close and Bridge.EmergencyStop.Deactivated;
-      requirement invariant .Bridge.Deck.Actuator.c_stop needs Bridge.UI.Deck.Stop or Bridge.EmergencyStop.Activated;
-    end
+  group Requirement1:
+    requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.LTAS.On;
+    requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.LTAS.On15Timer.Finished;
+    requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.LTAS.On;
+    requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.LTAS.On15Timer.Finished;
+    requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.LTAS.On;
+    requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.LTAS.On15Timer.Finished;
   end
-  group SafetyRequirements:
-    group Requirement_I:
-      requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.LTAS.Enabled15Timer.Finished;
-      requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.LTAS.Enabled;
-      requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.LTAS.Enabled15Timer.Finished;
-      requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.LTAS.Enabled;
-      requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.LTAS.Enabled15Timer.Finished;
-      requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.LTAS.Enabled;
+  group Requirement2:
+    requirement invariant .Bridge.Barriers.SoundSignals.c_on needs Bridge.LTAS.On;
+    requirement invariant .Bridge.Barriers.SoundSignals.c_on needs Bridge.LTAS.On20Timer.Finished;
+    requirement invariant .Bridge.Barriers.SoundSignals.c_on needs not Bridge.Barriers.SlowClosed;
+    requirement invariant .Bridge.Barriers.SoundSignals.c_off needs Bridge.Barriers.SlowClosed;
+  end
+  group Requirement3:
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.LTSS.On;
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.LTSS.On15Timer.Finished;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.LTSS.On;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.LTSS.On15Timer.Finished;
+  end
+  group Requirement4:
+    requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.Barriers.B3.Closed;
+    requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.Barriers.B6.Closed;
+    requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.Barriers.B3B6Closed1Timer.Finished;
+    requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.Barriers.B3.Closed;
+    requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.Barriers.B6.Closed;
+    requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.Barriers.B3B6Closed1Timer.Finished;
+  end
+  group Requirement5:
+    requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.Barriers.B2.Closed;
+    requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.Barriers.B7.Closed;
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.B2.Closed;
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.B7.Closed;
+    requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.Barriers.B2.Closed;
+    requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.Barriers.B7.Closed;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.B2.Closed;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.B7.Closed;
+  end
+  group Requirement6:
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.SoundSignals.On;
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.SoundOn6Timer.Finished;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.SoundSignals.On;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.SoundOn6Timer.Finished;
+  end
+  group Requirement7:
+    requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.Barriers.Closed;
+  end
+  group Requirement8:
+    requirement invariant .Bridge.Barriers.B1.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B2.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B5.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B7.Actuator.c_open needs Bridge.Deck.Closed;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_open needs Bridge.Deck.Closed;
+  end
+  group Requirement9:
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Barriers.B2.Open;
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Barriers.B7.Open;
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Barriers.B2B7Open1Timer.Finished;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Barriers.B2.Open;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Barriers.B7.Open;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Barriers.B2B7Open1Timer.Finished;
+  end
+  group Requirement10:
+    requirement invariant .Bridge.LTSS.MainLaneActuator.c_off needs Bridge.Barriers.Open;
+    requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_off needs Bridge.Barriers.Open;
+    requirement invariant .Bridge.Barriers.LightSignals.c_off needs Bridge.Barriers.Open;
+  end
+  group Requirement11:
+    requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.LTSS.Off;
+    requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.LTSS.Off60Timer.Finished;
+  end
+  group Requirement12:
+    requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.LTAS.NearOff;
+    requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.LTAS.NearOff60Timer.Finished;
+  end
+  group Requirement13:
+    requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.CloseRequest.Off;
+    requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.CloseRequest.Off;
+  end
+  group Requirement14and16:
+    group Barriers:
+      group Barrier1:
+        requirement invariant .Bridge.Barriers.B1.Actuator.c_emrgStop needs Bridge.UI.Barrier1.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B1.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B1.Actuator.c_open needs Bridge.UI.Barrier1.Open;
+        requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.UI.Barrier1.Close;
+      end
+      group Barrier2:
+        requirement invariant .Bridge.Barriers.B2.Actuator.c_emrgStop needs Bridge.UI.Barrier27.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B2.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B2.Actuator.c_open needs Bridge.UI.Barrier27.Open;
+        requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.UI.Barrier27.Close;
+      end
+      group Barrier3:
+        requirement invariant .Bridge.Barriers.B3.Actuator.c_emrgStop needs Bridge.UI.Barrier36.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.UI.Barrier36.Open;
+        requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.UI.Barrier36.Close;
+      end
+      group Barrier4:
+        requirement invariant .Bridge.Barriers.B4.Actuator.c_emrgStop needs Bridge.UI.Barrier48.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B4.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B4.Actuator.c_open needs Bridge.UI.Barrier48.Open;
+        requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.UI.Barrier48.Close;
+      end
+      group Barrier5:
+        requirement invariant .Bridge.Barriers.B5.Actuator.c_emrgStop needs Bridge.UI.Barrier5.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B5.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B5.Actuator.c_open needs Bridge.UI.Barrier5.Open;
+        requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.UI.Barrier5.Close;
+      end
+      group Barrier6:
+        requirement invariant .Bridge.Barriers.B6.Actuator.c_emrgStop needs Bridge.UI.Barrier36.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.UI.Barrier36.Open;
+        requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.UI.Barrier36.Close;
+      end
+      group Barrier7:
+        requirement invariant .Bridge.Barriers.B7.Actuator.c_emrgStop needs Bridge.UI.Barrier27.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B7.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B7.Actuator.c_open needs Bridge.UI.Barrier27.Open;
+        requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.UI.Barrier27.Close;
+      end
+      group Barrier8:
+        requirement invariant .Bridge.Barriers.B8.Actuator.c_emrgStop needs Bridge.UI.Barrier48.Stop or Bridge.EmergencyStop.Activated;
+        requirement invariant .Bridge.Barriers.B8.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+        requirement invariant .Bridge.Barriers.B8.Actuator.c_open needs Bridge.UI.Barrier48.Open;
+        requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.UI.Barrier48.Close;
+      end
     end
-    group Requirement_II:
-      requirement invariant .Bridge.Barriers.LTSoundSignals.c_on needs Bridge.LTAS.Enabled20TimeOk and Bridge.UI.LT.Activated;
-      requirement invariant .Bridge.Barriers.LTSoundSignals.c_on needs not Bridge.Barriers.LTClosed;
-      requirement invariant .Bridge.Barriers.LTSoundSignals.c_off needs Bridge.Barriers.LTClosed;
+    group BridgeDeck:
+      requirement invariant .Bridge.Deck.Actuator.c_emrgStop needs Bridge.UI.Deck.Stop or Bridge.EmergencyStop.Activated;
+      requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.EmergencyStop.Deactivated;
+      requirement invariant .Bridge.Deck.Actuator.c_close needs Bridge.EmergencyStop.Deactivated;
+      requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.UI.Deck.Open;
+      requirement invariant .Bridge.Deck.Actuator.c_close needs Bridge.UI.Deck.Close;
     end
-    group Requirement_III:
-      requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.LTSS.EnabledTimer.Finished;
-      requirement invariant .Bridge.Barriers.B3.Actuator.c_close needs Bridge.LTSS.Enabled;
-      requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.LTSS.EnabledTimer.Finished;
-      requirement invariant .Bridge.Barriers.B6.Actuator.c_close needs Bridge.LTSS.Enabled;
-    end
-    group Requirement_IV:
-      requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.Barriers.EnteringClosedTimer.Finished;
-      requirement invariant .Bridge.Barriers.B2.Actuator.c_close needs Bridge.Barriers.EnteringClosed;
-      requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.Barriers.EnteringClosedTimer.Finished;
-      requirement invariant .Bridge.Barriers.B7.Actuator.c_close needs Bridge.Barriers.EnteringClosed;
-    end
-    group Requirement_V:
-      requirement invariant .Bridge.Barriers.B1.Actuator.c_close needs Bridge.Barriers.LeavingClosed;
-      requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.LeavingClosed;
-      requirement invariant .Bridge.Barriers.B5.Actuator.c_close needs Bridge.Barriers.LeavingClosed;
-      requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.LeavingClosed;
-    end
-    group Requirement_VI:
-      requirement invariant .Bridge.Barriers.B4.Actuator.c_close needs Bridge.Barriers.LTSoundSignalTimeOk;
-      requirement invariant .Bridge.Barriers.B8.Actuator.c_close needs Bridge.Barriers.LTSoundSignalTimeOk;
-    end
-    group Requirement_VII:
-      requirement invariant .Bridge.Deck.Actuator.c_open needs Bridge.Barriers.AllClosed;
-    end
-    group Requirement_VIII:
-      requirement invariant .Bridge.Barriers.B1.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B2.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B4.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B5.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B7.Actuator.c_open needs Bridge.Deck.Closed;
-      requirement invariant .Bridge.Barriers.B8.Actuator.c_open needs Bridge.Deck.Closed;
-    end
-    group Requirement_IX:
-      requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Barriers.LeavingOpenTimer.Finished;
-      requirement invariant .Bridge.Barriers.B3.Actuator.c_open needs Bridge.Barriers.LeavingOpen;
-      requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Barriers.LeavingOpenTimer.Finished;
-      requirement invariant .Bridge.Barriers.B6.Actuator.c_open needs Bridge.Barriers.LeavingOpen;
-    end
-    group Requirement_X:
-      requirement invariant .Bridge.LTSS.MainLaneActuator.c_off needs Bridge.Barriers.AllOpen;
-      requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_off needs Bridge.Barriers.AllOpen;
-      requirement invariant .Bridge.Barriers.LightSignals.c_off needs Bridge.Barriers.AllOpen;
-    end
-    group Requirement_XI:
-      requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.LTSS.DisabledTimer.Finished;
-      requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.LTSS.Disabled;
-    end
-    group Requirement_XII:
-      requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.LTAS.NearDisabledTimer.Finished;
-      requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.LTAS.NearDisabled;
-    end
-    group Requirement_XIII:
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B1.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B2.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B3.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B4.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B5.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B6.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B7.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Barriers.B8.Actuator.c_close;
-      requirement invariant Bridge.CloseRequest.On disables .Bridge.Deck.Actuator.c_open;
-    end
+    requirement invariant .Bridge.LTAS.NearActuator.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.LTAS.FarActuator.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.LTSS.MainLaneActuator.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.Barriers.LightSignals.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.Barriers.SoundSignals.c_on needs Bridge.UI.LT.Activated;
+    requirement invariant .Bridge.LTAS.NearActuator.c_off needs Bridge.UI.LT.Deactivated;
+    requirement invariant .Bridge.LTAS.FarActuator.c_off needs Bridge.UI.LT.Deactivated;
+    requirement invariant .Bridge.LTSS.MainLaneActuator.c_off needs Bridge.UI.LT.Deactivated;
+    requirement invariant .Bridge.LTSS.SwitchLaneActuator.c_off needs Bridge.UI.LT.Deactivated;
+    requirement invariant .Bridge.Barriers.LightSignals.c_off needs Bridge.UI.LT.Deactivated;
+  end
+  group requirement15:
   end
   group Bridge:
     group UI:
       plant automaton LT:
-        monitor;
         location Deactivated:
           initial;
           marked;
@@ -1314,7 +1341,6 @@ group sup:
           edge .Bridge.UI.LT.u_deactivate goto Deactivated;
       end
       plant automaton Barrier1:
-        monitor;
         alg bool InitialOpen = true;
         location Open:
           initial InitialOpen;
@@ -1331,7 +1357,6 @@ group sup:
           edge .Bridge.UI.Barrier1.u_open goto Open;
       end
       plant automaton Barrier27:
-        monitor;
         alg bool InitialOpen = true;
         location Open:
           initial InitialOpen;
@@ -1348,7 +1373,6 @@ group sup:
           edge .Bridge.UI.Barrier27.u_open goto Open;
       end
       plant automaton Barrier36:
-        monitor;
         alg bool InitialOpen = true;
         location Open:
           initial InitialOpen;
@@ -1365,7 +1389,6 @@ group sup:
           edge .Bridge.UI.Barrier36.u_open goto Open;
       end
       plant automaton Barrier48:
-        monitor;
         alg bool InitialOpen = true;
         location Open:
           initial InitialOpen;
@@ -1382,7 +1405,6 @@ group sup:
           edge .Bridge.UI.Barrier48.u_open goto Open;
       end
       plant automaton Barrier5:
-        monitor;
         alg bool InitialOpen = true;
         location Open:
           initial InitialOpen;
@@ -1399,7 +1421,6 @@ group sup:
           edge .Bridge.UI.Barrier5.u_open goto Open;
       end
       plant automaton Deck:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -1425,13 +1446,13 @@ group sup:
         edge .Bridge.EmergencyStop.u_reset goto Deactivated;
     end
     group LTAS:
-      alg bool FarEnabled = ApproachSign1.On and ApproachSign2.On and FarActuator.On;
-      alg bool NearEnabled = ApproachSign3.On and ApproachSign4.On and ApproachSign5.On and NearActuator.On;
-      alg bool Enabled = FarEnabled and NearEnabled;
-      alg bool NearDisabled = ApproachSign3.Off and ApproachSign4.Off and ApproachSign5.Off and NearActuator.Off;
-      alg bool Enabled15TimeOk = Enabled15Timer.Finished and Enabled;
-      alg bool Enabled20TimeOk = Enabled20Timer.Finished and Enabled;
-      alg bool NearDisabledTimeOk = NearDisabledTimer.Finished and NearDisabled;
+      alg bool FarOn = ApproachSign1.On and ApproachSign2.On and FarActuator.On;
+      alg bool NearOn = ApproachSign3.On and ApproachSign4.On and ApproachSign5.On and NearActuator.On;
+      alg bool On = FarOn and NearOn;
+      alg bool NearOff = ApproachSign3.Off and ApproachSign4.Off and ApproachSign5.Off and NearActuator.Off;
+      alg bool On15TimeOk = On15Timer.Finished and On;
+      alg bool On20TimeOk = On20Timer.Finished and On;
+      alg bool OffNear60TimeOk = NearOff60Timer.Finished and NearOff;
       plant automaton FarActuator:
         alg bool InitialLocationOn = false;
         location Off:
@@ -1574,54 +1595,54 @@ group sup:
             edge .Bridge.LTAS.ApproachSign5.Sensor.u_off when Off;
         end
       end
-      plant automaton Enabled15Timer:
-        alg bool EnablementGuard = Enabled;
-        alg bool DisablementGuard = not Enabled;
+      plant automaton On15Timer:
+        alg bool EnablementGuard = On;
+        alg bool DisablementGuard = not On;
         location Off:
           initial;
           marked;
-          edge .Bridge.LTAS.Enabled15Timer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.LTAS.Enabled15Timer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.LTAS.Enabled15Timer.u_timeout goto Finished;
+          edge .Bridge.LTAS.On15Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.LTAS.On15Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.On15Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.LTAS.Enabled15Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.On15Timer.c_reset when DisablementGuard goto Off;
       end
-      plant automaton Enabled20Timer:
-        alg bool EnablementGuard = Enabled;
-        alg bool DisablementGuard = not Enabled;
+      plant automaton On20Timer:
+        alg bool EnablementGuard = On;
+        alg bool DisablementGuard = not On;
         location Off:
           initial;
           marked;
-          edge .Bridge.LTAS.Enabled20Timer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.LTAS.Enabled20Timer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.LTAS.Enabled20Timer.u_timeout goto Finished;
+          edge .Bridge.LTAS.On20Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.LTAS.On20Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.On20Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.LTAS.Enabled20Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.On20Timer.c_reset when DisablementGuard goto Off;
       end
-      plant automaton NearDisabledTimer:
-        alg bool EnablementGuard = NearDisabled;
-        alg bool DisablementGuard = not NearDisabled;
+      plant automaton NearOff60Timer:
+        alg bool EnablementGuard = NearOff;
+        alg bool DisablementGuard = not NearOff;
         location Off:
           initial;
           marked;
-          edge .Bridge.LTAS.NearDisabledTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.LTAS.NearDisabledTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.LTAS.NearDisabledTimer.u_timeout goto Finished;
+          edge .Bridge.LTAS.NearOff60Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.LTAS.NearOff60Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.NearOff60Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.LTAS.NearDisabledTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTAS.NearOff60Timer.c_reset when DisablementGuard goto Off;
       end
     end
     group LTSS:
-      alg bool Enabled = StopSign1.On and StopSign2.On and StopSign3.On and StopSign4.On and StopSign5.On and StopSign6.On and StopSign7.On and StopSign8.On and StopSign9.On and StopSign10.On and StopSign11.On and StopSign12.On and MainLaneActuator.On and SwitchLaneActuator.On;
-      alg bool Disabled = StopSign1.Off and StopSign2.Off and StopSign3.Off and StopSign4.Off and StopSign5.Off and StopSign6.Off and StopSign7.Off and StopSign8.Off and StopSign9.Off and StopSign10.Off and StopSign11.Off and StopSign12.Off and MainLaneActuator.Off and SwitchLaneActuator.Off;
-      alg bool EnabledTimeOk = EnabledTimer.Finished and Enabled;
-      alg bool DisabledTimeOk = DisabledTimer.Finished and Disabled;
+      alg bool On = StopSign1.On and StopSign2.On and StopSign3.On and StopSign4.On and StopSign5.On and StopSign6.On and StopSign7.On and StopSign8.On and StopSign9.On and StopSign10.On and StopSign11.On and StopSign12.On and MainLaneActuator.On and SwitchLaneActuator.On;
+      alg bool Off = StopSign1.Off and StopSign2.Off and StopSign3.Off and StopSign4.Off and StopSign5.Off and StopSign6.Off and StopSign7.Off and StopSign8.Off and StopSign9.Off and StopSign10.Off and StopSign11.Off and StopSign12.Off and MainLaneActuator.Off and SwitchLaneActuator.Off;
+      alg bool On15TimeOk = On15Timer.Finished and On;
+      alg bool Off60TimeOk = Off60Timer.Finished and Off;
       plant automaton MainLaneActuator:
         alg bool InitialLocationOn = false;
         location Off:
@@ -1932,45 +1953,45 @@ group sup:
             edge .Bridge.LTSS.StopSign12.Sensor.u_off when Off;
         end
       end
-      plant automaton EnabledTimer:
-        alg bool EnablementGuard = Enabled;
-        alg bool DisablementGuard = not Enabled;
+      plant automaton On15Timer:
+        alg bool EnablementGuard = On;
+        alg bool DisablementGuard = not On;
         location Off:
           initial;
           marked;
-          edge .Bridge.LTSS.EnabledTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.LTSS.EnabledTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.LTSS.EnabledTimer.u_timeout goto Finished;
+          edge .Bridge.LTSS.On15Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.LTSS.On15Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTSS.On15Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.LTSS.EnabledTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTSS.On15Timer.c_reset when DisablementGuard goto Off;
       end
-      plant automaton DisabledTimer:
-        alg bool EnablementGuard = Disabled;
-        alg bool DisablementGuard = not Disabled;
+      plant automaton Off60Timer:
+        alg bool EnablementGuard = .sup.Bridge.LTSS.Off;
+        alg bool DisablementGuard = not .sup.Bridge.LTSS.Off;
         location Off:
           initial;
           marked;
-          edge .Bridge.LTSS.DisabledTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.LTSS.DisabledTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.LTSS.DisabledTimer.u_timeout goto Finished;
+          edge .Bridge.LTSS.Off60Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.LTSS.Off60Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTSS.Off60Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.LTSS.DisabledTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.LTSS.Off60Timer.c_reset when DisablementGuard goto Off;
       end
     end
     group Barriers:
       alg bool EnteringClosed = B3.Closed and B6.Closed;
       alg bool LeavingClosed = B2.Closed and B7.Closed;
       alg bool LeavingOpen = B2.Open and B7.Open;
-      alg bool LTClosed = B4.Closed and B8.Closed;
-      alg bool AllClosed = B1.Closed and B2.Closed and B3.Closed and B4.Closed and B5.Closed and B6.Closed and B7.Closed and B8.Closed;
-      alg bool AllOpen = B1.Open and B2.Open and B3.Open and B4.Open and B5.Open and B6.Open and B7.Open and B8.Open;
-      alg bool EnteringClosedTimeOk = EnteringClosedTimer.Finished and EnteringClosed;
-      alg bool LeavingOpenTimeOk = LeavingOpenTimer.Finished and LeavingOpen;
-      alg bool LTSoundSignalTimeOk = LTSoundSignalTimer.Finished and LTSoundSignals.On;
+      alg bool SlowClosed = B4.Closed and B8.Closed;
+      alg bool Closed = B1.Closed and B2.Closed and B3.Closed and B4.Closed and B5.Closed and B6.Closed and B7.Closed and B8.Closed;
+      alg bool Open = B1.Open and B2.Open and B3.Open and B4.Open and B5.Open and B6.Open and B7.Open and B8.Open;
+      alg bool B3B6Closed1TimeOk = B3B6Closed1Timer.Finished and EnteringClosed;
+      alg bool B2B7Open1TimeOk = B2B7Open1Timer.Finished and LeavingOpen;
+      alg bool SoundOn6TimeOk = SoundOn6Timer.Finished and SoundSignals.On;
       group B1:
         alg bool Moving = not Actuator.Rest;
         alg bool Closed = Actuator.Rest and Sensor.Closed;
@@ -1983,9 +2004,9 @@ group sup:
             edge .Bridge.Barriers.B1.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B1.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B1.Actuator.c_stop, .Bridge.Barriers.B1.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B1.Actuator.c_emrgStop, .Bridge.Barriers.B1.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B1.Actuator.c_stop, .Bridge.Barriers.B1.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B1.Actuator.c_emrgStop, .Bridge.Barriers.B1.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B1.InitialLocationClosed;
@@ -2025,9 +2046,9 @@ group sup:
             edge .Bridge.Barriers.B2.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B2.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B2.Actuator.c_stop, .Bridge.Barriers.B2.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B2.Actuator.c_emrgStop, .Bridge.Barriers.B2.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B2.Actuator.c_stop, .Bridge.Barriers.B2.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B2.Actuator.c_emrgStop, .Bridge.Barriers.B2.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B2.InitialLocationClosed;
@@ -2067,9 +2088,9 @@ group sup:
             edge .Bridge.Barriers.B3.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B3.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B3.Actuator.c_stop, .Bridge.Barriers.B3.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B3.Actuator.c_emrgStop, .Bridge.Barriers.B3.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B3.Actuator.c_stop, .Bridge.Barriers.B3.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B3.Actuator.c_emrgStop, .Bridge.Barriers.B3.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B3.InitialLocationClosed;
@@ -2109,9 +2130,9 @@ group sup:
             edge .Bridge.Barriers.B4.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B4.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B4.Actuator.c_stop, .Bridge.Barriers.B4.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B4.Actuator.c_emrgStop, .Bridge.Barriers.B4.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B4.Actuator.c_stop, .Bridge.Barriers.B4.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B4.Actuator.c_emrgStop, .Bridge.Barriers.B4.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B4.InitialLocationClosed;
@@ -2151,9 +2172,9 @@ group sup:
             edge .Bridge.Barriers.B5.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B5.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B5.Actuator.c_stop, .Bridge.Barriers.B5.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B5.Actuator.c_emrgStop, .Bridge.Barriers.B5.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B5.Actuator.c_stop, .Bridge.Barriers.B5.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B5.Actuator.c_emrgStop, .Bridge.Barriers.B5.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B5.InitialLocationClosed;
@@ -2193,9 +2214,9 @@ group sup:
             edge .Bridge.Barriers.B6.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B6.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B6.Actuator.c_stop, .Bridge.Barriers.B6.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B6.Actuator.c_emrgStop, .Bridge.Barriers.B6.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B6.Actuator.c_stop, .Bridge.Barriers.B6.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B6.Actuator.c_emrgStop, .Bridge.Barriers.B6.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B6.InitialLocationClosed;
@@ -2235,9 +2256,9 @@ group sup:
             edge .Bridge.Barriers.B7.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B7.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B7.Actuator.c_stop, .Bridge.Barriers.B7.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B7.Actuator.c_emrgStop, .Bridge.Barriers.B7.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B7.Actuator.c_stop, .Bridge.Barriers.B7.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B7.Actuator.c_emrgStop, .Bridge.Barriers.B7.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B7.InitialLocationClosed;
@@ -2277,9 +2298,9 @@ group sup:
             edge .Bridge.Barriers.B8.Actuator.c_open goto Opening;
             edge .Bridge.Barriers.B8.Actuator.c_close goto Closing;
           location Opening:
-            edge .Bridge.Barriers.B8.Actuator.c_stop, .Bridge.Barriers.B8.Actuator.c_endStopOpening goto Rest;
+            edge .Bridge.Barriers.B8.Actuator.c_emrgStop, .Bridge.Barriers.B8.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Bridge.Barriers.B8.Actuator.c_stop, .Bridge.Barriers.B8.Actuator.c_endStopClosing goto Rest;
+            edge .Bridge.Barriers.B8.Actuator.c_emrgStop, .Bridge.Barriers.B8.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Bridge.Barriers.B8.InitialLocationClosed;
@@ -2318,58 +2339,58 @@ group sup:
           marked InitialLocationOn;
           edge .Bridge.Barriers.LightSignals.c_off goto Off;
       end
-      plant automaton LTSoundSignals:
+      plant automaton SoundSignals:
         alg bool InitialLocationOn = false;
         location Off:
           initial not InitialLocationOn;
           marked not InitialLocationOn;
-          edge .Bridge.Barriers.LTSoundSignals.c_on goto On;
+          edge .Bridge.Barriers.SoundSignals.c_on goto On;
         location On:
           initial InitialLocationOn;
           marked InitialLocationOn;
-          edge .Bridge.Barriers.LTSoundSignals.c_off goto Off;
+          edge .Bridge.Barriers.SoundSignals.c_off goto Off;
       end
-      plant automaton EnteringClosedTimer:
+      plant automaton B3B6Closed1Timer:
         alg bool EnablementGuard = EnteringClosed;
         alg bool DisablementGuard = not EnteringClosed;
         location Off:
           initial;
           marked;
-          edge .Bridge.Barriers.EnteringClosedTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.Barriers.EnteringClosedTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.Barriers.EnteringClosedTimer.u_timeout goto Finished;
+          edge .Bridge.Barriers.B3B6Closed1Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.Barriers.B3B6Closed1Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.B3B6Closed1Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.Barriers.EnteringClosedTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.B3B6Closed1Timer.c_reset when DisablementGuard goto Off;
       end
-      plant automaton LeavingOpenTimer:
+      plant automaton B2B7Open1Timer:
         alg bool EnablementGuard = LeavingOpen;
         alg bool DisablementGuard = not LeavingOpen;
         location Off:
           initial;
           marked;
-          edge .Bridge.Barriers.LeavingOpenTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.Barriers.LeavingOpenTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.Barriers.LeavingOpenTimer.u_timeout goto Finished;
+          edge .Bridge.Barriers.B2B7Open1Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.Barriers.B2B7Open1Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.B2B7Open1Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.Barriers.LeavingOpenTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.B2B7Open1Timer.c_reset when DisablementGuard goto Off;
       end
-      plant automaton LTSoundSignalTimer:
-        alg bool EnablementGuard = LTSoundSignals.On;
-        alg bool DisablementGuard = LTSoundSignals.Off;
+      plant automaton SoundOn6Timer:
+        alg bool EnablementGuard = SoundSignals.On;
+        alg bool DisablementGuard = SoundSignals.Off;
         location Off:
           initial;
           marked;
-          edge .Bridge.Barriers.LTSoundSignalTimer.c_on when EnablementGuard goto On;
-        location On:
-          edge .Bridge.Barriers.LTSoundSignalTimer.c_reset when DisablementGuard goto Off;
-          edge .Bridge.Barriers.LTSoundSignalTimer.u_timeout goto Finished;
+          edge .Bridge.Barriers.SoundOn6Timer.c_on when EnablementGuard goto Running;
+        location Running:
+          edge .Bridge.Barriers.SoundOn6Timer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.SoundOn6Timer.u_timeout goto Finished;
         location Finished:
           marked;
-          edge .Bridge.Barriers.LTSoundSignalTimer.c_reset when DisablementGuard goto Off;
+          edge .Bridge.Barriers.SoundOn6Timer.c_reset when DisablementGuard goto Off;
       end
     end
     group Deck:
@@ -2384,9 +2405,9 @@ group sup:
           edge .Bridge.Deck.Actuator.c_open goto Opening;
           edge .Bridge.Deck.Actuator.c_close goto Closing;
         location Opening:
-          edge .Bridge.Deck.Actuator.c_stop, .Bridge.Deck.Actuator.c_endStopOpening goto Rest;
+          edge .Bridge.Deck.Actuator.c_emrgStop, .Bridge.Deck.Actuator.c_endStopOpening goto Rest;
         location Closing:
-          edge .Bridge.Deck.Actuator.c_stop, .Bridge.Deck.Actuator.c_endStopClosing goto Rest;
+          edge .Bridge.Deck.Actuator.c_emrgStop, .Bridge.Deck.Actuator.c_endStopClosing goto Rest;
       end
       plant automaton Sensor:
         alg bool InitialLocationClosed = .sup.Bridge.Deck.InitialLocationClosed;
@@ -2427,304 +2448,314 @@ group sup:
     end
   end
   supervisor automaton sup:
-    alphabet .Bridge.LTAS.FarActuator.c_on, .Bridge.LTAS.FarActuator.c_off, .Bridge.LTAS.NearActuator.c_on, .Bridge.LTAS.NearActuator.c_off, .Bridge.LTAS.Enabled15Timer.c_on, .Bridge.LTAS.Enabled15Timer.c_reset, .Bridge.LTAS.Enabled20Timer.c_on, .Bridge.LTAS.Enabled20Timer.c_reset, .Bridge.LTAS.NearDisabledTimer.c_on, .Bridge.LTAS.NearDisabledTimer.c_reset, .Bridge.LTSS.MainLaneActuator.c_on, .Bridge.LTSS.MainLaneActuator.c_off, .Bridge.LTSS.SwitchLaneActuator.c_on, .Bridge.LTSS.SwitchLaneActuator.c_off, .Bridge.LTSS.EnabledTimer.c_on, .Bridge.LTSS.EnabledTimer.c_reset, .Bridge.LTSS.DisabledTimer.c_on, .Bridge.LTSS.DisabledTimer.c_reset, .Bridge.Barriers.B1.Actuator.c_open, .Bridge.Barriers.B1.Actuator.c_close, .Bridge.Barriers.B1.Actuator.c_stop, .Bridge.Barriers.B1.Actuator.c_endStopOpening, .Bridge.Barriers.B1.Actuator.c_endStopClosing, .Bridge.Barriers.B2.Actuator.c_open, .Bridge.Barriers.B2.Actuator.c_close, .Bridge.Barriers.B2.Actuator.c_stop, .Bridge.Barriers.B2.Actuator.c_endStopOpening, .Bridge.Barriers.B2.Actuator.c_endStopClosing, .Bridge.Barriers.B3.Actuator.c_open, .Bridge.Barriers.B3.Actuator.c_close, .Bridge.Barriers.B3.Actuator.c_stop, .Bridge.Barriers.B3.Actuator.c_endStopOpening, .Bridge.Barriers.B3.Actuator.c_endStopClosing, .Bridge.Barriers.B4.Actuator.c_open, .Bridge.Barriers.B4.Actuator.c_close, .Bridge.Barriers.B4.Actuator.c_stop, .Bridge.Barriers.B4.Actuator.c_endStopOpening, .Bridge.Barriers.B4.Actuator.c_endStopClosing, .Bridge.Barriers.B5.Actuator.c_open, .Bridge.Barriers.B5.Actuator.c_close, .Bridge.Barriers.B5.Actuator.c_stop, .Bridge.Barriers.B5.Actuator.c_endStopOpening, .Bridge.Barriers.B5.Actuator.c_endStopClosing, .Bridge.Barriers.B6.Actuator.c_open, .Bridge.Barriers.B6.Actuator.c_close, .Bridge.Barriers.B6.Actuator.c_stop, .Bridge.Barriers.B6.Actuator.c_endStopOpening, .Bridge.Barriers.B6.Actuator.c_endStopClosing, .Bridge.Barriers.B7.Actuator.c_open, .Bridge.Barriers.B7.Actuator.c_close, .Bridge.Barriers.B7.Actuator.c_stop, .Bridge.Barriers.B7.Actuator.c_endStopOpening, .Bridge.Barriers.B7.Actuator.c_endStopClosing, .Bridge.Barriers.B8.Actuator.c_open, .Bridge.Barriers.B8.Actuator.c_close, .Bridge.Barriers.B8.Actuator.c_stop, .Bridge.Barriers.B8.Actuator.c_endStopOpening, .Bridge.Barriers.B8.Actuator.c_endStopClosing, .Bridge.Barriers.LightSignals.c_on, .Bridge.Barriers.LightSignals.c_off, .Bridge.Barriers.LTSoundSignals.c_on, .Bridge.Barriers.LTSoundSignals.c_off, .Bridge.Barriers.EnteringClosedTimer.c_on, .Bridge.Barriers.EnteringClosedTimer.c_reset, .Bridge.Barriers.LeavingOpenTimer.c_on, .Bridge.Barriers.LeavingOpenTimer.c_reset, .Bridge.Barriers.LTSoundSignalTimer.c_on, .Bridge.Barriers.LTSoundSignalTimer.c_reset, .Bridge.Deck.Actuator.c_open, .Bridge.Deck.Actuator.c_close, .Bridge.Deck.Actuator.c_stop, .Bridge.Deck.Actuator.c_endStopOpening, .Bridge.Deck.Actuator.c_endStopClosing;
+    alphabet .Bridge.LTAS.FarActuator.c_on, .Bridge.LTAS.FarActuator.c_off, .Bridge.LTAS.NearActuator.c_on, .Bridge.LTAS.NearActuator.c_off, .Bridge.LTAS.On15Timer.c_on, .Bridge.LTAS.On15Timer.c_reset, .Bridge.LTAS.On20Timer.c_on, .Bridge.LTAS.On20Timer.c_reset, .Bridge.LTAS.NearOff60Timer.c_on, .Bridge.LTAS.NearOff60Timer.c_reset, .Bridge.LTSS.MainLaneActuator.c_on, .Bridge.LTSS.MainLaneActuator.c_off, .Bridge.LTSS.SwitchLaneActuator.c_on, .Bridge.LTSS.SwitchLaneActuator.c_off, .Bridge.LTSS.On15Timer.c_on, .Bridge.LTSS.On15Timer.c_reset, .Bridge.LTSS.Off60Timer.c_on, .Bridge.LTSS.Off60Timer.c_reset, .Bridge.Barriers.B1.Actuator.c_open, .Bridge.Barriers.B1.Actuator.c_close, .Bridge.Barriers.B1.Actuator.c_emrgStop, .Bridge.Barriers.B1.Actuator.c_endStopOpening, .Bridge.Barriers.B1.Actuator.c_endStopClosing, .Bridge.Barriers.B2.Actuator.c_open, .Bridge.Barriers.B2.Actuator.c_close, .Bridge.Barriers.B2.Actuator.c_emrgStop, .Bridge.Barriers.B2.Actuator.c_endStopOpening, .Bridge.Barriers.B2.Actuator.c_endStopClosing, .Bridge.Barriers.B3.Actuator.c_open, .Bridge.Barriers.B3.Actuator.c_close, .Bridge.Barriers.B3.Actuator.c_emrgStop, .Bridge.Barriers.B3.Actuator.c_endStopOpening, .Bridge.Barriers.B3.Actuator.c_endStopClosing, .Bridge.Barriers.B4.Actuator.c_open, .Bridge.Barriers.B4.Actuator.c_close, .Bridge.Barriers.B4.Actuator.c_emrgStop, .Bridge.Barriers.B4.Actuator.c_endStopOpening, .Bridge.Barriers.B4.Actuator.c_endStopClosing, .Bridge.Barriers.B5.Actuator.c_open, .Bridge.Barriers.B5.Actuator.c_close, .Bridge.Barriers.B5.Actuator.c_emrgStop, .Bridge.Barriers.B5.Actuator.c_endStopOpening, .Bridge.Barriers.B5.Actuator.c_endStopClosing, .Bridge.Barriers.B6.Actuator.c_open, .Bridge.Barriers.B6.Actuator.c_close, .Bridge.Barriers.B6.Actuator.c_emrgStop, .Bridge.Barriers.B6.Actuator.c_endStopOpening, .Bridge.Barriers.B6.Actuator.c_endStopClosing, .Bridge.Barriers.B7.Actuator.c_open, .Bridge.Barriers.B7.Actuator.c_close, .Bridge.Barriers.B7.Actuator.c_emrgStop, .Bridge.Barriers.B7.Actuator.c_endStopOpening, .Bridge.Barriers.B7.Actuator.c_endStopClosing, .Bridge.Barriers.B8.Actuator.c_open, .Bridge.Barriers.B8.Actuator.c_close, .Bridge.Barriers.B8.Actuator.c_emrgStop, .Bridge.Barriers.B8.Actuator.c_endStopOpening, .Bridge.Barriers.B8.Actuator.c_endStopClosing, .Bridge.Barriers.LightSignals.c_on, .Bridge.Barriers.LightSignals.c_off, .Bridge.Barriers.SoundSignals.c_on, .Bridge.Barriers.SoundSignals.c_off, .Bridge.Barriers.B3B6Closed1Timer.c_on, .Bridge.Barriers.B3B6Closed1Timer.c_reset, .Bridge.Barriers.B2B7Open1Timer.c_on, .Bridge.Barriers.B2B7Open1Timer.c_reset, .Bridge.Barriers.SoundOn6Timer.c_on, .Bridge.Barriers.SoundOn6Timer.c_reset, .Bridge.Deck.Actuator.c_open, .Bridge.Deck.Actuator.c_close, .Bridge.Deck.Actuator.c_emrgStop, .Bridge.Deck.Actuator.c_endStopOpening, .Bridge.Deck.Actuator.c_endStopClosing;
     location:
       initial;
       marked;
       edge .Bridge.Barriers.B1.Actuator.c_close when true;
+      edge .Bridge.Barriers.B1.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B1.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B1.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B1.Actuator.c_open when true;
-      edge .Bridge.Barriers.B1.Actuator.c_stop when true;
       edge .Bridge.Barriers.B2.Actuator.c_close when true;
+      edge .Bridge.Barriers.B2.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B2.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B2.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B2.Actuator.c_open when true;
-      edge .Bridge.Barriers.B2.Actuator.c_stop when true;
+      edge .Bridge.Barriers.B2B7Open1Timer.c_on when true;
+      edge .Bridge.Barriers.B2B7Open1Timer.c_reset when true;
       edge .Bridge.Barriers.B3.Actuator.c_close when true;
+      edge .Bridge.Barriers.B3.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B3.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B3.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B3.Actuator.c_open when true;
-      edge .Bridge.Barriers.B3.Actuator.c_stop when true;
+      edge .Bridge.Barriers.B3B6Closed1Timer.c_on when true;
+      edge .Bridge.Barriers.B3B6Closed1Timer.c_reset when true;
       edge .Bridge.Barriers.B4.Actuator.c_close when true;
+      edge .Bridge.Barriers.B4.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B4.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B4.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B4.Actuator.c_open when true;
-      edge .Bridge.Barriers.B4.Actuator.c_stop when true;
       edge .Bridge.Barriers.B5.Actuator.c_close when true;
+      edge .Bridge.Barriers.B5.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B5.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B5.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B5.Actuator.c_open when true;
-      edge .Bridge.Barriers.B5.Actuator.c_stop when true;
       edge .Bridge.Barriers.B6.Actuator.c_close when true;
+      edge .Bridge.Barriers.B6.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B6.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B6.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B6.Actuator.c_open when true;
-      edge .Bridge.Barriers.B6.Actuator.c_stop when true;
       edge .Bridge.Barriers.B7.Actuator.c_close when true;
+      edge .Bridge.Barriers.B7.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B7.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B7.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B7.Actuator.c_open when true;
-      edge .Bridge.Barriers.B7.Actuator.c_stop when true;
       edge .Bridge.Barriers.B8.Actuator.c_close when true;
+      edge .Bridge.Barriers.B8.Actuator.c_emrgStop when true;
       edge .Bridge.Barriers.B8.Actuator.c_endStopClosing when true;
       edge .Bridge.Barriers.B8.Actuator.c_endStopOpening when true;
       edge .Bridge.Barriers.B8.Actuator.c_open when true;
-      edge .Bridge.Barriers.B8.Actuator.c_stop when true;
-      edge .Bridge.Barriers.EnteringClosedTimer.c_on when true;
-      edge .Bridge.Barriers.EnteringClosedTimer.c_reset when true;
-      edge .Bridge.Barriers.LeavingOpenTimer.c_on when true;
-      edge .Bridge.Barriers.LeavingOpenTimer.c_reset when true;
       edge .Bridge.Barriers.LightSignals.c_off when true;
       edge .Bridge.Barriers.LightSignals.c_on when true;
-      edge .Bridge.Barriers.LTSoundSignals.c_off when true;
-      edge .Bridge.Barriers.LTSoundSignals.c_on when true;
-      edge .Bridge.Barriers.LTSoundSignalTimer.c_on when true;
-      edge .Bridge.Barriers.LTSoundSignalTimer.c_reset when true;
+      edge .Bridge.Barriers.SoundOn6Timer.c_on when true;
+      edge .Bridge.Barriers.SoundOn6Timer.c_reset when true;
+      edge .Bridge.Barriers.SoundSignals.c_off when true;
+      edge .Bridge.Barriers.SoundSignals.c_on when true;
       edge .Bridge.Deck.Actuator.c_close when true;
+      edge .Bridge.Deck.Actuator.c_emrgStop when true;
       edge .Bridge.Deck.Actuator.c_endStopClosing when true;
       edge .Bridge.Deck.Actuator.c_endStopOpening when true;
       edge .Bridge.Deck.Actuator.c_open when true;
-      edge .Bridge.Deck.Actuator.c_stop when true;
-      edge .Bridge.LTAS.Enabled15Timer.c_on when true;
-      edge .Bridge.LTAS.Enabled15Timer.c_reset when true;
-      edge .Bridge.LTAS.Enabled20Timer.c_on when true;
-      edge .Bridge.LTAS.Enabled20Timer.c_reset when true;
       edge .Bridge.LTAS.FarActuator.c_off when true;
       edge .Bridge.LTAS.FarActuator.c_on when true;
       edge .Bridge.LTAS.NearActuator.c_off when true;
       edge .Bridge.LTAS.NearActuator.c_on when true;
-      edge .Bridge.LTAS.NearDisabledTimer.c_on when true;
-      edge .Bridge.LTAS.NearDisabledTimer.c_reset when true;
-      edge .Bridge.LTSS.DisabledTimer.c_on when true;
-      edge .Bridge.LTSS.DisabledTimer.c_reset when true;
-      edge .Bridge.LTSS.EnabledTimer.c_on when true;
-      edge .Bridge.LTSS.EnabledTimer.c_reset when true;
+      edge .Bridge.LTAS.NearOff60Timer.c_on when true;
+      edge .Bridge.LTAS.NearOff60Timer.c_reset when true;
+      edge .Bridge.LTAS.On15Timer.c_on when true;
+      edge .Bridge.LTAS.On15Timer.c_reset when true;
+      edge .Bridge.LTAS.On20Timer.c_on when true;
+      edge .Bridge.LTAS.On20Timer.c_reset when true;
       edge .Bridge.LTSS.MainLaneActuator.c_off when true;
       edge .Bridge.LTSS.MainLaneActuator.c_on when true;
+      edge .Bridge.LTSS.Off60Timer.c_on when true;
+      edge .Bridge.LTSS.Off60Timer.c_reset when true;
+      edge .Bridge.LTSS.On15Timer.c_on when true;
+      edge .Bridge.LTSS.On15Timer.c_reset when true;
       edge .Bridge.LTSS.SwitchLaneActuator.c_off when true;
       edge .Bridge.LTSS.SwitchLaneActuator.c_on when true;
   end
 end
-group presign_C_100:
-  alg string ID = "C_500";
+group ApproachSign1:
+  alg int ID = 1;
   alg bool SensorOn = Bridge.LTAS.ApproachSign1.Sensor.On;
-  svgout id "PreSign_" + ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "ApproachSign" + <string>ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
 end
-group presign_C_200:
-  alg string ID = "K_300";
+group ApproachSign2:
+  alg int ID = 2;
   alg bool SensorOn = Bridge.LTAS.ApproachSign2.Sensor.On;
-  svgout id "PreSign_" + ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "ApproachSign" + <string>ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
 end
-group presign_C_500:
-  alg string ID = "C_200";
+group ApproachSign3:
+  alg int ID = 3;
   alg bool SensorOn = Bridge.LTAS.ApproachSign3.Sensor.On;
-  svgout id "PreSign_" + ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "ApproachSign" + <string>ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
 end
-group presign_K_150:
-  alg string ID = "C_100";
+group ApproachSign4:
+  alg int ID = 4;
   alg bool SensorOn = Bridge.LTAS.ApproachSign4.Sensor.On;
-  svgout id "PreSign_" + ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "ApproachSign" + <string>ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
 end
-group presign_K_250:
-  alg string ID = "K_150";
+group ApproachSign5:
+  alg int ID = 5;
   alg bool SensorOn = Bridge.LTAS.ApproachSign5.Sensor.On;
-  svgout id "PreSign_" + ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "ApproachSign" + <string>ID attr "fill" value if SensorOn: "orange" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign1:
-  alg int n = 1;
+group StopSign1:
+  alg int ID = 1;
   alg bool SensorOn = Bridge.LTSS.StopSign1.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign2:
-  alg int n = 2;
+group StopSign2:
+  alg int ID = 2;
   alg bool SensorOn = Bridge.LTSS.StopSign2.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign3:
-  alg int n = 3;
+group StopSign3:
+  alg int ID = 3;
   alg bool SensorOn = Bridge.LTSS.StopSign3.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign4:
-  alg int n = 4;
+group StopSign4:
+  alg int ID = 4;
   alg bool SensorOn = Bridge.LTSS.StopSign4.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign5:
-  alg int n = 5;
+group StopSign5:
+  alg int ID = 5;
   alg bool SensorOn = Bridge.LTSS.StopSign5.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign6:
-  alg int n = 6;
+group StopSign6:
+  alg int ID = 6;
   alg bool SensorOn = Bridge.LTSS.StopSign6.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign7:
-  alg int n = 7;
+group StopSign7:
+  alg int ID = 7;
   alg bool SensorOn = Bridge.LTSS.StopSign7.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign8:
-  alg int n = 8;
+group StopSign8:
+  alg int ID = 8;
   alg bool SensorOn = Bridge.LTSS.StopSign8.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign9:
-  alg int n = 9;
+group StopSign9:
+  alg int ID = 9;
   alg bool SensorOn = Bridge.LTSS.StopSign9.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign10:
-  alg int n = 10;
+group StopSign10:
+  alg int ID = 10;
   alg bool SensorOn = Bridge.LTSS.StopSign10.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign11:
-  alg int n = 11;
+group StopSign11:
+  alg int ID = 11;
   alg bool SensorOn = Bridge.LTSS.StopSign11.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group stopsign12:
-  alg int n = 12;
+group StopSign12:
+  alg int ID = 12;
   alg bool SensorOn = Bridge.LTSS.StopSign12.Sensor.On;
-  svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
+  svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end file "../../LockBridge/Image.svg";
 end
-group barrier1:
-  alg int n = 1;
-  alg bool Closed = Bridge.Barriers.B1.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B1.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier1:
+  alg int ID = 1;
+  alg bool SensorClosed = Bridge.Barriers.B1.Sensor.Closed;
+  alg real a = Bridge.Barriers.B1.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier2:
-  alg int n = 2;
-  alg bool Closed = Bridge.Barriers.B2.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B2.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier2:
+  alg int ID = 2;
+  alg bool SensorClosed = Bridge.Barriers.B2.Sensor.Closed;
+  alg real a = Bridge.Barriers.B2.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier3:
-  alg int n = 3;
-  alg bool Closed = Bridge.Barriers.B3.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B3.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier3:
+  alg int ID = 3;
+  alg bool SensorClosed = Bridge.Barriers.B3.Sensor.Closed;
+  alg real a = Bridge.Barriers.B3.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier4:
-  alg int n = 4;
-  alg bool Closed = Bridge.Barriers.B4.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B4.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier4:
+  alg int ID = 4;
+  alg bool SensorClosed = Bridge.Barriers.B4.Sensor.Closed;
+  alg real a = Bridge.Barriers.B4.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier5:
-  alg int n = 5;
-  alg bool Closed = Bridge.Barriers.B5.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B5.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier5:
+  alg int ID = 5;
+  alg bool SensorClosed = Bridge.Barriers.B5.Sensor.Closed;
+  alg real a = Bridge.Barriers.B5.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier6:
-  alg int n = 6;
-  alg bool Closed = Bridge.Barriers.B6.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B6.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier6:
+  alg int ID = 6;
+  alg bool SensorClosed = Bridge.Barriers.B6.Sensor.Closed;
+  alg real a = Bridge.Barriers.B6.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier7:
-  alg int n = 7;
-  alg bool Closed = Bridge.Barriers.B7.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B7.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier7:
+  alg int ID = 7;
+  alg bool SensorClosed = Bridge.Barriers.B7.Sensor.Closed;
+  alg real a = Bridge.Barriers.B7.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group barrier8:
-  alg int n = 8;
-  alg bool Closed = Bridge.Barriers.B8.Sensor.Closed;
-  alg real Degree = Bridge.Barriers.B8.Degree;
-  svgout id "Barrier" + <string>n attr "fill-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "Barrier" + <string>n attr "stroke-opacity" value if Closed: 100 else 0 end file "../../LockBridge/Image.svg";
-  svgout id "prog_B" + <string>n attr "width" value scale(Degree, 90, 0, 0.01, 100) file "../../LockBridge/Image.svg";
+group Barrier8:
+  alg int ID = 8;
+  alg bool SensorClosed = Bridge.Barriers.B8.Sensor.Closed;
+  alg real a = Bridge.Barriers.B8.a;
+  svgout id "Barrier" + <string>ID attr "fill-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end file "../../LockBridge/Image.svg";
+  svgout id "prog_B" + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100) file "../../LockBridge/Image.svg";
 end
-group Button_234:
-  alg int n = 2;
-  svgin id "Button" + <string>n event Bridge.UI.Barrier36.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Barrier36.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Barrier36.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Barrier36.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Barrier36.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Barrier36.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command234:
+  alg int ID = 2;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Barrier36.Close: Bridge.UI.Barrier36.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Barrier36.Open: Bridge.UI.Barrier36.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Barrier36.Stop: Bridge.UI.Barrier36.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Barrier36.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Barrier36.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Barrier36.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group Button_567:
-  alg int n = 5;
-  svgin id "Button" + <string>n event Bridge.UI.Barrier27.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Barrier27.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Barrier27.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Barrier27.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Barrier27.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Barrier27.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command567:
+  alg int ID = 5;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Barrier27.Close: Bridge.UI.Barrier27.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Barrier27.Open: Bridge.UI.Barrier27.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Barrier27.Stop: Bridge.UI.Barrier27.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Barrier27.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Barrier27.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Barrier27.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group Button_8910:
-  alg int n = 8;
-  svgin id "Button" + <string>n event Bridge.UI.Barrier1.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Barrier1.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Barrier1.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Barrier1.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Barrier1.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Barrier1.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command8910:
+  alg int ID = 8;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Barrier1.Close: Bridge.UI.Barrier1.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Barrier1.Open: Bridge.UI.Barrier1.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Barrier1.Stop: Bridge.UI.Barrier1.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Barrier1.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Barrier1.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Barrier1.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group Button_111213:
-  alg int n = 11;
-  svgin id "Button" + <string>n event Bridge.UI.Barrier5.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Barrier5.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Barrier5.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Barrier5.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Barrier5.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Barrier5.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command111213:
+  alg int ID = 11;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Barrier5.Close: Bridge.UI.Barrier5.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Barrier5.Open: Bridge.UI.Barrier5.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Barrier5.Stop: Bridge.UI.Barrier5.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Barrier5.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Barrier5.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Barrier5.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group Button_141516:
-  alg int n = 14;
-  svgin id "Button" + <string>n event Bridge.UI.Barrier48.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Barrier48.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Barrier48.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Barrier48.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Barrier48.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Barrier48.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command141516:
+  alg int ID = 14;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Barrier48.Close: Bridge.UI.Barrier48.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Barrier48.Open: Bridge.UI.Barrier48.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Barrier48.Stop: Bridge.UI.Barrier48.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Barrier48.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Barrier48.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Barrier48.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group Button_171819:
-  alg int n = 17;
-  svgin id "Button" + <string>n event Bridge.UI.Deck.u_close file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 1) event Bridge.UI.Deck.u_open file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(n + 2) event Bridge.UI.Deck.u_stop file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>n + "V" attr "fill" value if Bridge.UI.Deck.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 1) + "V" attr "fill" value if Bridge.UI.Deck.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(n + 2) + "V" attr "fill" value if Bridge.UI.Deck.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group Command171819:
+  alg int ID = 17;
+  svgin id "Button" + <string>ID event if not Bridge.UI.Deck.Close: Bridge.UI.Deck.u_close else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if not Bridge.UI.Deck.Open: Bridge.UI.Deck.u_open else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 2) event if not Bridge.UI.Deck.Stop: Bridge.UI.Deck.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>ID attr "fill" value if Bridge.UI.Deck.Close: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 1) attr "fill" value if Bridge.UI.Deck.Open: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button" + <string>(ID + 2) attr "fill" value if Bridge.UI.Deck.Stop: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-group LTLButtonV:
-  svgin id "Button1a" event Bridge.UI.LT.u_activate file "../../LockBridge/Image.svg";
-  svgin id "Button1b" event Bridge.UI.LT.u_stop file "../../LockBridge/Image.svg";
-  svgin id "Button1c" event Bridge.UI.LT.u_deactivate file "../../LockBridge/Image.svg";
-  svgout id "Button1aV" attr "fill" value if Bridge.UI.LT.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button1bV" attr "fill" value if Bridge.UI.LT.Stopped: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button1cV" attr "fill" value if Bridge.UI.LT.Deactivated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+group LTCommandV:
+  svgin id "Button1a" event if not Bridge.UI.LT.Activated: Bridge.UI.LT.u_activate else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button1b" event if not Bridge.UI.LT.Stopped: Bridge.UI.LT.u_stop else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button1c" event if not Bridge.UI.LT.Deactivated: Bridge.UI.LT.u_deactivate else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "Button1a" attr "fill" value if Bridge.UI.LT.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button1b" attr "fill" value if Bridge.UI.LT.Stopped: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgout id "Button1c" attr "fill" value if Bridge.UI.LT.Deactivated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
 group EmergencyStopV:
-  svgin id "EmergencyStop" event if Bridge.EmergencyStop.Deactivated: Bridge.EmergencyStop.u_activate else Bridge.EmergencyStop.u_reset end file "../../LockBridge/Image.svg";
-  svgout id "EmergencyStopV" attr "fill" value if Bridge.EmergencyStop.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgin id "EmergencyBridgeA" event if Bridge.EmergencyStop.Deactivated: Bridge.EmergencyStop.u_activate else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "EmergencyBridgeA" attr "fill" value if Bridge.EmergencyStop.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
+  svgin id "EmergencyBridgeD" event if Bridge.EmergencyStop.Activated: Bridge.EmergencyStop.u_reset else No.Event end file "../../LockBridge/Image.svg";
+  svgout id "EmergencyBridgeD" attr "fill" value if Bridge.EmergencyStop.Activated: "indianred" else "yellowgreen" end file "../../LockBridge/Image.svg";
 end
 group CloseRequestV:
   svgin id "RequestClose" event if Bridge.CloseRequest.Off: Bridge.CloseRequest.u_on else Bridge.CloseRequest.u_off end file "../../LockBridge/Image.svg";
   svgout id "RequestClose" attr "fill" value if Bridge.CloseRequest.On: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
-svgout id "prog_Deck" attr "width" value scale(Bridge.Deck.Degree, 0, 90, 0.01, 100) file "../../LockBridge/Image.svg";
-svgout id "SoundSignal" attr "visibility" value if Bridge.Barriers.LTSoundSignals.On: "visible" else "hidden" end file "../../LockBridge/Image.svg";
+automaton Y:
+  location:
+    initial;
+    edge No.Event;
+end
+group No:
+  event Event;
+end
+svgout id "prog_Deck" attr "width" value scale(Bridge.Deck.a, 0, 3, 0.01, 100) file "../../LockBridge/Image.svg";
 svgout id "Deck" attr "visibility" value if Bridge.Deck.Sensor.Open: "hidden" else "visible" end file "../../LockBridge/Image.svg";
+svgout id "SoundSignal" attr "visibility" value if Bridge.Barriers.SoundSignals.On: "visible" else "hidden" end file "../../LockBridge/Image.svg";

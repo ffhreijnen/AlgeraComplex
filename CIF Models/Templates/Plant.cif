@@ -50,15 +50,15 @@ end
 
 //Double Output Actuator
 plant def DoubleOutputActuator():
-    controllable c_open, c_close, c_stop, c_endStopClosing, c_endStopOpening;
+    controllable c_open, c_close, c_emrgStop, c_endStopClosing, c_endStopOpening;
     location Rest:
         initial; marked;
         edge c_open  goto Opening;
         edge c_close goto Closing;
     location Opening:
-        edge c_stop, c_endStopOpening goto Rest;
+        edge c_emrgStop, c_endStopOpening goto Rest;
     location Closing:
-        edge c_stop, c_endStopClosing goto Rest;
+        edge c_emrgStop, c_endStopClosing goto Rest;
 end
 
 //Double Input Sensor
@@ -128,32 +128,32 @@ end
 
 //Lock Traffic Light Actuator
 plant def LockTrafficLightActuator():
-    controllable c_r, c_rr, c_rg, c_g;
+    controllable c_r, c_rr, c_rg, c_g, c_emerg;
     location RedRed:
         marked;
-        edge c_r  goto Red;
+        edge c_r, c_emerg  goto Red;
     location Red:
         initial; marked;
         edge c_rr goto RedRed;
         edge c_rg goto RedGreen;
     location RedGreen:
-        edge c_r  goto Red;
+        edge c_r, c_emerg  goto Red;
         edge c_g  goto Green;
     location Green:
-        edge c_r  goto Red;
+        edge c_r, c_emerg  goto Red;
 end
 
 //Bridge Traffic Light Actuator
 plant def BridgeTrafficLightActuator():
-    controllable c_r, c_rg, c_g;
+    controllable c_r, c_rg, c_g, c_emerg;
     location Red:
         marked; initial;
         edge c_rg goto RedGreen;
     location RedGreen:
-        edge c_r  goto Red;
+        edge c_r, c_emerg  goto Red;
         edge c_g  goto Green;
     location Green:
-        edge c_r  goto Red;
+        edge c_r, c_emerg  goto Red;
 end
 
 ////////////////////////////////////////////////
@@ -168,8 +168,8 @@ plant def Timer(alg bool EnablementGuard, DisablementGuard):
     uncontrollable u_timeout;
     location Off:
         initial; marked;
-        edge c_on when EnablementGuard goto On;
-    location On:
+        edge c_on when EnablementGuard goto Running;
+    location Running:
         edge c_reset when DisablementGuard goto Off;
         edge u_timeout goto Finished;
     location Finished:
@@ -181,11 +181,10 @@ end
 //User-interface template as described in Section 4.1.5//
 /////////////////////////////////////////////////////////
 
-//Three-state UI
+//Movable components commands
 //@InitialOpen - true if the initial and marked location is Open, false if Closed
-plant def ThreeStateUI(alg bool InitialOpen):
+plant def MovableComponentsCommands(alg bool InitialOpen):
     uncontrollable u_open, u_close, u_stop;
-    monitor;
     location Open:
         initial InitialOpen;
         marked  InitialOpen;
@@ -201,10 +200,9 @@ plant def ThreeStateUI(alg bool InitialOpen):
         edge u_open  goto Open;
 end
 
-//Land traffic UI, similar to three-state UI but different location names
-plant def LandTrafficUI():
+//Land traffic commands, similar to movable component commands but different location names
+plant def LandTrafficCommands():
     uncontrollable u_activate, u_deactivate, u_stop;
-    monitor;
     location Deactivated:
         initial; marked;
         edge u_activate   goto Activated;
@@ -217,8 +215,8 @@ plant def LandTrafficUI():
         edge u_deactivate goto Deactivated;
 end
 
-//Two state UI
-plant def EmergencyStopDef():
+//Emergency stop command
+plant def EmergencyStopCommand():
     uncontrollable u_activate, u_reset;
     location Deactivated:
         initial; marked;
@@ -227,10 +225,9 @@ plant def EmergencyStopDef():
         edge u_reset    goto Deactivated;
 end
 
-//Lock Traffic Light UI
-plant def LockTrafficLightUI():
+//Lock Traffic Light commands.
+plant def LockTrafficLightCommands():
     uncontrollable u_r, u_rr, u_rg, u_g;
-    monitor;
     location RedRed:
         marked;
         edge u_r  goto Red;
@@ -245,10 +242,9 @@ plant def LockTrafficLightUI():
         edge u_r  goto Red;
 end
 
-//Bridge Traffic Light UI
-plant def BridgeTrafficLightUI():
+//Bridge Traffic Light commands.
+plant def BridgeTrafficLightCommands():
     uncontrollable u_r, u_rg, u_g;
-    monitor;
     location Red:
         initial; marked;
         edge u_rg goto RedGreen;

@@ -4,14 +4,14 @@ const int TimeScaler = 10;
 
 group Bridge:
     group UI:
-        LT        : LandTrafficUI();
-        Barrier1  : ThreeStateUI(true);
-        Barrier27 : ThreeStateUI(true);
-        Barrier36 : ThreeStateUI(true);
-        Barrier48 : ThreeStateUI(true);
-        Barrier5  : ThreeStateUI(true);
+        LT        : LandTrafficCommands();
+        Barrier1  : MovableComponentsCommands(true);
+        Barrier27 : MovableComponentsCommands(true);
+        Barrier36 : MovableComponentsCommands(true);
+        Barrier48 : MovableComponentsCommands(true);
+        Barrier5  : MovableComponentsCommands(true);
 
-        Deck      : ThreeStateUI(false);
+        Deck      : MovableComponentsCommands(false);
     end
 
     EmergencyStop : EmergencyStopDef();
@@ -26,9 +26,9 @@ group Bridge:
         ApproachSign4 : SingleLampSign(NearActuator); //C100
         ApproachSign5 : SingleLampSign(NearActuator); //K150
 
-        Enabled15Timer    : SimTimer(15.0/TimeScaler);
-        Enabled20Timer    : SimTimer(20.0/TimeScaler);
-        NearDisabledTimer : SimTimer(60.0/TimeScaler);
+        On15Timer      : SimTimer(15.0/TimeScaler);
+        On20Timer      : SimTimer(20.0/TimeScaler);
+        NearOff60Timer : SimTimer(60.0/TimeScaler);
     end
     //Land Traffic Stop Signs
     group LTSS:
@@ -47,8 +47,8 @@ group Bridge:
         StopSign11 : SingleLampSign(MainLaneActuator);
         StopSign12 : SingleLampSign(MainLaneActuator);
 
-        EnabledTimer  : SimTimer(15.0/TimeScaler);
-        DisabledTimer : SimTimer(60.0/TimeScaler);
+        On15Timer  : SimTimer(15.0/TimeScaler);
+        Off60Timer : SimTimer(60.0/TimeScaler);
     end
 
     //Bridge Barriers
@@ -56,12 +56,12 @@ group Bridge:
         B1 : DoubleInputDoubleOutput(false); B2 : DoubleInputDoubleOutput(false); B3 : DoubleInputDoubleOutput(false);
         B4 : DoubleInputDoubleOutput(false); B5 : DoubleInputDoubleOutput(false); B6 : DoubleInputDoubleOutput(false);
         B7 : DoubleInputDoubleOutput(false); B8 : DoubleInputDoubleOutput(false);
-        LightSignals   : SingleOutputActuator(false);
-        LTSoundSignals : SingleOutputActuator(false);
+        LightSignals : SingleOutputActuator(false);
+        SoundSignals : SingleOutputActuator(false);
 
-        EnteringClosedTimer : SimTimer(1.0/TimeScaler);
-        LeavingOpenTimer    : SimTimer(1.0/TimeScaler);
-        LTSoundSignalTimer  : SimTimer(6.0/TimeScaler);
+        B3B6Closed1Timer : SimTimer(1.0/TimeScaler);
+        B2B7Open1Timer   : SimTimer(1.0/TimeScaler);
+        SoundOn6Timer    : SimTimer(6.0/TimeScaler);
     end
 
     //Bridge Deck
@@ -69,5 +69,4 @@ group Bridge:
 
     //CloseRequest from the emergency center
     CloseRequest : SingleInputSensor(false);
-
 end

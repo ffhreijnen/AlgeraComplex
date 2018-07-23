@@ -1,6 +1,6 @@
 group Lock:
   group UI:
-    group UEbGate:
+    group UEbbGate:
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -10,7 +10,7 @@ group Lock:
       uncontrollable u_close;
       uncontrollable u_stop;
     end
-    group DEbGate:
+    group DEbbGate:
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -25,7 +25,7 @@ group Lock:
       uncontrollable u_close;
       uncontrollable u_stop;
     end
-    group UEbPaddle:
+    group UEbbPaddle:
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -35,7 +35,7 @@ group Lock:
       uncontrollable u_close;
       uncontrollable u_stop;
     end
-    group DEbPaddle:
+    group DEbbPaddle:
       uncontrollable u_open;
       uncontrollable u_close;
       uncontrollable u_stop;
@@ -62,7 +62,7 @@ group Lock:
       uncontrollable u_rg;
       uncontrollable u_g;
     end
-    group UBridgeTraffigLight:
+    group DBridgeTraffigLight:
       uncontrollable u_r;
       uncontrollable u_rg;
       uncontrollable u_g;
@@ -79,6 +79,7 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR1:
         uncontrollable u_on;
@@ -99,6 +100,7 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR1:
         uncontrollable u_on;
@@ -119,6 +121,7 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR1:
         uncontrollable u_on;
@@ -139,6 +142,7 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR1:
         uncontrollable u_on;
@@ -155,11 +159,12 @@ group Lock:
     end
   end
   group BTL:
-    group UE:
+    group DE:
       group Actuator:
         controllable c_r;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR:
         uncontrollable u_on;
@@ -170,11 +175,12 @@ group Lock:
         uncontrollable u_off;
       end
     end
-    group UW:
+    group DW:
       group Actuator:
         controllable c_r;
         controllable c_rg;
         controllable c_g;
+        controllable c_emerg;
       end
       group SensorR:
         uncontrollable u_on;
@@ -186,12 +192,12 @@ group Lock:
       end
     end
   end
-  group UpstreamEb:
+  group UpstreamEbb:
     group EastGate:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -206,7 +212,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -221,7 +227,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -236,7 +242,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -253,7 +259,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -268,7 +274,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -283,7 +289,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -298,7 +304,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -310,12 +316,12 @@ group Lock:
       end
     end
   end
-  group DownstreamEb:
+  group DownstreamEbb:
     group EastGate:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -330,7 +336,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -345,7 +351,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -360,7 +366,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -377,7 +383,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -392,7 +398,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -407,7 +413,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -422,7 +428,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -439,7 +445,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -454,7 +460,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -469,7 +475,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -484,7 +490,7 @@ group Lock:
       group Actuator:
         controllable c_open;
         controllable c_close;
-        controllable c_stop;
+        controllable c_emrgStop;
         controllable c_endStopClosing;
         controllable c_endStopOpening;
       end
@@ -506,257 +512,321 @@ group Lock:
   end
 end
 group sup:
-  group FunctionalRequirements:
-    group Gates_FReq:
-      group UpstreamEbGateEast:
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.UI.UEbGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs Lock.UI.UEbGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_stop needs Lock.UI.UEbGate.Stop or Lock.EmergencyStop.Activated;
+  group Requirement1:
+    requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.DownstreamEbb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.DownstreamEbb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UpstreamEbb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+    requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UpstreamEbb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+    requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.BTL.DRed;
+    requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.BTL.DRed;
+  end
+  group Requirement2:
+    requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.DownstreamEbb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.DownstreamEbb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+  end
+  group Requirement3:
+    requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.LTL.DRed or Lock.LTL.DRedRed;
+    requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_close needs Lock.LTL.URed or Lock.LTL.URedRed;
+    requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_close needs Lock.LTL.URed or Lock.LTL.URedRed;
+    requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.URed or Lock.LTL.URedRed;
+    requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.URed or Lock.LTL.URedRed;
+    requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_close needs Lock.BTL.DRed;
+    requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_close needs Lock.BTL.DRed;
+    requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.BTL.DRed;
+    requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.BTL.DRed;
+    requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.BTL.DRed;
+    requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.BTL.DRed;
+  end
+  group Requirement4:
+    requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
+    requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+    requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+    requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+    requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
+  end
+  group Requirement5:
+    requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEbb.Closed or Lock.UpstreamFlood.Closed;
+    requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.DownstreamEbb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+  end
+  group requirement6:
+    requirement invariant Lock.DownstreamEbb.EastGate.Closed or Lock.DownstreamEbb.EastPaddle.Open;
+    requirement invariant Lock.DownstreamEbb.WestGate.Closed or Lock.DownstreamEbb.WestPaddle.Open;
+    requirement invariant Lock.DownstreamFlood.EastGate.Closed or Lock.DownstreamFlood.EastPaddle.Open;
+    requirement invariant Lock.DownstreamFlood.WestGate.Closed or Lock.DownstreamFlood.WestPaddle.Open;
+    requirement invariant Lock.DownstreamStormFlood.EastGate.Closed or Lock.DownstreamStormFlood.EastPaddle.Open;
+    requirement invariant Lock.DownstreamStormFlood.WestGate.Closed or Lock.DownstreamStormFlood.WestPaddle.Open;
+    requirement invariant Lock.UpstreamEbb.EastGate.Closed or Lock.UpstreamEbb.EastPaddle.Open;
+    requirement invariant Lock.UpstreamEbb.WestGate.Closed or Lock.UpstreamEbb.WestPaddle.Open;
+    requirement invariant Lock.UpstreamFlood.EastGate.Closed or Lock.UpstreamFlood.EastPaddle.Open;
+    requirement invariant Lock.UpstreamFlood.WestGate.Closed or Lock.UpstreamFlood.WestPaddle.Open;
+  end
+  group requirement7:
+    group LTL:
+      requirement invariant .Lock.LTL.DE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.DE.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DE.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DE.Actuator.c_rr needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_rr needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_rr needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_rr needs Lock.EmergencyStop.Deactivated;
+    end
+    group BTL:
+      requirement invariant .Lock.BTL.DE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.BTL.DW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.BTL.DE.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.BTL.DE.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.BTL.DW.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.BTL.DW.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
+      requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
+    end
+  end
+  group requirement8and10:
+    group Gates:
+      group UpstreamEbbGateEast:
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop needs Lock.UI.UEbbGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_open needs Lock.UI.UEbbGate.Open;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_close needs Lock.UI.UEbbGate.Close;
       end
-      group UpstreamEbGateWest:
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.UI.UEbGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs Lock.UI.UEbGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_stop needs Lock.UI.UEbGate.Stop or Lock.EmergencyStop.Activated;
+      group UpstreamEbbGateWest:
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop needs Lock.UI.UEbbGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_open needs Lock.UI.UEbbGate.Open;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_close needs Lock.UI.UEbbGate.Close;
       end
       group UpstreamFloodGateEast:
-        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.UI.UFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.UI.UFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_stop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.UI.UFloodGate.Open;
+        requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.UI.UFloodGate.Close;
       end
       group UpstreamFloodGateWest:
-        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.UI.UFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.UI.UFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_stop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop needs Lock.UI.UFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.UI.UFloodGate.Open;
+        requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.UI.UFloodGate.Close;
       end
-      group DownstreamEbGateEast:
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.UI.DEbGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.UI.DEbGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_stop needs Lock.UI.DEbGate.Stop or Lock.EmergencyStop.Activated;
+      group DownstreamEbbGateEast:
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop needs Lock.UI.DEbbGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_open needs Lock.UI.DEbbGate.Open;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_close needs Lock.UI.DEbbGate.Close;
       end
-      group DownstreamEbGateWest:
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.UI.DEbGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.UI.DEbGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_stop needs Lock.UI.DEbGate.Stop or Lock.EmergencyStop.Activated;
+      group DownstreamEbbGateWest:
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop needs Lock.UI.DEbbGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_open needs Lock.UI.DEbbGate.Open;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_close needs Lock.UI.DEbbGate.Close;
       end
       group DownstreamFloodGateEast:
-        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UI.DFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.UI.DFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_stop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UI.DFloodGate.Open;
+        requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.UI.DFloodGate.Close;
       end
       group DownstreamFloodGateWest:
-        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UI.DFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.UI.DFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_stop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop needs Lock.UI.DFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UI.DFloodGate.Open;
+        requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.UI.DFloodGate.Close;
       end
       group DownstreamStormFloodGateEast:
-        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close;
       end
       group DownstreamStormFloodGateWest:
-        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop needs Lock.UI.DStormFloodGate.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UI.DStormFloodGate.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.UI.DStormFloodGate.Close;
       end
     end
-    group Paddles_FReq:
-      group UpstreamEbPaddleEast:
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs Lock.UI.UEbPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_close needs Lock.UI.UEbPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_stop needs Lock.UI.UEbPaddle.Stop or Lock.EmergencyStop.Activated;
+    group Paddles:
+      group UpstreamEbbPaddleEast:
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop needs Lock.UI.UEbbPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_open needs Lock.UI.UEbbPaddle.Open;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_close needs Lock.UI.UEbbPaddle.Close;
       end
-      group UpstreamEbPaddleWest:
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs Lock.UI.UEbPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_close needs Lock.UI.UEbPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_stop needs Lock.UI.UEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      group UpstreamEbbPaddleWest:
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop needs Lock.UI.UEbbPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_open needs Lock.UI.UEbbPaddle.Open;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_close needs Lock.UI.UEbbPaddle.Close;
       end
       group UpstreamFloodPaddleEast:
-        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open;
+        requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close;
       end
       group UpstreamFloodPaddleWest:
-        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop needs Lock.UI.UFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.UFloodPaddle.Open;
+        requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.UFloodPaddle.Close;
       end
-      group DownstreamEbPaddleEast:
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs Lock.UI.DEbPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_close needs Lock.UI.DEbPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_stop needs Lock.UI.DEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      group DownstreamEbbPaddleEast:
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop needs Lock.UI.DEbbPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_open needs Lock.UI.DEbbPaddle.Open;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_close needs Lock.UI.DEbbPaddle.Close;
       end
-      group DownstreamEbPaddleWest:
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs Lock.UI.DEbPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_close needs Lock.UI.DEbPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_stop needs Lock.UI.DEbPaddle.Stop or Lock.EmergencyStop.Activated;
+      group DownstreamEbbPaddleWest:
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop needs Lock.UI.DEbbPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_open needs Lock.UI.DEbbPaddle.Open;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_close needs Lock.UI.DEbbPaddle.Close;
       end
       group DownstreamFloodPaddleEast:
-        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open;
+        requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close;
       end
       group DownstreamFloodPaddleWest:
-        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop needs Lock.UI.DFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UI.DFloodPaddle.Open;
+        requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_close needs Lock.UI.DFloodPaddle.Close;
       end
       group DownstreamStormFloodPaddleEast:
-        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open;
+        requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close;
       end
       group DownstreamStormFloodPaddleWest:
-        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
-      end
-    end
-    group VTL_FReq:
-      group IncomingDE:
-        requirement invariant .Lock.LTL.DE.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.LTL.DE.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.DE.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
-      end
-      group IncomingDW:
-        requirement invariant .Lock.LTL.DW.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.LTL.DW.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.DW.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
-      end
-      group IncomingUE:
-        requirement invariant .Lock.LTL.UE.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.LTL.UE.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.UE.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
-      end
-      group IncomingUW:
-        requirement invariant .Lock.LTL.UW.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.LTL.UW.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.LTL.UW.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed and Lock.EmergencyStop.Deactivated;
-      end
-      group BridgeUE:
-        requirement invariant .Lock.BTL.UE.Actuator.c_r needs Lock.UI.UBridgeTraffigLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.BTL.UE.Actuator.c_rg needs Lock.UI.UBridgeTraffigLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.UI.UBridgeTraffigLight.Green and Lock.EmergencyStop.Deactivated;
-      end
-      group BridgeUW:
-        requirement invariant .Lock.BTL.UW.Actuator.c_r needs Lock.UI.UBridgeTraffigLight.Red or Lock.EmergencyStop.Activated;
-        requirement invariant .Lock.BTL.UW.Actuator.c_rg needs Lock.UI.UBridgeTraffigLight.RedGreen and Lock.EmergencyStop.Deactivated;
-        requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.UI.UBridgeTraffigLight.Green and Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop needs Lock.UI.DStormFloodPaddle.Stop or Lock.EmergencyStop.Activated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close needs Lock.EmergencyStop.Deactivated;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UI.DStormFloodPaddle.Open;
+        requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close needs Lock.UI.DStormFloodPaddle.Close;
       end
     end
   end
-  group SafetyRequirements:
-    group Requirement_I:
-      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
-      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
-      requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UpstreamEb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
-      requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UpstreamEb.GatesOpen and Lock.UpstreamFlood.GatesOpen;
+  group requirement9:
+  end
+  group requirement11:
+    group IncomingDE:
+      requirement invariant .Lock.LTL.DE.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red;
+      requirement invariant .Lock.LTL.DE.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen;
+      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green;
+      requirement invariant .Lock.LTL.DE.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed;
     end
-    group Requirement_II:
-      requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
-      requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.DownstreamEb.GatesOpen and Lock.DownstreamFlood.GatesOpen and Lock.DownstreamStormFlood.GatesOpen;
+    group IncomingDW:
+      requirement invariant .Lock.LTL.DW.Actuator.c_r needs Lock.UI.DLockTrafficLight.Red;
+      requirement invariant .Lock.LTL.DW.Actuator.c_rg needs Lock.UI.DLockTrafficLight.RedGreen;
+      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.UI.DLockTrafficLight.Green;
+      requirement invariant .Lock.LTL.DW.Actuator.c_rr needs Lock.UI.DLockTrafficLight.RedRed;
     end
-    group Requirement_III:
-      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
-      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
-      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
-      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_close needs Lock.LTL.URedOrRedRed;
+    group IncomingUE:
+      requirement invariant .Lock.LTL.UE.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red;
+      requirement invariant .Lock.LTL.UE.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen;
+      requirement invariant .Lock.LTL.UE.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green;
+      requirement invariant .Lock.LTL.UE.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed;
     end
-    group Requirement_IV:
-      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs Lock.BTL.Red;
-      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs Lock.BTL.Red;
-      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_close needs Lock.BTL.Red;
-      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_close needs Lock.BTL.Red;
-      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_close needs Lock.BTL.Red;
-      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_close needs Lock.BTL.Red;
+    group IncomingUW:
+      requirement invariant .Lock.LTL.UW.Actuator.c_r needs Lock.UI.ULockTrafficLight.Red;
+      requirement invariant .Lock.LTL.UW.Actuator.c_rg needs Lock.UI.ULockTrafficLight.RedGreen;
+      requirement invariant .Lock.LTL.UW.Actuator.c_g needs Lock.UI.ULockTrafficLight.Green;
+      requirement invariant .Lock.LTL.UW.Actuator.c_rr needs Lock.UI.ULockTrafficLight.RedRed;
     end
-    group Requirement_V:
-      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
+    group BridgeUE:
+      requirement invariant .Lock.BTL.DE.Actuator.c_r needs Lock.UI.DBridgeTraffigLight.Red;
+      requirement invariant .Lock.BTL.DE.Actuator.c_rg needs Lock.UI.DBridgeTraffigLight.RedGreen;
+      requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.UI.DBridgeTraffigLight.Green;
     end
-    group Requirement_VI:
-      requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open needs Lock.UpstreamEb.Closed or Lock.UpstreamFlood.Closed;
-      requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamFlood.EastPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-      requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_open needs Lock.DownstreamEb.Closed or Lock.DownstreamFlood.Closed or Lock.DownstreamStormFlood.Closed;
-    end
-    group Requirement_VII:
-      requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.DownstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.DownstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.DownstreamStormFlood.EastGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.DownstreamStormFlood.WestGate.Actuator.c_open needs Lock.EqualWaterDownstream.On;
-      requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
-      requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
-      requirement invariant .Lock.UpstreamFlood.EastGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
-      requirement invariant .Lock.UpstreamFlood.WestGate.Actuator.c_open needs Lock.EqualWaterUpstream.On;
-    end
-    group requirement_VIII:
-      requirement invariant Lock.DownstreamEb.EastGate.Closed or Lock.DownstreamEb.EastPaddle.Open;
-      requirement invariant Lock.DownstreamEb.WestGate.Closed or Lock.DownstreamEb.WestPaddle.Open;
-      requirement invariant Lock.DownstreamFlood.EastGate.Closed or Lock.DownstreamFlood.EastPaddle.Open;
-      requirement invariant Lock.DownstreamFlood.WestGate.Closed or Lock.DownstreamFlood.WestPaddle.Open;
-      requirement invariant Lock.DownstreamStormFlood.EastGate.Closed or Lock.DownstreamStormFlood.EastPaddle.Open;
-      requirement invariant Lock.DownstreamStormFlood.WestGate.Closed or Lock.DownstreamStormFlood.WestPaddle.Open;
-      requirement invariant Lock.UpstreamEb.EastGate.Closed or Lock.UpstreamEb.EastPaddle.Open;
-      requirement invariant Lock.UpstreamEb.WestGate.Closed or Lock.UpstreamEb.WestPaddle.Open;
-      requirement invariant Lock.UpstreamFlood.EastGate.Closed or Lock.UpstreamFlood.EastPaddle.Open;
-      requirement invariant Lock.UpstreamFlood.WestGate.Closed or Lock.UpstreamFlood.WestPaddle.Open;
-    end
-    group Requirement_IX:
-      requirement invariant .Lock.BTL.UE.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
-      requirement invariant .Lock.BTL.UW.Actuator.c_g needs Lock.LTL.DRedOrRedRed;
-    end
-    group Requirement_X:
-      requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.BTL.Red;
-      requirement invariant .Lock.LTL.DW.Actuator.c_g needs Lock.BTL.Red;
+    group BridgeUW:
+      requirement invariant .Lock.BTL.DW.Actuator.c_r needs Lock.UI.DBridgeTraffigLight.Red;
+      requirement invariant .Lock.BTL.DW.Actuator.c_rg needs Lock.UI.DBridgeTraffigLight.RedGreen;
+      requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.UI.DBridgeTraffigLight.Green;
     end
   end
   group Lock:
     group UI:
-      plant automaton UEbGate:
-        monitor;
+      plant automaton UEbbGate:
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
           marked InitialOpen;
-          edge .Lock.UI.UEbGate.u_close goto Close;
-          edge .Lock.UI.UEbGate.u_stop goto Stop;
+          edge .Lock.UI.UEbbGate.u_close goto Close;
+          edge .Lock.UI.UEbbGate.u_stop goto Stop;
         location Close:
           initial not InitialOpen;
           marked not InitialOpen;
-          edge .Lock.UI.UEbGate.u_open goto Open;
-          edge .Lock.UI.UEbGate.u_stop goto Stop;
+          edge .Lock.UI.UEbbGate.u_open goto Open;
+          edge .Lock.UI.UEbbGate.u_stop goto Stop;
         location Stop:
-          edge .Lock.UI.UEbGate.u_close goto Close;
-          edge .Lock.UI.UEbGate.u_open goto Open;
+          edge .Lock.UI.UEbbGate.u_close goto Close;
+          edge .Lock.UI.UEbbGate.u_open goto Open;
       end
       plant automaton UFloodGate:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -772,25 +842,23 @@ group sup:
           edge .Lock.UI.UFloodGate.u_close goto Close;
           edge .Lock.UI.UFloodGate.u_open goto Open;
       end
-      plant automaton DEbGate:
-        monitor;
+      plant automaton DEbbGate:
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
           marked InitialOpen;
-          edge .Lock.UI.DEbGate.u_close goto Close;
-          edge .Lock.UI.DEbGate.u_stop goto Stop;
+          edge .Lock.UI.DEbbGate.u_close goto Close;
+          edge .Lock.UI.DEbbGate.u_stop goto Stop;
         location Close:
           initial not InitialOpen;
           marked not InitialOpen;
-          edge .Lock.UI.DEbGate.u_open goto Open;
-          edge .Lock.UI.DEbGate.u_stop goto Stop;
+          edge .Lock.UI.DEbbGate.u_open goto Open;
+          edge .Lock.UI.DEbbGate.u_stop goto Stop;
         location Stop:
-          edge .Lock.UI.DEbGate.u_close goto Close;
-          edge .Lock.UI.DEbGate.u_open goto Open;
+          edge .Lock.UI.DEbbGate.u_close goto Close;
+          edge .Lock.UI.DEbbGate.u_open goto Open;
       end
       plant automaton DFloodGate:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -807,7 +875,6 @@ group sup:
           edge .Lock.UI.DFloodGate.u_open goto Open;
       end
       plant automaton DStormFloodGate:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -823,25 +890,23 @@ group sup:
           edge .Lock.UI.DStormFloodGate.u_close goto Close;
           edge .Lock.UI.DStormFloodGate.u_open goto Open;
       end
-      plant automaton UEbPaddle:
-        monitor;
+      plant automaton UEbbPaddle:
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
           marked InitialOpen;
-          edge .Lock.UI.UEbPaddle.u_close goto Close;
-          edge .Lock.UI.UEbPaddle.u_stop goto Stop;
+          edge .Lock.UI.UEbbPaddle.u_close goto Close;
+          edge .Lock.UI.UEbbPaddle.u_stop goto Stop;
         location Close:
           initial not InitialOpen;
           marked not InitialOpen;
-          edge .Lock.UI.UEbPaddle.u_open goto Open;
-          edge .Lock.UI.UEbPaddle.u_stop goto Stop;
+          edge .Lock.UI.UEbbPaddle.u_open goto Open;
+          edge .Lock.UI.UEbbPaddle.u_stop goto Stop;
         location Stop:
-          edge .Lock.UI.UEbPaddle.u_close goto Close;
-          edge .Lock.UI.UEbPaddle.u_open goto Open;
+          edge .Lock.UI.UEbbPaddle.u_close goto Close;
+          edge .Lock.UI.UEbbPaddle.u_open goto Open;
       end
       plant automaton UFloodPaddle:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -857,25 +922,23 @@ group sup:
           edge .Lock.UI.UFloodPaddle.u_close goto Close;
           edge .Lock.UI.UFloodPaddle.u_open goto Open;
       end
-      plant automaton DEbPaddle:
-        monitor;
+      plant automaton DEbbPaddle:
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
           marked InitialOpen;
-          edge .Lock.UI.DEbPaddle.u_close goto Close;
-          edge .Lock.UI.DEbPaddle.u_stop goto Stop;
+          edge .Lock.UI.DEbbPaddle.u_close goto Close;
+          edge .Lock.UI.DEbbPaddle.u_stop goto Stop;
         location Close:
           initial not InitialOpen;
           marked not InitialOpen;
-          edge .Lock.UI.DEbPaddle.u_open goto Open;
-          edge .Lock.UI.DEbPaddle.u_stop goto Stop;
+          edge .Lock.UI.DEbbPaddle.u_open goto Open;
+          edge .Lock.UI.DEbbPaddle.u_stop goto Stop;
         location Stop:
-          edge .Lock.UI.DEbPaddle.u_close goto Close;
-          edge .Lock.UI.DEbPaddle.u_open goto Open;
+          edge .Lock.UI.DEbbPaddle.u_close goto Close;
+          edge .Lock.UI.DEbbPaddle.u_open goto Open;
       end
       plant automaton DFloodPaddle:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -892,7 +955,6 @@ group sup:
           edge .Lock.UI.DFloodPaddle.u_open goto Open;
       end
       plant automaton DStormFloodPaddle:
-        monitor;
         alg bool InitialOpen = false;
         location Open:
           initial InitialOpen;
@@ -909,7 +971,6 @@ group sup:
           edge .Lock.UI.DStormFloodPaddle.u_open goto Open;
       end
       plant automaton DLockTrafficLight:
-        monitor;
         location RedRed:
           marked;
           edge .Lock.UI.DLockTrafficLight.u_r goto Red;
@@ -925,7 +986,6 @@ group sup:
           edge .Lock.UI.DLockTrafficLight.u_r goto Red;
       end
       plant automaton ULockTrafficLight:
-        monitor;
         location RedRed:
           marked;
           edge .Lock.UI.ULockTrafficLight.u_r goto Red;
@@ -940,17 +1000,16 @@ group sup:
         location Green:
           edge .Lock.UI.ULockTrafficLight.u_r goto Red;
       end
-      plant automaton UBridgeTraffigLight:
-        monitor;
+      plant automaton DBridgeTraffigLight:
         location Red:
           initial;
           marked;
-          edge .Lock.UI.UBridgeTraffigLight.u_rg goto RedGreen;
+          edge .Lock.UI.DBridgeTraffigLight.u_rg goto RedGreen;
         location RedGreen:
-          edge .Lock.UI.UBridgeTraffigLight.u_g goto Green;
-          edge .Lock.UI.UBridgeTraffigLight.u_r goto Red;
+          edge .Lock.UI.DBridgeTraffigLight.u_g goto Green;
+          edge .Lock.UI.DBridgeTraffigLight.u_r goto Red;
         location Green:
-          edge .Lock.UI.UBridgeTraffigLight.u_r goto Red;
+          edge .Lock.UI.DBridgeTraffigLight.u_r goto Red;
       end
     end
     plant automaton EmergencyStop:
@@ -962,8 +1021,10 @@ group sup:
         edge .Lock.EmergencyStop.u_reset goto Deactivated;
     end
     group LTL:
-      alg bool DRedOrRedRed = DE.Red and DW.Red or DE.RedRed and DW.RedRed;
-      alg bool URedOrRedRed = UE.Red and UW.Red or UE.RedRed and UW.RedRed;
+      alg bool DRed = DE.Red and DW.Red;
+      alg bool DRedRed = DE.RedRed and DW.RedRed;
+      alg bool URed = UE.Red and UW.Red;
+      alg bool URedRed = UE.RedRed and UW.RedRed;
       group DE:
         alg bool RedRed = Actuator.RedRed and SensorR1.On and SensorG.Off and SensorR2.On;
         alg bool Red = Actuator.Red and SensorR1.On and SensorG.Off and SensorR2.Off;
@@ -972,17 +1033,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.DE.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.DE.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
             edge .Lock.LTL.DE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.DE.Actuator.c_r goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -1053,17 +1114,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.DW.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.DW.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
             edge .Lock.LTL.DW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.DW.Actuator.c_r goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -1134,17 +1195,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.UE.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.UE.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
             edge .Lock.LTL.UE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.UE.Actuator.c_r goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -1215,17 +1276,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.UW.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.UW.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
             edge .Lock.LTL.UW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.UW.Actuator.c_r goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -1290,8 +1351,8 @@ group sup:
       end
     end
     group BTL:
-      alg bool Red = UE.Red and UW.Red;
-      group UE:
+      alg bool DRed = DE.Red and DW.Red;
+      group DE:
         alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
         alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
         alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
@@ -1299,34 +1360,34 @@ group sup:
           location Red:
             initial;
             marked;
-            edge .Lock.BTL.UE.Actuator.c_rg goto RedGreen;
+            edge .Lock.BTL.DE.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.BTL.UE.Actuator.c_r goto Red;
-            edge .Lock.BTL.UE.Actuator.c_g goto Green;
+            edge .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg goto Red;
+            edge .Lock.BTL.DE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.BTL.UE.Actuator.c_r goto Red;
+            edge .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR:
           alg bool InitialLocationOn = true;
           location Off:
             initial not InitialLocationOn;
             marked not InitialLocationOn;
-            edge .Lock.BTL.UE.SensorR.u_on goto On;
+            edge .Lock.BTL.DE.SensorR.u_on goto On;
           location On:
             initial InitialLocationOn;
             marked InitialLocationOn;
-            edge .Lock.BTL.UE.SensorR.u_off goto Off;
+            edge .Lock.BTL.DE.SensorR.u_off goto Off;
         end
         plant automaton SensorG:
           alg bool InitialLocationOn = false;
           location Off:
             initial not InitialLocationOn;
             marked not InitialLocationOn;
-            edge .Lock.BTL.UE.SensorG.u_on goto On;
+            edge .Lock.BTL.DE.SensorG.u_on goto On;
           location On:
             initial InitialLocationOn;
             marked InitialLocationOn;
-            edge .Lock.BTL.UE.SensorG.u_off goto Off;
+            edge .Lock.BTL.DE.SensorG.u_off goto Off;
         end
         plant automaton DynamicsR:
           alg bool On = not Actuator.Green;
@@ -1334,8 +1395,8 @@ group sup:
           location:
             initial;
             marked;
-            edge .Lock.BTL.UE.SensorR.u_on when On;
-            edge .Lock.BTL.UE.SensorR.u_off when Off;
+            edge .Lock.BTL.DE.SensorR.u_on when On;
+            edge .Lock.BTL.DE.SensorR.u_off when Off;
         end
         plant automaton DynamicsG:
           alg bool On = not Actuator.Red;
@@ -1343,11 +1404,11 @@ group sup:
           location:
             initial;
             marked;
-            edge .Lock.BTL.UE.SensorG.u_on when On;
-            edge .Lock.BTL.UE.SensorG.u_off when Off;
+            edge .Lock.BTL.DE.SensorG.u_on when On;
+            edge .Lock.BTL.DE.SensorG.u_off when Off;
         end
       end
-      group UW:
+      group DW:
         alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
         alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
         alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
@@ -1355,34 +1416,34 @@ group sup:
           location Red:
             initial;
             marked;
-            edge .Lock.BTL.UW.Actuator.c_rg goto RedGreen;
+            edge .Lock.BTL.DW.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.BTL.UW.Actuator.c_r goto Red;
-            edge .Lock.BTL.UW.Actuator.c_g goto Green;
+            edge .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg goto Red;
+            edge .Lock.BTL.DW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.BTL.UW.Actuator.c_r goto Red;
+            edge .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg goto Red;
         end
         plant automaton SensorR:
           alg bool InitialLocationOn = true;
           location Off:
             initial not InitialLocationOn;
             marked not InitialLocationOn;
-            edge .Lock.BTL.UW.SensorR.u_on goto On;
+            edge .Lock.BTL.DW.SensorR.u_on goto On;
           location On:
             initial InitialLocationOn;
             marked InitialLocationOn;
-            edge .Lock.BTL.UW.SensorR.u_off goto Off;
+            edge .Lock.BTL.DW.SensorR.u_off goto Off;
         end
         plant automaton SensorG:
           alg bool InitialLocationOn = false;
           location Off:
             initial not InitialLocationOn;
             marked not InitialLocationOn;
-            edge .Lock.BTL.UW.SensorG.u_on goto On;
+            edge .Lock.BTL.DW.SensorG.u_on goto On;
           location On:
             initial InitialLocationOn;
             marked InitialLocationOn;
-            edge .Lock.BTL.UW.SensorG.u_off goto Off;
+            edge .Lock.BTL.DW.SensorG.u_off goto Off;
         end
         plant automaton DynamicsR:
           alg bool On = not Actuator.Green;
@@ -1390,8 +1451,8 @@ group sup:
           location:
             initial;
             marked;
-            edge .Lock.BTL.UW.SensorR.u_on when On;
-            edge .Lock.BTL.UW.SensorR.u_off when Off;
+            edge .Lock.BTL.DW.SensorR.u_on when On;
+            edge .Lock.BTL.DW.SensorR.u_off when Off;
         end
         plant automaton DynamicsG:
           alg bool On = not Actuator.Red;
@@ -1399,12 +1460,12 @@ group sup:
           location:
             initial;
             marked;
-            edge .Lock.BTL.UW.SensorG.u_on when On;
-            edge .Lock.BTL.UW.SensorG.u_off when Off;
+            edge .Lock.BTL.DW.SensorG.u_on when On;
+            edge .Lock.BTL.DW.SensorG.u_off when Off;
         end
       end
     end
-    group UpstreamEb:
+    group UpstreamEbb:
       alg bool GatesOpen = EastGate.Open and WestGate.Open;
       alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
       alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
@@ -1422,38 +1483,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.UpstreamEb.EastGate.Actuator.c_open goto Opening;
-            edge .Lock.UpstreamEb.EastGate.Actuator.c_close goto Closing;
+            edge .Lock.UpstreamEbb.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEbb.EastGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.EastGate.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEbb.EastGate.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_on goto Closed;
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_on goto Open;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_off goto Intermediate;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_open_on, .Lock.UpstreamEb.EastGate.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.UpstreamEb.EastGate.Sensor.u_closed_on, .Lock.UpstreamEb.EastGate.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_open_on, .Lock.UpstreamEbb.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEbb.EastGate.Sensor.u_closed_on, .Lock.UpstreamEbb.EastGate.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.EastGate.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.EastGate.Actuator.c_close needs not Sensor.Closed;
       end
       group WestGate:
         alg bool Moving = not Actuator.Rest;
@@ -1464,38 +1525,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.UpstreamEb.WestGate.Actuator.c_open goto Opening;
-            edge .Lock.UpstreamEb.WestGate.Actuator.c_close goto Closing;
+            edge .Lock.UpstreamEbb.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEbb.WestGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.WestGate.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEbb.WestGate.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_on goto Closed;
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_on goto Open;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_off goto Intermediate;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_open_on, .Lock.UpstreamEb.WestGate.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.UpstreamEb.WestGate.Sensor.u_closed_on, .Lock.UpstreamEb.WestGate.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_open_on, .Lock.UpstreamEbb.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEbb.WestGate.Sensor.u_closed_on, .Lock.UpstreamEbb.WestGate.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.WestGate.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.WestGate.Actuator.c_close needs not Sensor.Closed;
       end
       group EastPaddle:
         alg bool Moving = not Actuator.Rest;
@@ -1506,38 +1567,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_open goto Opening;
-            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_close goto Closing;
+            edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.EastPaddle.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEbb.EastPaddle.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_on goto Closed;
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_on goto Open;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_off goto Intermediate;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_open_on, .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.UpstreamEb.EastPaddle.Sensor.u_closed_on, .Lock.UpstreamEb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_open_on, .Lock.UpstreamEbb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEbb.EastPaddle.Sensor.u_closed_on, .Lock.UpstreamEbb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
       end
       group WestPaddle:
         alg bool Moving = not Actuator.Rest;
@@ -1548,38 +1609,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_open goto Opening;
-            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_close goto Closing;
+            edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.UpstreamEb.WestPaddle.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.UpstreamEbb.WestPaddle.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_on goto Closed;
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_on goto Open;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_off goto Intermediate;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_open_on, .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.UpstreamEb.WestPaddle.Sensor.u_closed_on, .Lock.UpstreamEb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_open_on, .Lock.UpstreamEbb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.UpstreamEbb.WestPaddle.Sensor.u_closed_on, .Lock.UpstreamEbb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.UpstreamEb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.UpstreamEbb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
       end
     end
     group UpstreamFlood:
@@ -1603,9 +1664,9 @@ group sup:
             edge .Lock.UpstreamFlood.EastGate.Actuator.c_open goto Opening;
             edge .Lock.UpstreamFlood.EastGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.EastGate.InitialLocationClosed;
@@ -1645,9 +1706,9 @@ group sup:
             edge .Lock.UpstreamFlood.WestGate.Actuator.c_open goto Opening;
             edge .Lock.UpstreamFlood.WestGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.WestGate.InitialLocationClosed;
@@ -1687,9 +1748,9 @@ group sup:
             edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_open goto Opening;
             edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.EastPaddle.InitialLocationClosed;
@@ -1729,9 +1790,9 @@ group sup:
             edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_open goto Opening;
             edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.UpstreamFlood.WestPaddle.InitialLocationClosed;
@@ -1760,7 +1821,7 @@ group sup:
         requirement invariant .Lock.UpstreamFlood.WestPaddle.Actuator.c_close needs not Sensor.Closed;
       end
     end
-    group DownstreamEb:
+    group DownstreamEbb:
       alg bool GatesOpen = EastGate.Open and WestGate.Open;
       alg bool GatesClosed = EastGate.Closed and WestGate.Closed;
       alg bool GatesMoving = EastGate.Moving or WestGate.Moving;
@@ -1778,38 +1839,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.DownstreamEb.EastGate.Actuator.c_open goto Opening;
-            edge .Lock.DownstreamEb.EastGate.Actuator.c_close goto Closing;
+            edge .Lock.DownstreamEbb.EastGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEbb.EastGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.EastGate.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEbb.EastGate.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_on goto Closed;
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_on goto Open;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_off goto Intermediate;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_open_on, .Lock.DownstreamEb.EastGate.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.DownstreamEb.EastGate.Sensor.u_closed_on, .Lock.DownstreamEb.EastGate.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_open_on, .Lock.DownstreamEbb.EastGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEbb.EastGate.Sensor.u_closed_on, .Lock.DownstreamEbb.EastGate.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.EastGate.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.EastGate.Actuator.c_close needs not Sensor.Closed;
       end
       group WestGate:
         alg bool Moving = not Actuator.Rest;
@@ -1820,38 +1881,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.DownstreamEb.WestGate.Actuator.c_open goto Opening;
-            edge .Lock.DownstreamEb.WestGate.Actuator.c_close goto Closing;
+            edge .Lock.DownstreamEbb.WestGate.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEbb.WestGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.WestGate.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEbb.WestGate.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_on goto Closed;
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_on goto Open;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_off goto Intermediate;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_open_on, .Lock.DownstreamEb.WestGate.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.DownstreamEb.WestGate.Sensor.u_closed_on, .Lock.DownstreamEb.WestGate.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_open_on, .Lock.DownstreamEbb.WestGate.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEbb.WestGate.Sensor.u_closed_on, .Lock.DownstreamEbb.WestGate.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.WestGate.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.WestGate.Actuator.c_close needs not Sensor.Closed;
       end
       group EastPaddle:
         alg bool Moving = not Actuator.Rest;
@@ -1862,38 +1923,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_open goto Opening;
-            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_close goto Closing;
+            edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.EastPaddle.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEbb.EastPaddle.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_on goto Closed;
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_on goto Open;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_off goto Intermediate;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_open_on, .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.DownstreamEb.EastPaddle.Sensor.u_closed_on, .Lock.DownstreamEb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_open_on, .Lock.DownstreamEbb.EastPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEbb.EastPaddle.Sensor.u_closed_on, .Lock.DownstreamEbb.EastPaddle.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.EastPaddle.Actuator.c_close needs not Sensor.Closed;
       end
       group WestPaddle:
         alg bool Moving = not Actuator.Rest;
@@ -1904,38 +1965,38 @@ group sup:
           location Rest:
             initial;
             marked;
-            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_open goto Opening;
-            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_close goto Closing;
+            edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_open goto Opening;
+            edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
-          alg bool InitialLocationClosed = .sup.Lock.DownstreamEb.WestPaddle.InitialLocationClosed;
+          alg bool InitialLocationClosed = .sup.Lock.DownstreamEbb.WestPaddle.InitialLocationClosed;
           location Closed:
             initial InitialLocationClosed;
             marked InitialLocationClosed;
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_off goto Intermediate;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_closed_off goto Intermediate;
           location Intermediate:
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_on goto Closed;
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_on goto Open;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_closed_on goto Closed;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_open_on goto Open;
           location Open:
             initial not InitialLocationClosed;
             marked not InitialLocationClosed;
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_off goto Intermediate;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_open_off goto Intermediate;
         end
         plant automaton Dynamics:
           location:
             initial;
             marked;
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_open_on, .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
-            edge .Lock.DownstreamEb.WestPaddle.Sensor.u_closed_on, .Lock.DownstreamEb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_open_on, .Lock.DownstreamEbb.WestPaddle.Sensor.u_closed_off when Actuator.Opening;
+            edge .Lock.DownstreamEbb.WestPaddle.Sensor.u_closed_on, .Lock.DownstreamEbb.WestPaddle.Sensor.u_open_off when Actuator.Closing;
         end
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_open needs not Sensor.Open;
-        requirement invariant .Lock.DownstreamEb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_open needs not Sensor.Open;
+        requirement invariant .Lock.DownstreamEbb.WestPaddle.Actuator.c_close needs not Sensor.Closed;
       end
     end
     group DownstreamFlood:
@@ -1959,9 +2020,9 @@ group sup:
             edge .Lock.DownstreamFlood.EastGate.Actuator.c_open goto Opening;
             edge .Lock.DownstreamFlood.EastGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.EastGate.InitialLocationClosed;
@@ -2001,9 +2062,9 @@ group sup:
             edge .Lock.DownstreamFlood.WestGate.Actuator.c_open goto Opening;
             edge .Lock.DownstreamFlood.WestGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.WestGate.InitialLocationClosed;
@@ -2043,9 +2104,9 @@ group sup:
             edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_open goto Opening;
             edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.EastPaddle.InitialLocationClosed;
@@ -2085,9 +2146,9 @@ group sup:
             edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_open goto Opening;
             edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamFlood.WestPaddle.InitialLocationClosed;
@@ -2137,9 +2198,9 @@ group sup:
             edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_open goto Opening;
             edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.EastGate.InitialLocationClosed;
@@ -2179,9 +2240,9 @@ group sup:
             edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_open goto Opening;
             edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.WestGate.InitialLocationClosed;
@@ -2221,9 +2282,9 @@ group sup:
             edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open goto Opening;
             edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.EastPaddle.InitialLocationClosed;
@@ -2263,9 +2324,9 @@ group sup:
             edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open goto Opening;
             edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close goto Closing;
           location Opening:
-            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening goto Rest;
           location Closing:
-            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
+            edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing goto Rest;
         end
         plant automaton Sensor:
           alg bool InitialLocationClosed = .sup.Lock.DownstreamStormFlood.WestPaddle.InitialLocationClosed;
@@ -2318,131 +2379,137 @@ group sup:
     end
   end
   supervisor automaton sup:
-    alphabet .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_rr, .Lock.LTL.DE.Actuator.c_rg, .Lock.LTL.DE.Actuator.c_g, .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_rr, .Lock.LTL.DW.Actuator.c_rg, .Lock.LTL.DW.Actuator.c_g, .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_rr, .Lock.LTL.UE.Actuator.c_rg, .Lock.LTL.UE.Actuator.c_g, .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_rr, .Lock.LTL.UW.Actuator.c_rg, .Lock.LTL.UW.Actuator.c_g, .Lock.BTL.UE.Actuator.c_rg, .Lock.BTL.UE.Actuator.c_r, .Lock.BTL.UE.Actuator.c_g, .Lock.BTL.UW.Actuator.c_rg, .Lock.BTL.UW.Actuator.c_r, .Lock.BTL.UW.Actuator.c_g, .Lock.UpstreamEb.EastGate.Actuator.c_open, .Lock.UpstreamEb.EastGate.Actuator.c_close, .Lock.UpstreamEb.EastGate.Actuator.c_stop, .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamEb.WestGate.Actuator.c_open, .Lock.UpstreamEb.WestGate.Actuator.c_close, .Lock.UpstreamEb.WestGate.Actuator.c_stop, .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamEb.EastPaddle.Actuator.c_open, .Lock.UpstreamEb.EastPaddle.Actuator.c_close, .Lock.UpstreamEb.EastPaddle.Actuator.c_stop, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamEb.WestPaddle.Actuator.c_open, .Lock.UpstreamEb.WestPaddle.Actuator.c_close, .Lock.UpstreamEb.WestPaddle.Actuator.c_stop, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastGate.Actuator.c_open, .Lock.UpstreamFlood.EastGate.Actuator.c_close, .Lock.UpstreamFlood.EastGate.Actuator.c_stop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestGate.Actuator.c_open, .Lock.UpstreamFlood.WestGate.Actuator.c_close, .Lock.UpstreamFlood.WestGate.Actuator.c_stop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastPaddle.Actuator.c_open, .Lock.UpstreamFlood.EastPaddle.Actuator.c_close, .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestPaddle.Actuator.c_open, .Lock.UpstreamFlood.WestPaddle.Actuator.c_close, .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEb.EastGate.Actuator.c_open, .Lock.DownstreamEb.EastGate.Actuator.c_close, .Lock.DownstreamEb.EastGate.Actuator.c_stop, .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamEb.WestGate.Actuator.c_open, .Lock.DownstreamEb.WestGate.Actuator.c_close, .Lock.DownstreamEb.WestGate.Actuator.c_stop, .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamEb.EastPaddle.Actuator.c_open, .Lock.DownstreamEb.EastPaddle.Actuator.c_close, .Lock.DownstreamEb.EastPaddle.Actuator.c_stop, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEb.WestPaddle.Actuator.c_open, .Lock.DownstreamEb.WestPaddle.Actuator.c_close, .Lock.DownstreamEb.WestPaddle.Actuator.c_stop, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastGate.Actuator.c_open, .Lock.DownstreamFlood.EastGate.Actuator.c_close, .Lock.DownstreamFlood.EastGate.Actuator.c_stop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestGate.Actuator.c_open, .Lock.DownstreamFlood.WestGate.Actuator.c_close, .Lock.DownstreamFlood.WestGate.Actuator.c_stop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastGate.Actuator.c_open, .Lock.DownstreamStormFlood.EastGate.Actuator.c_close, .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestGate.Actuator.c_open, .Lock.DownstreamStormFlood.WestGate.Actuator.c_close, .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing;
+    alphabet .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg, .Lock.LTL.DE.Actuator.c_rr, .Lock.LTL.DE.Actuator.c_rg, .Lock.LTL.DE.Actuator.c_g, .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg, .Lock.LTL.DW.Actuator.c_rr, .Lock.LTL.DW.Actuator.c_rg, .Lock.LTL.DW.Actuator.c_g, .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg, .Lock.LTL.UE.Actuator.c_rr, .Lock.LTL.UE.Actuator.c_rg, .Lock.LTL.UE.Actuator.c_g, .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg, .Lock.LTL.UW.Actuator.c_rr, .Lock.LTL.UW.Actuator.c_rg, .Lock.LTL.UW.Actuator.c_g, .Lock.BTL.DE.Actuator.c_rg, .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg, .Lock.BTL.DE.Actuator.c_g, .Lock.BTL.DW.Actuator.c_rg, .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg, .Lock.BTL.DW.Actuator.c_g, .Lock.UpstreamEbb.EastGate.Actuator.c_open, .Lock.UpstreamEbb.EastGate.Actuator.c_close, .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestGate.Actuator.c_open, .Lock.UpstreamEbb.WestGate.Actuator.c_close, .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.EastPaddle.Actuator.c_open, .Lock.UpstreamEbb.EastPaddle.Actuator.c_close, .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestPaddle.Actuator.c_open, .Lock.UpstreamEbb.WestPaddle.Actuator.c_close, .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastGate.Actuator.c_open, .Lock.UpstreamFlood.EastGate.Actuator.c_close, .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestGate.Actuator.c_open, .Lock.UpstreamFlood.WestGate.Actuator.c_close, .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastPaddle.Actuator.c_open, .Lock.UpstreamFlood.EastPaddle.Actuator.c_close, .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestPaddle.Actuator.c_open, .Lock.UpstreamFlood.WestPaddle.Actuator.c_close, .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastGate.Actuator.c_open, .Lock.DownstreamEbb.EastGate.Actuator.c_close, .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestGate.Actuator.c_open, .Lock.DownstreamEbb.WestGate.Actuator.c_close, .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastPaddle.Actuator.c_open, .Lock.DownstreamEbb.EastPaddle.Actuator.c_close, .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestPaddle.Actuator.c_open, .Lock.DownstreamEbb.WestPaddle.Actuator.c_close, .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastGate.Actuator.c_open, .Lock.DownstreamFlood.EastGate.Actuator.c_close, .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestGate.Actuator.c_open, .Lock.DownstreamFlood.WestGate.Actuator.c_close, .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastGate.Actuator.c_open, .Lock.DownstreamStormFlood.EastGate.Actuator.c_close, .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestGate.Actuator.c_open, .Lock.DownstreamStormFlood.WestGate.Actuator.c_close, .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing;
     location:
       initial;
       marked;
-      edge .Lock.BTL.UE.Actuator.c_g when true;
-      edge .Lock.BTL.UE.Actuator.c_r when true;
-      edge .Lock.BTL.UE.Actuator.c_rg when true;
-      edge .Lock.BTL.UW.Actuator.c_g when true;
-      edge .Lock.BTL.UW.Actuator.c_r when true;
-      edge .Lock.BTL.UW.Actuator.c_rg when true;
-      edge .Lock.DownstreamEb.EastGate.Actuator.c_close when true;
-      edge .Lock.DownstreamEb.EastGate.Actuator.c_endStopClosing when true;
-      edge .Lock.DownstreamEb.EastGate.Actuator.c_endStopOpening when true;
-      edge .Lock.DownstreamEb.EastGate.Actuator.c_open when Lock.DownstreamEb.EastPaddle.Actuator.Rest and Lock.DownstreamEb.EastPaddle.Sensor.Open;
-      edge .Lock.DownstreamEb.EastGate.Actuator.c_stop when true;
-      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_close when not Lock.DownstreamEb.EastPaddle.Sensor.Intermediate and (Lock.DownstreamEb.EastGate.Actuator.Rest and Lock.DownstreamEb.EastGate.Sensor.Closed) or Lock.DownstreamEb.EastPaddle.Sensor.Intermediate;
-      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopClosing when true;
-      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_endStopOpening when true;
-      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamEb.EastPaddle.Actuator.c_stop when true;
-      edge .Lock.DownstreamEb.WestGate.Actuator.c_close when true;
-      edge .Lock.DownstreamEb.WestGate.Actuator.c_endStopClosing when true;
-      edge .Lock.DownstreamEb.WestGate.Actuator.c_endStopOpening when true;
-      edge .Lock.DownstreamEb.WestGate.Actuator.c_open when Lock.DownstreamEb.WestPaddle.Actuator.Rest and Lock.DownstreamEb.WestPaddle.Sensor.Open;
-      edge .Lock.DownstreamEb.WestGate.Actuator.c_stop when true;
-      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_close when Lock.DownstreamEb.WestGate.Actuator.Rest and Lock.DownstreamEb.WestGate.Sensor.Closed;
-      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopClosing when true;
-      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_endStopOpening when true;
-      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamEb.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.BTL.DE.Actuator.c_emerg when true;
+      edge .Lock.BTL.DE.Actuator.c_g when true;
+      edge .Lock.BTL.DE.Actuator.c_r when true;
+      edge .Lock.BTL.DE.Actuator.c_rg when true;
+      edge .Lock.BTL.DW.Actuator.c_emerg when true;
+      edge .Lock.BTL.DW.Actuator.c_g when true;
+      edge .Lock.BTL.DW.Actuator.c_r when true;
+      edge .Lock.BTL.DW.Actuator.c_rg when true;
+      edge .Lock.DownstreamEbb.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop when true;
+      edge .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEbb.EastGate.Actuator.c_open when Lock.DownstreamEbb.EastPaddle.Actuator.Rest and Lock.DownstreamEbb.EastPaddle.Sensor.Open;
+      edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_close when not Lock.DownstreamEbb.EastPaddle.Sensor.Intermediate and (Lock.DownstreamEbb.EastGate.Actuator.Rest and Lock.DownstreamEbb.EastGate.Sensor.Closed) or Lock.DownstreamEbb.EastPaddle.Sensor.Intermediate;
+      edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop when true;
+      edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEbb.EastPaddle.Actuator.c_open when true;
+      edge .Lock.DownstreamEbb.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop when true;
+      edge .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEbb.WestGate.Actuator.c_open when Lock.DownstreamEbb.WestPaddle.Actuator.Rest and Lock.DownstreamEbb.WestPaddle.Sensor.Open;
+      edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_close when Lock.DownstreamEbb.WestGate.Actuator.Rest and Lock.DownstreamEbb.WestGate.Sensor.Closed;
+      edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop when true;
+      edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.DownstreamEbb.WestPaddle.Actuator.c_open when true;
       edge .Lock.DownstreamFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamFlood.EastGate.Actuator.c_open when Lock.DownstreamFlood.EastPaddle.Actuator.Rest and Lock.DownstreamFlood.EastPaddle.Sensor.Open;
-      edge .Lock.DownstreamFlood.EastGate.Actuator.c_stop when true;
       edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_close when Lock.DownstreamFlood.EastGate.Actuator.Rest and Lock.DownstreamFlood.EastGate.Sensor.Closed;
+      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamFlood.EastPaddle.Actuator.c_stop when true;
       edge .Lock.DownstreamFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamFlood.WestGate.Actuator.c_open when Lock.DownstreamFlood.WestPaddle.Actuator.Rest and Lock.DownstreamFlood.WestPaddle.Sensor.Open;
-      edge .Lock.DownstreamFlood.WestGate.Actuator.c_stop when true;
       edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_close when Lock.DownstreamFlood.WestGate.Actuator.Rest and Lock.DownstreamFlood.WestGate.Sensor.Closed;
+      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamFlood.WestPaddle.Actuator.c_stop when true;
       edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_open when Lock.DownstreamStormFlood.EastPaddle.Actuator.Rest and Lock.DownstreamStormFlood.EastPaddle.Sensor.Open;
-      edge .Lock.DownstreamStormFlood.EastGate.Actuator.c_stop when true;
       edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close when Lock.DownstreamStormFlood.EastGate.Actuator.Rest and Lock.DownstreamStormFlood.EastGate.Sensor.Closed;
+      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_stop when true;
       edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_open when Lock.DownstreamStormFlood.WestPaddle.Sensor.Open and Lock.DownstreamStormFlood.WestPaddle.Actuator.Rest;
-      edge .Lock.DownstreamStormFlood.WestGate.Actuator.c_stop when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close when Lock.DownstreamStormFlood.WestGate.Sensor.Closed and Lock.DownstreamStormFlood.WestGate.Actuator.Rest;
+      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open when true;
-      edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.LTL.DE.Actuator.c_emerg when true;
       edge .Lock.LTL.DE.Actuator.c_g when true;
       edge .Lock.LTL.DE.Actuator.c_r when true;
       edge .Lock.LTL.DE.Actuator.c_rg when true;
       edge .Lock.LTL.DE.Actuator.c_rr when true;
+      edge .Lock.LTL.DW.Actuator.c_emerg when true;
       edge .Lock.LTL.DW.Actuator.c_g when true;
       edge .Lock.LTL.DW.Actuator.c_r when true;
       edge .Lock.LTL.DW.Actuator.c_rg when true;
       edge .Lock.LTL.DW.Actuator.c_rr when true;
+      edge .Lock.LTL.UE.Actuator.c_emerg when true;
       edge .Lock.LTL.UE.Actuator.c_g when true;
       edge .Lock.LTL.UE.Actuator.c_r when true;
       edge .Lock.LTL.UE.Actuator.c_rg when true;
       edge .Lock.LTL.UE.Actuator.c_rr when true;
+      edge .Lock.LTL.UW.Actuator.c_emerg when true;
       edge .Lock.LTL.UW.Actuator.c_g when true;
       edge .Lock.LTL.UW.Actuator.c_r when true;
       edge .Lock.LTL.UW.Actuator.c_rg when true;
       edge .Lock.LTL.UW.Actuator.c_rr when true;
-      edge .Lock.UpstreamEb.EastGate.Actuator.c_close when true;
-      edge .Lock.UpstreamEb.EastGate.Actuator.c_endStopClosing when true;
-      edge .Lock.UpstreamEb.EastGate.Actuator.c_endStopOpening when true;
-      edge .Lock.UpstreamEb.EastGate.Actuator.c_open when Lock.UpstreamEb.EastPaddle.Actuator.Rest and Lock.UpstreamEb.EastPaddle.Sensor.Open;
-      edge .Lock.UpstreamEb.EastGate.Actuator.c_stop when true;
-      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_close when not Lock.UpstreamEb.EastPaddle.Sensor.Intermediate and (Lock.UpstreamEb.EastGate.Actuator.Rest and Lock.UpstreamEb.EastGate.Sensor.Closed) or Lock.UpstreamEb.EastPaddle.Sensor.Intermediate;
-      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopClosing when true;
-      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_endStopOpening when true;
-      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_open when true;
-      edge .Lock.UpstreamEb.EastPaddle.Actuator.c_stop when true;
-      edge .Lock.UpstreamEb.WestGate.Actuator.c_close when true;
-      edge .Lock.UpstreamEb.WestGate.Actuator.c_endStopClosing when true;
-      edge .Lock.UpstreamEb.WestGate.Actuator.c_endStopOpening when true;
-      edge .Lock.UpstreamEb.WestGate.Actuator.c_open when Lock.UpstreamEb.WestPaddle.Actuator.Rest and Lock.UpstreamEb.WestPaddle.Sensor.Open;
-      edge .Lock.UpstreamEb.WestGate.Actuator.c_stop when true;
-      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_close when Lock.UpstreamEb.WestGate.Actuator.Rest and Lock.UpstreamEb.WestGate.Sensor.Closed;
-      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopClosing when true;
-      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_endStopOpening when true;
-      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_open when true;
-      edge .Lock.UpstreamEb.WestPaddle.Actuator.c_stop when true;
+      edge .Lock.UpstreamEbb.EastGate.Actuator.c_close when true;
+      edge .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop when true;
+      edge .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEbb.EastGate.Actuator.c_open when Lock.UpstreamEbb.EastPaddle.Actuator.Rest and Lock.UpstreamEbb.EastPaddle.Sensor.Open;
+      edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_close when not Lock.UpstreamEbb.EastPaddle.Sensor.Intermediate and (Lock.UpstreamEbb.EastGate.Actuator.Rest and Lock.UpstreamEbb.EastGate.Sensor.Closed) or Lock.UpstreamEbb.EastPaddle.Sensor.Intermediate;
+      edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop when true;
+      edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEbb.EastPaddle.Actuator.c_open when true;
+      edge .Lock.UpstreamEbb.WestGate.Actuator.c_close when true;
+      edge .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop when true;
+      edge .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEbb.WestGate.Actuator.c_open when Lock.UpstreamEbb.WestPaddle.Actuator.Rest and Lock.UpstreamEbb.WestPaddle.Sensor.Open;
+      edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_close when Lock.UpstreamEbb.WestGate.Actuator.Rest and Lock.UpstreamEbb.WestGate.Sensor.Closed;
+      edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop when true;
+      edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing when true;
+      edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening when true;
+      edge .Lock.UpstreamEbb.WestPaddle.Actuator.c_open when true;
       edge .Lock.UpstreamFlood.EastGate.Actuator.c_close when true;
+      edge .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop when true;
       edge .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing when true;
       edge .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening when true;
       edge .Lock.UpstreamFlood.EastGate.Actuator.c_open when Lock.UpstreamFlood.EastPaddle.Actuator.Rest and Lock.UpstreamFlood.EastPaddle.Sensor.Open;
-      edge .Lock.UpstreamFlood.EastGate.Actuator.c_stop when true;
       edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_close when Lock.UpstreamFlood.EastGate.Actuator.Rest and Lock.UpstreamFlood.EastGate.Sensor.Closed;
+      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop when true;
       edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_open when true;
-      edge .Lock.UpstreamFlood.EastPaddle.Actuator.c_stop when true;
       edge .Lock.UpstreamFlood.WestGate.Actuator.c_close when true;
+      edge .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop when true;
       edge .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing when true;
       edge .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening when true;
       edge .Lock.UpstreamFlood.WestGate.Actuator.c_open when Lock.UpstreamFlood.WestPaddle.Actuator.Rest and Lock.UpstreamFlood.WestPaddle.Sensor.Open;
-      edge .Lock.UpstreamFlood.WestGate.Actuator.c_stop when true;
       edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_close when Lock.UpstreamFlood.WestGate.Actuator.Rest and Lock.UpstreamFlood.WestGate.Sensor.Closed;
+      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop when true;
       edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_open when true;
-      edge .Lock.UpstreamFlood.WestPaddle.Actuator.c_stop when true;
   end
 end

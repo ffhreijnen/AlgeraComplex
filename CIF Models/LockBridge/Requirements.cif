@@ -1,34 +1,43 @@
 import "../Lock/Requirements.cif";
 import "../Bridge/Requirements.cif";
 
+group Requirement1: //The bridge can only move when:
+    //(a) the gates are not moving
+    requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_open} needs
+        not (Lock.UpstreamEbb.GatesMoving   or Lock.UpstreamFlood.GatesMoving   or
+             Lock.DownstreamEbb.GatesMoving or Lock.DownstreamFlood.GatesMoving or
+             Lock.DownstreamStormFlood.GatesMoving);
 
-group SafetyRequirements:
-    group Requirement_I: //The bridge and the gates cannot move simultaneously.
-        requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_open} needs
-                                                     not (Lock.UpstreamEb.GatesMoving   or Lock.UpstreamFlood.GatesMoving   or
-                                                          Lock.DownstreamEb.GatesMoving or Lock.DownstreamFlood.GatesMoving or
-                                                          Lock.DownstreamStormFlood.GatesMoving);
+    //(b) the bridge traffic lights display a red aspect
+    requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_close} needs
+        Lock.BTL.DRed;
 
-        requirement  {Lock.UpstreamEb.EastGate.Actuator.c_open,           Lock.UpstreamEb.EastGate.Actuator.c_close,
-                      Lock.UpstreamEb.WestGate.Actuator.c_open,           Lock.UpstreamEb.WestGate.Actuator.c_close,
-                      Lock.UpstreamFlood.EastGate.Actuator.c_open,        Lock.UpstreamFlood.EastGate.Actuator.c_close,
-                      Lock.UpstreamFlood.WestGate.Actuator.c_open,        Lock.UpstreamFlood.WestGate.Actuator.c_close,
-                      Lock.DownstreamEb.EastGate.Actuator.c_open,         Lock.DownstreamEb.EastGate.Actuator.c_close,
-                      Lock.DownstreamEb.WestGate.Actuator.c_open,         Lock.DownstreamEb.WestGate.Actuator.c_close,
-                      Lock.DownstreamFlood.EastGate.Actuator.c_open,      Lock.DownstreamFlood.EastGate.Actuator.c_close,
-                      Lock.DownstreamFlood.WestGate.Actuator.c_open,      Lock.DownstreamFlood.WestGate.Actuator.c_close,
-                      Lock.DownstreamStormFlood.EastGate.Actuator.c_open, Lock.DownstreamStormFlood.EastGate.Actuator.c_close,
-                      Lock.DownstreamStormFlood.WestGate.Actuator.c_open, Lock.DownstreamStormFlood.WestGate.Actuator.c_close}
-                      needs not Bridge.Deck.Moving;
-    end
+    //(c) the downstream lock traffic lights display a red or double red aspect.
+    requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_close} needs
+        Lock.LTL.DRed or Lock.LTL.DRedRed;
+end
 
-    group Requirement_II: //The bridge traffic light cannot show a green sign aspect while the deck is moving
-        requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_close} needs Lock.BTL.Red;
-        requirement {Lock.BTL.UE.Actuator.c_g, Lock.BTL.UW.Actuator.c_g} needs Bridge.Deck.Open or Bridge.Deck.Closed;
-    end
+group Requirement2: //The gates can only open or close when the bridge is not moving.
+    requirement  {Lock.UpstreamEbb.EastGate.Actuator.c_open,          Lock.UpstreamEbb.EastGate.Actuator.c_close,
+                  Lock.UpstreamEbb.WestGate.Actuator.c_open,          Lock.UpstreamEbb.WestGate.Actuator.c_close,
+                  Lock.UpstreamFlood.EastGate.Actuator.c_open,        Lock.UpstreamFlood.EastGate.Actuator.c_close,
+                  Lock.UpstreamFlood.WestGate.Actuator.c_open,        Lock.UpstreamFlood.WestGate.Actuator.c_close,
+                  Lock.DownstreamEbb.EastGate.Actuator.c_open,        Lock.DownstreamEbb.EastGate.Actuator.c_close,
+                  Lock.DownstreamEbb.WestGate.Actuator.c_open,        Lock.DownstreamEbb.WestGate.Actuator.c_close,
+                  Lock.DownstreamFlood.EastGate.Actuator.c_open,      Lock.DownstreamFlood.EastGate.Actuator.c_close,
+                  Lock.DownstreamFlood.WestGate.Actuator.c_open,      Lock.DownstreamFlood.WestGate.Actuator.c_close,
+                  Lock.DownstreamStormFlood.EastGate.Actuator.c_open, Lock.DownstreamStormFlood.EastGate.Actuator.c_close,
+                  Lock.DownstreamStormFlood.WestGate.Actuator.c_open, Lock.DownstreamStormFlood.WestGate.Actuator.c_close}
+                  needs not Bridge.Deck.Moving;
 
-    group Requirement_III: //The downstream traffic light cannot show a green sign aspect while the deck is moving
-        requirement {Bridge.Deck.Actuator.c_open, Bridge.Deck.Actuator.c_close} needs Lock.LTL.DRedOrRedRed;
-        requirement {Lock.LTL.DE.Actuator.c_g, Lock.LTL.DW.Actuator.c_g} needs Bridge.Deck.Open or Bridge.Deck.Closed;
-    end
+end
+
+group Requirement3: //The bridge traffic lights can only display a green aspect the bridge if fully open or fully closed.
+    requirement {Lock.BTL.DE.Actuator.c_g, Lock.BTL.DW.Actuator.c_g} needs
+        Bridge.Deck.Open or Bridge.Deck.Closed;
+end
+
+group Requirement4: //The lock traffic lights can only display a green aspect the bridge if fully open or fully closed.
+    requirement {Lock.LTL.DE.Actuator.c_g, Lock.LTL.DW.Actuator.c_g} needs
+        Bridge.Deck.Open or Bridge.Deck.Closed;
 end

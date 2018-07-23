@@ -1,49 +1,89 @@
 import "Simulation.cif";
 
-group def StopSignV(alg int n; alg bool SensorOn):
-    svgout id "StopSign" + <string>n attr "fill" value if SensorOn: "red" else "grey" end;
+//Visualization for a stop sign.
+//@ID - The unique ID of the stop sign.
+//@SensorOn - The location where the sensor is in location On.
+group def StopSignV(alg int ID; alg bool SensorOn):
+    svgout id "StopSign" + <string>ID attr "fill" value if SensorOn: "red" else "grey" end;
 end
 
-group def PreSignV(alg string ID; alg bool SensorOn):
-    svgout id "PreSign_" + ID  attr "fill" value if SensorOn: "orange" else "grey" end;
+//Visualization for an approach sign.
+//@ID - The unique ID of the approach sign.
+//@SensorOn - The location where the sensor is in location On.
+group def ApproachSignV(alg int ID; alg bool SensorOn):
+    svgout id "ApproachSign" + <string>ID  attr "fill" value if SensorOn: "orange" else "grey" end;
 end
 
-group def BarrierV(alg int n; alg bool Closed; alg real Degree):
-    svgout id "Barrier" +<string>n attr "fill-opacity"   value if Closed: 100 else 0 end;
-    svgout id "Barrier" +<string>n attr "stroke-opacity" value if Closed: 100 else 0 end;
-    svgout id "prog_B"  +<string>n attr "width" value scale(Degree, 90, 0, 0.01, 100);
+//Visualization for a barrier.
+//@ID - The unique ID of the barrier.
+//@SensorClosed - The location where the sensor is Closed.
+//@a - Continuous value representing the angle[0..3] of the barrier.
+group def BarrierV(alg int ID; alg bool SensorClosed; alg real a):
+    svgout id "Barrier" + <string>ID attr "fill-opacity"   value if SensorClosed: 100 else 0 end;
+    svgout id "Barrier" + <string>ID attr "stroke-opacity" value if SensorClosed: 100 else 0 end;
+    svgout id "prog_B"  + <string>ID attr "width" value scale(a, 3, 0, 0.01, 100);
 end
 
-group def ButtonV(alg int n; Button Button):
-    svgin  id "Button" + <string>n event if Button.Released: Button.u_pushed else Button.u_released end;
-    svgout id "Button" + <string>n + "V" attr "fill" value if Button.Pushed: "yellowgreen" else "indianred" end;
+//Visualization for a gate and its paddle.
+//@ID - The unique ID of the gate and barrier.
+//@SensorPaddleClosed - The location where the paddle sensor is Closed.
+//@x, y - The coordinates of the rotation point in the svg image for the gate.
+//@OpenDegree - The amount of degrees to rotate from closed -> open (can be negative for different direction).
+//a - Continuous value representing the angle[0..3] of the gate.
+group def GateV(alg string ID; alg bool SensorPaddleClosed; alg int x, y, OpenDegree; alg real a):
+    svgout id "Gate"   + ID attr "transform" value fmt("rotate(%s, %s, %s)", scale(a, 0, 3, 0.01, OpenDegree), x, y);
+    svgout id "Paddle" + ID attr "fill" value if SensorPaddleClosed : "grey" else "lightblue" end;
 end
 
-group def TheeStateButtonV(alg int n; ThreeStateUI Button):
-    svgin  id "Button" + <string>n event Button.u_close;
-    svgin  id "Button" + <string>(n+1) event Button.u_open;
-    svgin  id "Button" + <string>(n+2) event Button.u_stop;
-    svgout id "Button" + <string>n + "V" attr "fill" value if Button.Close: "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Open: "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+2) + "V" attr "fill" value if Button.Stop: "yellowgreen" else "indianred" end;
+group def LTLV(alg string ID; LockTrafficLight LTL):
+    svgout id ID + "Rgr" attr "fill" value if LTL.Red1On  : "red"   else "grey" end;
+    svgout id ID + "rGr" attr "fill" value if LTL.GreenOn : "green" else "grey" end;
+    svgout id ID + "rgR" attr "fill" value if LTL.Red2On  : "red"   else "grey" end;
 end
 
-group def IncomingVTLButtonV(alg int n; LockTrafficLightUI Button):
-    svgin  id "Button" + <string>n     event Button.u_r;
-    svgin  id "Button" + <string>(n+1) event Button.u_g;
-    svgin  id "Button" + <string>(n+2) event Button.u_rg;
-    svgin  id "Button" + <string>(n+3) event Button.u_rr;
-    svgout id "Button" + <string> n    + "V" attr "fill" value if Button.Red:      "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Green:    "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+2) + "V" attr "fill" value if Button.RedGreen: "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+3) + "V" attr "fill" value if Button.RedRed:   "yellowgreen" else "indianred" end;
+group def BTLV(alg string ID; BridgeTrafficLight BTL):
+    svgout id ID + "r" attr "fill" value if BTL.RedOn   : "red"   else "grey" end;
+    svgout id ID + "g" attr "fill" value if BTL.GreenOn : "green" else "grey" end;
+end
+//Visualization for a movable component command set.
+//ID - The unique ID of the first command.
+//Command - The automaton that is visualized.
+group def MovableComponentsCommandsV(alg int ID; MovableComponentsCommands Command):
+    svgin  id "Button" + <string> ID    event if not Command.Close: Command.u_close else No.Event end;
+    svgin  id "Button" + <string>(ID+1) event if not Command.Open:  Command.u_open  else No.Event end;
+    svgin  id "Button" + <string>(ID+2) event if not Command.Stop:  Command.u_stop  else No.Event end;
+    svgout id "Button" + <string> ID    attr "fill" value if Command.Close: "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+1) attr "fill" value if Command.Open:  "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+2) attr "fill" value if Command.Stop:  "yellowgreen" else "indianred" end;
 end
 
-group def BridgeVTLButtonV(alg int n; BridgeTrafficLightUI Button):
-    svgin  id "Button" + <string>n           event Button.u_r;
-    svgin  id "Button" + <string>(n+1)       event Button.u_g;
-    svgin  id "Button" + <string>(n+1) + "b" event Button.u_rg;
-    svgout id "Button" + <string> n    + "V" attr "fill" value if Button.Red:      "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+1) + "V" attr "fill" value if Button.Green:    "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(n+1) + "bV" attr "fill" value if Button.RedGreen: "yellowgreen" else "indianred" end;
+//Visualization for a lock traffic light command set.
+//ID - The unique ID of the first command.
+//Command - The automaton that is visualized.
+group def LTLCommandsV(alg int ID; LockTrafficLightCommands Command):
+    svgin  id "Button" + <string> ID    event if not Command.Red:  Command.u_r  else No.Event end;
+    svgin  id "Button" + <string>(ID+1) event if Command.RedGreen: Command.u_g  else No.Event end;
+    svgin  id "Button" + <string>(ID+2) event if Command.Red:      Command.u_rg else No.Event end;
+    svgin  id "Button" + <string>(ID+3) event if Command.Red:      Command.u_rr else No.Event end;
+    svgout id "Button" + <string> ID    attr "fill" value if Command.Red:      "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+1) attr "fill" value if Command.Green:    "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+2) attr "fill" value if Command.RedGreen: "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+3) attr "fill" value if Command.RedRed:   "yellowgreen" else "indianred" end;
+end
+
+//Visualization for a bridge traffic light command set.
+//ID - The unique ID of the first command.
+//Command - The automaton that is visualized.
+group def BTLCommandsV(alg int ID; BridgeTrafficLightCommands Command):
+    svgin  id "Button" + <string> ID          event if not Command.Red:  Command.u_r  else No.Event end;
+    svgin  id "Button" + <string>(ID+1)       event if Command.RedGreen: Command.u_g  else No.Event end;
+    svgin  id "Button" + <string>(ID+1) + "b" event if Command.Red:      Command.u_rg else No.Event end;
+    svgout id "Button" + <string> ID          attr "fill" value if Command.Red:      "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+1)       attr "fill" value if Command.Green:    "yellowgreen" else "indianred" end;
+    svgout id "Button" + <string>(ID+1) + "b" attr "fill" value if Command.RedGreen: "yellowgreen" else "indianred" end;
+end
+
+// Trick to not execute an event for svg mapping.
+group No:
+    event Event;
 end
