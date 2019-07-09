@@ -14,7 +14,7 @@
    viewBox="0 0 1174.6984 663.24273"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="Image.svg">
   <defs
      id="defs4">
@@ -33,15 +33,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710685"
-     inkscape:cx="667.54285"
-     inkscape:cy="390.98988"
+     inkscape:zoom="1.4142137"
+     inkscape:cx="787.84535"
+     inkscape:cy="456.46277"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="987"
-     inkscape:window-x="1912"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -485,7 +485,7 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="-0.70772499"
                transform="matrix(0.51764904,0,0,0.51333535,477.13227,-6.8691875)" />
             <path
@@ -502,14 +502,14 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="0.70772144"
                transform="matrix(-0.51764904,0,0,-0.51333535,700.29214,408.16376)" />
           </g>
           <path
              transform="matrix(-0.51764904,0,0,-0.51333535,700.40399,456.00267)"
              inkscape:transform-center-x="0.7077197"
-             d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+             d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
              inkscape:randomized="0"
              inkscape:rounded="0"
              inkscape:flatsided="false"
@@ -526,7 +526,7 @@
           <path
              transform="matrix(0.51764904,0,0,0.51333535,477.14356,81.289973)"
              inkscape:transform-center-x="-0.70772427"
-             d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+             d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
              inkscape:randomized="0"
              inkscape:rounded="0"
              inkscape:flatsided="false"
@@ -556,7 +556,7 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="-0.70772428"
                transform="matrix(0.51764904,0,0,0.51333535,476.31615,119.53884)" />
             <path
@@ -573,7 +573,7 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="0.70772508"
                transform="matrix(-0.51764904,0,0,-0.51333535,700.21027,534.51565)" />
           </g>
@@ -593,7 +593,7 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="-0.70772455"
                transform="matrix(0.51764904,0,0,0.51333535,476.26495,142.07302)" />
             <path
@@ -610,7 +610,7 @@
                inkscape:flatsided="false"
                inkscape:rounded="0"
                inkscape:randomized="0"
-               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 0,-4.73607 0,-4.73608 4.10156,2.36804 z"
+               d="m 225.57812,404.22159 -4.10156,2.36804 -4.10156,2.36803 v -4.73607 -4.73608 l 4.10156,2.36804 z"
                inkscape:transform-center-x="0.70772506"
                transform="matrix(-0.51764904,0,0,-0.51333535,700.28614,557.02002)" />
           </g>
@@ -860,13 +860,12 @@
          id="RequestClose"
          style="fill:#a40000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:12;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
          id="text4747"
          y="473.63104"
          x="28.691023"
-         style="font-style:normal;font-weight:normal;font-size:25.0229454px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15.6393404px"
+           style="font-size:15.6393404px;line-height:1.25"
            y="473.63104"
            x="28.691023"
            id="tspan4749"
@@ -1338,44 +1337,44 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-6"
        y="438.93204"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.544357"
          y="438.93204"
          id="tspan3802-8-0-1-4"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Deactivate</tspan></text>
     <text
        x="-120.69076"
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-3"
        y="438.93204"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.69076"
          y="438.93204"
          id="tspan3802-8-0-2-4"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Activate</tspan></text>
     <text
        x="-79.929924"
        xml:space="preserve"
        id="timer3_txt-4-6-71"
        y="399.49341"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-79.929924"
          y="399.49341"
          id="tspan3802-8-1"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Land traffic signs</tspan></text>
     <text
        x="-77.6493"
        xml:space="preserve"
        id="timer3_txt-4-6-7-58"
        y="438.93204"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-77.6493"
          y="438.93204"
          id="tspan3802-8-0-4"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1407,11 +1406,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1"
        y="497.91476"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="497.91476"
          id="tspan3802-8-0-1-1"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1424,33 +1423,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9"
        y="497.91476"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="497.91476"
          id="tspan3802-8-0-2-2"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-79.929924"
        xml:space="preserve"
        id="timer3_txt-4-6-2"
        y="458.47617"
-       style="font-style:normal;font-weight:normal;font-size:11.25px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-79.929924"
          y="458.47617"
          id="tspan3802-8-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Entering boom barriers</tspan></text>
     <text
        x="-79.728668"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2"
        y="497.91476"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-79.728668"
          y="497.91476"
          id="tspan3802-8-0-6"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1476,11 +1475,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1-7"
        y="556.89758"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="556.89758"
          id="tspan3802-8-0-1-1-6"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1493,33 +1492,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9-1"
        y="556.89758"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="556.89758"
          id="tspan3802-8-0-2-2-0"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-76.265854"
        xml:space="preserve"
        id="timer3_txt-4-6-2-8"
        y="517.45886"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.265854"
          y="517.45886"
          id="tspan3802-8-3-2"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Leaving boom barriers</tspan></text>
     <text
        x="-76.064598"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2-2"
        y="556.89758"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.064598"
          y="556.89758"
          id="tspan3802-8-0-6-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1545,11 +1544,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1-7-8"
        y="615.88031"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="615.88031"
          id="tspan3802-8-0-1-1-6-2"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1562,33 +1561,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9-1-2"
        y="615.88031"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="615.88031"
          id="tspan3802-8-0-2-2-0-0"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-76.265854"
        xml:space="preserve"
        id="timer3_txt-4-6-2-8-1"
        y="576.44171"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.265854"
          y="576.44171"
          id="tspan3802-8-3-2-7"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Slow-traffic boom barriers</tspan></text>
     <text
        x="-76.064598"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2-2-7"
        y="615.88031"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.064598"
          y="615.88031"
          id="tspan3802-8-0-6-3-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1614,11 +1613,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1-7-8-6"
        y="674.86304"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="674.86304"
          id="tspan3802-8-0-1-1-6-2-4"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1631,33 +1630,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9-1-2-3"
        y="674.86304"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="674.86304"
          id="tspan3802-8-0-2-2-0-0-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-76.265854"
        xml:space="preserve"
        id="timer3_txt-4-6-2-8-1-6"
        y="635.42444"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.265854"
          y="635.42444"
          id="tspan3802-8-3-2-7-0"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Rush-hour boom barriers West</tspan></text>
     <text
        x="-76.064598"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2-2-7-1"
        y="674.86304"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.064598"
          y="674.86304"
          id="tspan3802-8-0-6-3-3-4"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1683,11 +1682,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1-7-8-6-3"
        y="733.84583"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="733.84583"
          id="tspan3802-8-0-1-1-6-2-4-5"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1700,33 +1699,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9-1-2-3-7"
        y="733.84583"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="733.84583"
          id="tspan3802-8-0-2-2-0-0-3-9"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-76.265854"
        xml:space="preserve"
        id="timer3_txt-4-6-2-8-1-6-2"
        y="694.40717"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.265854"
          y="694.40717"
          id="tspan3802-8-3-2-7-0-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Rush-hour boom barriers east</tspan></text>
     <text
        x="-76.064598"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2-2-7-1-3"
        y="733.84583"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.064598"
          y="733.84583"
          id="tspan3802-8-0-6-3-3-4-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -1752,11 +1751,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-1-7-8-6-3-2"
        y="792.82861"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-34.194359"
          y="792.82861"
          id="tspan3802-8-0-1-1-6-2-4-5-6"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Open</tspan></text>
     <circle
        r="11.988997"
@@ -1769,33 +1768,33 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-9-1-2-3-7-2"
        y="792.82861"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-120.89701"
          y="792.82861"
          id="tspan3802-8-0-2-2-0-0-3-9-0"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Close</tspan></text>
     <text
        x="-76.265854"
        xml:space="preserve"
        id="timer3_txt-4-6-2-8-1-6-2-2"
        y="753.38989"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.265854"
          y="753.38989"
          id="tspan3802-8-3-2-7-0-3-9"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Bridge deck</tspan></text>
     <text
        x="-76.064598"
        xml:space="preserve"
        id="timer3_txt-4-6-7-2-2-7-1-3-9"
        y="792.82861"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-76.064598"
          y="792.82861"
          id="tspan3802-8-0-6-3-3-4-3-1"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Stop</tspan></text>
     <circle
        r="11.988997"
@@ -2005,13 +2004,12 @@
          x="145.66138"
          y="830.52307" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776"
          y="844.89905"
          x="163.04126"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="844.89905"
            x="163.04126"
            id="tspan4778"
@@ -2035,13 +2033,12 @@
          x="145.66138"
          y="854.91827" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-4"
          y="869.37115"
          x="162.72998"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="869.37115"
            x="162.72998"
            id="tspan4778-9"
@@ -2065,13 +2062,12 @@
          x="146.01492"
          y="877.54565" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-8"
          y="891.99854"
          x="163.16043"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="891.99854"
            x="163.16043"
            id="tspan4778-0"
@@ -2095,13 +2091,12 @@
          x="146.01492"
          y="907.95123" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-6"
          y="922.32721"
          x="162.95901"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="922.32721"
            x="162.95901"
            id="tspan4778-6"
@@ -2125,13 +2120,12 @@
          x="309.41727"
          y="830.52307" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-5"
          y="844.89905"
          x="326.52982"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="844.89905"
            x="326.52982"
            id="tspan4778-68"
@@ -2155,13 +2149,12 @@
          x="309.41727"
          y="868.70685" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-0"
          y="883.14874"
          x="326.4053"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="883.14874"
            x="326.4053"
            id="tspan4778-93"
@@ -2185,13 +2178,12 @@
          x="309.41727"
          y="923.15405" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-2"
          y="937.53003"
          x="326.47122"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="937.53003"
            x="326.47122"
            id="tspan4778-5"
@@ -2215,13 +2207,12 @@
          x="309.41727"
          y="953.55963" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-1"
          y="968.01251"
          x="326.44559"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="968.01251"
            x="326.44559"
            id="tspan4778-3"
@@ -2245,13 +2236,12 @@
          x="225.99991"
          y="980.86224" />
       <text
-         sodipodi:linespacing="125%"
          id="text4776-4-5"
          y="995.46527"
          x="257.21158"
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px"
+           style="font-size:15px;line-height:1.25"
            y="995.46527"
            x="257.21158"
            id="tspan4778-9-6"
@@ -2268,46 +2258,46 @@
          x="27.677975"
          y="389.42426" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="442.13062"
          id="timer3_txt-4-6-7-3-6-5"
          xml:space="preserve"
          x="149.7345"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-4-9"
            y="442.13062"
            x="149.7345">Open</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="442.13062"
          id="timer3_txt-4-6-7-36-3-3"
          xml:space="preserve"
          x="63.588078"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-4-0"
            y="442.13062"
            x="63.588078">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="402.69199"
          id="timer3_txt-4-6-71-2"
          xml:space="preserve"
          x="104.34891"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-1-9"
            y="402.69199"
            x="104.34891">Upsteam ebb gate</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="442.13062"
          id="timer3_txt-4-6-7-58-8"
          xml:space="preserve"
          x="106.62953"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-4-4"
            y="442.13062"
            x="106.62953">Stop</tspan></text>
@@ -2337,13 +2327,13 @@
          x="27.677975"
          y="448.40704" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="501.11334"
          id="timer3_txt-4-6-7-3-1-1"
          xml:space="preserve"
          x="150.08447"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-2"
            y="501.11334"
            x="150.08447">Open</tspan></text>
@@ -2354,35 +2344,35 @@
          cy="478.59448"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="501.11334"
          id="timer3_txt-4-6-7-36-9-5"
          xml:space="preserve"
          x="63.381824"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-3"
            y="501.11334"
            x="63.381824">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:11.25px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="461.67474"
          id="timer3_txt-4-6-2-7"
          xml:space="preserve"
          x="104.34891"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-6"
            y="461.67474"
            x="104.34891">Upstream flood gate</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="501.11334"
          id="timer3_txt-4-6-7-2-21"
          xml:space="preserve"
          x="104.55016"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-1"
            y="501.11334"
            x="104.55016">Stop</tspan></text>
@@ -2406,13 +2396,13 @@
          x="27.677975"
          y="507.38977" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="560.09619"
          id="timer3_txt-4-6-7-3-1-7-1"
          xml:space="preserve"
          x="150.08447"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-6"
            y="560.09619"
            x="150.08447">Open</tspan></text>
@@ -2423,35 +2413,35 @@
          cy="537.57727"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="560.09619"
          id="timer3_txt-4-6-7-36-9-1-6"
          xml:space="preserve"
          x="63.381824"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-4"
            y="560.09619"
            x="63.381824">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="520.65747"
          id="timer3_txt-4-6-2-8-4"
          xml:space="preserve"
          x="108.01298"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-1"
            y="520.65747"
            x="108.01298">Downstream ebb gate</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="560.09619"
          id="timer3_txt-4-6-7-2-2-72"
          xml:space="preserve"
          x="108.21423"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-2"
            y="560.09619"
            x="108.21423">Stop</tspan></text>
@@ -2475,13 +2465,13 @@
          x="27.677975"
          y="566.37256" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="619.07892"
          id="timer3_txt-4-6-7-3-1-7-8-3"
          xml:space="preserve"
          x="150.08447"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-2-5"
            y="619.07892"
            x="150.08447">Open</tspan></text>
@@ -2492,35 +2482,35 @@
          cy="596.56006"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="619.07892"
          id="timer3_txt-4-6-7-36-9-1-2-0"
          xml:space="preserve"
          x="63.381824"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-0-1"
            y="619.07892"
            x="63.381824">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="579.64032"
          id="timer3_txt-4-6-2-8-1-5"
          xml:space="preserve"
          x="108.01298"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-07"
            y="579.64032"
            x="108.01298">Downstream flood gate</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="619.07892"
          id="timer3_txt-4-6-7-2-2-7-2"
          xml:space="preserve"
          x="108.21423"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-0"
            y="619.07892"
            x="108.21423">Stop</tspan></text>
@@ -2544,13 +2534,13 @@
          x="27.677975"
          y="625.35529" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="678.06165"
          id="timer3_txt-4-6-7-3-1-7-8-6-2"
          xml:space="preserve"
          x="150.08447"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-2-4-6"
            y="678.06165"
            x="150.08447">Open</tspan></text>
@@ -2561,35 +2551,35 @@
          cy="655.54272"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="678.06165"
          id="timer3_txt-4-6-7-36-9-1-2-3-3"
          xml:space="preserve"
          x="63.381824"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-0-3-5"
            y="678.06165"
            x="63.381824">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="638.62305"
          id="timer3_txt-4-6-2-8-1-6-3"
          xml:space="preserve"
          x="108.01298"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-0-9"
            y="638.62305"
            x="108.01298">Downstream storm flood gate</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="678.06165"
          id="timer3_txt-4-6-7-2-2-7-1-9"
          xml:space="preserve"
          x="108.21423"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-4"
            y="678.06165"
            x="108.21423">Stop</tspan></text>
@@ -2617,46 +2607,46 @@
          x="26.161791"
          y="92.338531" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="145.04489"
          id="timer3_txt-4-6-7-3-6-5-2"
          xml:space="preserve"
          x="148.21831"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-4-9-6"
            y="145.04489"
            x="148.21831">Open</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="145.04489"
          id="timer3_txt-4-6-7-36-3-3-6"
          xml:space="preserve"
          x="62.071888"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-4-0-8"
            y="145.04489"
            x="62.071888">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="105.60626"
          id="timer3_txt-4-6-71-2-4"
          xml:space="preserve"
          x="102.83272"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-1-9-6"
            y="105.60626"
            x="102.83272">Upsteam ebb paddle</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="145.04489"
          id="timer3_txt-4-6-7-58-8-3"
          xml:space="preserve"
          x="105.11336"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-4-4-9"
            y="145.04489"
            x="105.11336">Stop</tspan></text>
@@ -2686,13 +2676,13 @@
          x="26.161791"
          y="151.32132" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="204.02762"
          id="timer3_txt-4-6-7-3-1-1-9"
          xml:space="preserve"
          x="148.56828"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-2-4"
            y="204.02762"
            x="148.56828">Open</tspan></text>
@@ -2703,35 +2693,35 @@
          cy="181.50876"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="204.02762"
          id="timer3_txt-4-6-7-36-9-5-4"
          xml:space="preserve"
          x="61.865635"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-3-7"
            y="204.02762"
            x="61.865635">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:11.25px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="164.58902"
          id="timer3_txt-4-6-2-7-4"
          xml:space="preserve"
          x="102.83272"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-6-4"
            y="164.58902"
            x="102.83272">Upstream flood paddle</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="204.02762"
          id="timer3_txt-4-6-7-2-21-3"
          xml:space="preserve"
          x="103.03398"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-1-7"
            y="204.02762"
            x="103.03398">Stop</tspan></text>
@@ -2755,13 +2745,13 @@
          x="26.161791"
          y="210.30405" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="263.01047"
          id="timer3_txt-4-6-7-3-1-7-1-5"
          xml:space="preserve"
          x="148.56828"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-6-8"
            y="263.01047"
            x="148.56828">Open</tspan></text>
@@ -2772,35 +2762,35 @@
          cy="240.49155"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="263.01047"
          id="timer3_txt-4-6-7-36-9-1-6-4"
          xml:space="preserve"
          x="61.865635"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-4-8"
            y="263.01047"
            x="61.865635">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="223.57175"
          id="timer3_txt-4-6-2-8-4-0"
          xml:space="preserve"
          x="106.49678"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-1-2"
            y="223.57175"
            x="106.49678">Downstream ebb paddle</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="263.01047"
          id="timer3_txt-4-6-7-2-2-72-1"
          xml:space="preserve"
          x="106.69804"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-2-4"
            y="263.01047"
            x="106.69804">Stop</tspan></text>
@@ -2824,13 +2814,13 @@
          x="26.161791"
          y="269.28683" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="321.99319"
          id="timer3_txt-4-6-7-3-1-7-8-3-4"
          xml:space="preserve"
          x="148.56828"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-2-5-8"
            y="321.99319"
            x="148.56828">Open</tspan></text>
@@ -2841,35 +2831,35 @@
          cy="299.47433"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="321.99319"
          id="timer3_txt-4-6-7-36-9-1-2-0-3"
          xml:space="preserve"
          x="61.865635"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-0-1-7"
            y="321.99319"
            x="61.865635">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="282.5546"
          id="timer3_txt-4-6-2-8-1-5-0"
          xml:space="preserve"
          x="106.49678"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-07-6"
            y="282.5546"
            x="106.49678">Downstream flood paddle</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="321.99319"
          id="timer3_txt-4-6-7-2-2-7-2-2"
          xml:space="preserve"
          x="106.69804"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-0-1"
            y="321.99319"
            x="106.69804">Stop</tspan></text>
@@ -2893,13 +2883,13 @@
          x="26.161791"
          y="328.26956" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="380.97592"
          id="timer3_txt-4-6-7-3-1-7-8-6-2-0"
          xml:space="preserve"
          x="148.56828"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-1-6-2-4-6-8"
            y="380.97592"
            x="148.56828">Open</tspan></text>
@@ -2910,35 +2900,35 @@
          cy="358.457"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="380.97592"
          id="timer3_txt-4-6-7-36-9-1-2-3-3-0"
          xml:space="preserve"
          x="61.865635"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-2-0-0-3-5-6"
            y="380.97592"
            x="61.865635">Close</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="341.53732"
          id="timer3_txt-4-6-2-8-1-6-3-2"
          xml:space="preserve"
          x="106.49678"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-0-9-1"
            y="341.53732"
            x="106.49678">Downstream storm flood padd</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="380.97592"
          id="timer3_txt-4-6-7-2-2-7-1-9-4"
          xml:space="preserve"
          x="106.69804"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-4-0"
            y="380.97592"
            x="106.69804">Stop</tspan></text>
@@ -2971,44 +2961,44 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-6-5-2-1"
        y="431.01501"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="937.36957"
          y="431.01501"
          id="tspan3802-8-0-1-4-9-6-8"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Redgreen</tspan></text>
     <text
        x="851.22308"
        xml:space="preserve"
        id="timer3_txt-4-6-7-36-3-3-6-3"
        y="431.01501"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="851.22308"
          y="431.01501"
          id="tspan3802-8-0-2-4-0-8-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">RedRed</tspan></text>
     <text
        x="915.91876"
        xml:space="preserve"
        id="timer3_txt-4-6-71-2-4-4"
        y="391.57635"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="915.91876"
          y="391.57635"
          id="tspan3802-8-1-9-6-5"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Upsteam lock traffic light</tspan></text>
     <text
        x="894.26459"
        xml:space="preserve"
        id="timer3_txt-4-6-7-58-8-3-2"
        y="431.01501"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="894.26459"
          y="431.01501"
          id="tspan3802-8-0-4-4-9-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Red</tspan></text>
     <circle
        r="11.988997"
@@ -3039,11 +3029,11 @@
        xml:space="preserve"
        id="timer3_txt-4-6-7-3-6-5-2-1-6"
        y="431.87927"
-       style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="979.57489"
          y="431.87927"
          id="tspan3802-8-0-1-4-9-6-8-3"
-         style="font-size:10px;text-align:center;text-anchor:middle"
+         style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
          sodipodi:role="line">Green</tspan></text>
     <g
        id="g6336"
@@ -3056,46 +3046,46 @@
          x="17.130209"
          y="758.55731" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="811.20483"
          id="timer3_txt-4-6-7-3-6-5-2-1-4"
          xml:space="preserve"
          x="139.12791"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-4-9-6-8-6"
            y="811.20483"
            x="139.12791">Redgreen</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="811.20483"
          id="timer3_txt-4-6-7-36-3-3-6-3-0"
          xml:space="preserve"
          x="52.981461"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-2-4-0-8-3-7"
            y="811.20483"
            x="52.981461">RedRed</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="771.76617"
          id="timer3_txt-4-6-71-2-4-4-6"
          xml:space="preserve"
          x="117.6771"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-1-9-6-5-5"
            y="771.76617"
            x="117.6771">Downstream lock traffic light</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="811.20483"
          id="timer3_txt-4-6-7-58-8-3-2-5"
          xml:space="preserve"
          x="96.022942"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-4-4-9-3-7"
            y="811.20483"
            x="96.022942">Red</tspan></text>
@@ -3124,13 +3114,13 @@
          cy="788.68604"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="812.06909"
          id="timer3_txt-4-6-7-3-6-5-2-1-6-2"
          xml:space="preserve"
          x="181.33319"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-1-4-9-6-8-3-9"
            y="812.06909"
            x="181.33319">Green</tspan></text>
@@ -3146,13 +3136,13 @@
          x="17.130209"
          y="758.55731" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="771.76617"
          id="timer3_txt-4-6-71-2-4-4-6-3"
          xml:space="preserve"
          x="117.6771"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-1-9-6-5-5-5"
            y="771.76617"
            x="117.6771">Downstream bridge traffic light</tspan></text>
@@ -3161,11 +3151,11 @@
          xml:space="preserve"
          id="timer3_txt-4-6-7-3-1-7-8-6-2-07"
          y="811.76611"
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="161.65097"
            y="811.76611"
            id="tspan3802-8-0-1-1-6-2-4-6-5"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            sodipodi:role="line">Green</tspan></text>
       <circle
          r="11.988997"
@@ -3178,29 +3168,12 @@
          xml:space="preserve"
          id="timer3_txt-4-6-7-36-9-1-2-3-3-9"
          y="811.76611"
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="74.948341"
            y="811.76611"
            id="tspan3802-8-0-2-2-0-0-3-5-1"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            sodipodi:role="line">Red</tspan></text>
-      <text
-         x="119.78074"
-         xml:space="preserve"
-         id="timer3_txt-4-6-7-2-2-7-1-9-5"
-         y="811.76611"
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"><tspan
-           x="119.78074"
-           y="811.76611"
-           id="tspan3802-8-0-6-3-3-4-4-7"
-           style="font-size:10px;text-align:center;text-anchor:middle"
-           sodipodi:role="line">Redgreen</tspan></text>
-      <circle
-         r="11.988997"
-         cy="789.24719"
-         cx="118.2595"
-         id="Button21b"
-         style="opacity:1;fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.79926646;stroke-linecap:butt;stroke-miterlimit:12;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <circle
          r="11.988997"
          cy="789.24719"
@@ -3219,24 +3192,24 @@
          x="236.92712"
          y="374.31683" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="387.58459"
          id="timer3_txt-4-6-2-8-1-6-2-2-8"
          xml:space="preserve"
          x="317.26215"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-0-3-9-1"
            y="387.58459"
            x="317.26215">Bridge Emergency stop</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="427.98163"
          id="timer3_txt-4-6-7-2-2-7-1-3-9-4"
          xml:space="preserve"
          x="272.83722"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-3-1-7"
            y="427.98163"
            x="272.83722">Activate</tspan></text>
@@ -3247,13 +3220,13 @@
          cy="406.08435"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="427.98163"
          id="timer3_txt-4-6-7-2-2-7-1-3-9-4-7"
          xml:space="preserve"
          x="358.98364"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-3-1-7-7"
            y="427.98163"
            x="358.98364">Deactivate</tspan></text>
@@ -3275,24 +3248,24 @@
          x="237.92714"
          y="437.31683" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="450.58459"
          id="timer3_txt-4-6-2-8-1-6-2-2-8-2"
          xml:space="preserve"
          x="318.26212"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-3-2-7-0-3-9-1-7"
            y="450.58459"
            x="318.26212">Lock Emergency stop</tspan></text>
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="490.98163"
          id="timer3_txt-4-6-7-2-2-7-1-3-9-4-9"
          xml:space="preserve"
          x="273.83722"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-3-1-7-0"
            y="490.98163"
            x="273.83722">Activate</tspan></text>
@@ -3303,13 +3276,13 @@
          cy="469.08435"
          r="11.988997" />
       <text
-         style="font-style:normal;font-weight:normal;font-size:6.9935813px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none"
          y="490.98163"
          id="timer3_txt-4-6-7-2-2-7-1-3-9-4-7-5"
          xml:space="preserve"
          x="359.98364"><tspan
            sodipodi:role="line"
-           style="font-size:10px;text-align:center;text-anchor:middle"
+           style="font-size:10px;line-height:1.25;text-align:center;text-anchor:middle"
            id="tspan3802-8-0-6-3-3-4-3-1-7-7-4"
            y="490.98163"
            x="359.98364">Deactivate</tspan></text>

@@ -81,31 +81,28 @@ end
 
 //Lock Traffic Light Actuator.
 automaton def LockTrafficLightActuator():
-    controllable c_r, c_rr, c_rg, c_g, c_emerg;
+    controllable c_r, c_rr, c_rg, c_g, c_emrg;
     location RedRed:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
     location Red:
         initial;
-        edge c_rr goto RedRed;
-        edge c_rg goto RedGreen;
+        edge c_rr         goto RedRed;
+        edge c_rg         goto RedGreen;
     location RedGreen:
-        edge c_r, c_emerg  goto Red;
-        edge c_g  goto Green;
+        edge c_r, c_emrg  goto Red;
+        edge c_g          goto Green;
     location Green:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
 end
 
 //Bridge Traffic Light Actuator.
 automaton def BridgeTrafficLightActuator():
-    controllable c_r, c_rg, c_g, c_emerg;
+    controllable c_r, c_g, c_emrg;
     location Red:
         initial;
-        edge c_rg goto RedGreen;
-    location RedGreen:
-        edge c_r, c_emerg  goto Red;
-        edge c_g  goto Green;
+        edge c_g          goto Green;
     location Green:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
 end
 
 //Simulation timer
@@ -158,12 +155,12 @@ end
 
 //Two state UI.
 automaton def EmergencyStopDef():
-    uncontrollable u_activate, u_reset;
+    uncontrollable u_activate, u_deactivate;
     location Deactivated:
         initial;
-        edge u_activate goto Activated;
+        edge u_activate   goto Activated;
     location Activated:
-        edge u_reset    goto Deactivated;
+        edge u_deactivate goto Deactivated;
 end
 
 //Lock Traffic Light UI.
@@ -184,13 +181,10 @@ end
 
 //Bridge Traffic Light UI.
 automaton def BridgeTrafficLightCommands():
-    uncontrollable u_r, u_rg, u_g;
+    uncontrollable u_r, u_g;
     location Red:
         initial;
-        edge u_rg goto RedGreen;
-    location RedGreen:
-        edge u_g goto Green;
-        edge u_r goto Red;
+        edge u_g  goto Green;
     location Green:
         edge u_r  goto Red;
 end

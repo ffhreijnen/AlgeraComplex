@@ -38,7 +38,7 @@ group Bridge:
   end
   group EmergencyStop:
     uncontrollable u_activate;
-    uncontrollable u_reset;
+    uncontrollable u_deactivate;
   end
   group LTAS:
     group FarActuator:
@@ -640,7 +640,7 @@ group sup:
         marked;
         edge .Bridge.EmergencyStop.u_activate goto Activated;
       location Activated:
-        edge .Bridge.EmergencyStop.u_reset goto Deactivated;
+        edge .Bridge.EmergencyStop.u_deactivate goto Deactivated;
     end
     group LTAS:
       alg bool FarOn = ApproachSign1.On and ApproachSign2.On and FarActuator.On;

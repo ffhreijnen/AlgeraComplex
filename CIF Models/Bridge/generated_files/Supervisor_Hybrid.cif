@@ -121,12 +121,12 @@ group Bridge:
   end
   automaton EmergencyStop:
     uncontrollable u_activate;
-    uncontrollable u_reset;
+    uncontrollable u_deactivate;
     location Deactivated:
       initial;
       edge u_activate goto Activated;
     location Activated:
-      edge u_reset goto Deactivated;
+      edge u_deactivate goto Deactivated;
   end
   group LTAS:
     automaton FarActuator:
@@ -1443,7 +1443,7 @@ group sup:
         marked;
         edge .Bridge.EmergencyStop.u_activate goto Activated;
       location Activated:
-        edge .Bridge.EmergencyStop.u_reset goto Deactivated;
+        edge .Bridge.EmergencyStop.u_deactivate goto Deactivated;
     end
     group LTAS:
       alg bool FarOn = ApproachSign1.On and ApproachSign2.On and FarActuator.On;
@@ -2741,7 +2741,7 @@ end
 group EmergencyStopV:
   svgin id "EmergencyBridgeA" event if Bridge.EmergencyStop.Deactivated: Bridge.EmergencyStop.u_activate else No.Event end file "../../LockBridge/Image.svg";
   svgout id "EmergencyBridgeA" attr "fill" value if Bridge.EmergencyStop.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgin id "EmergencyBridgeD" event if Bridge.EmergencyStop.Activated: Bridge.EmergencyStop.u_reset else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "EmergencyBridgeD" event if Bridge.EmergencyStop.Activated: Bridge.EmergencyStop.u_deactivate else No.Event end file "../../LockBridge/Image.svg";
   svgout id "EmergencyBridgeD" attr "fill" value if Bridge.EmergencyStop.Activated: "indianred" else "yellowgreen" end file "../../LockBridge/Image.svg";
 end
 group CloseRequestV:

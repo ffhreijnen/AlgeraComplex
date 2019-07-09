@@ -143,16 +143,16 @@ end
 group requirement7: //When the emergency stop is active:
     group LTL:
         //(a) the red aspect has to be displayed
-        requirement Lock.LTL.DE.Actuator.c_emerg needs
+        requirement Lock.LTL.DE.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
-        requirement Lock.LTL.DW.Actuator.c_emerg needs
+        requirement Lock.LTL.DW.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
-        requirement Lock.LTL.UE.Actuator.c_emerg needs
+        requirement Lock.LTL.UE.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
-        requirement Lock.LTL.UW.Actuator.c_emerg needs
+        requirement Lock.LTL.UW.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
         //(b) no other aspects can be displayed.
@@ -174,18 +174,16 @@ group requirement7: //When the emergency stop is active:
     end
     group BTL:
         //(a) the red aspect has to be displayed
-        requirement Lock.BTL.DE.Actuator.c_emerg needs
+        requirement Lock.BTL.DE.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
-        requirement Lock.BTL.DW.Actuator.c_emerg needs
+        requirement Lock.BTL.DW.Actuator.c_emrg needs
             Lock.EmergencyStop.Activated;
 
         //(b) no other aspects can be displayed.
-        requirement {Lock.BTL.DE.Actuator.c_r, Lock.BTL.DE.Actuator.c_rg,
-                     Lock.BTL.DE.Actuator.c_g} needs
+        requirement {Lock.BTL.DE.Actuator.c_r, Lock.BTL.DE.Actuator.c_g} needs
             Lock.EmergencyStop.Deactivated;
-        requirement {Lock.BTL.DW.Actuator.c_r, Lock.BTL.DW.Actuator.c_rg,
-                     Lock.BTL.DW.Actuator.c_g} needs
+        requirement {Lock.BTL.DW.Actuator.c_r, Lock.BTL.DW.Actuator.c_g} needs
             Lock.EmergencyStop.Deactivated;
     end
 end
@@ -286,11 +284,9 @@ group requirement11: //Aspects can only be displayed when the operator gives the
     //@c_rg - The red green aspect event.
     //@c_g  - The green aspect event.
     //@BridgeTrafficLightCommands - The template for the corresponding traffic light commands.
-    group def BTLReq(controllable c_r, c_rg, c_g; BridgeTrafficLightCommands Command):
+    group def BTLReq(controllable c_r, c_g; BridgeTrafficLightCommands Command):
         requirement c_r  needs
             Command.Red;
-        requirement c_rg needs
-            Command.RedGreen;
         requirement c_g  needs
             Command.Green;
     end
@@ -303,8 +299,8 @@ group requirement11: //Aspects can only be displayed when the operator gives the
                         Lock.LTL.UE.Actuator.c_rr, Lock.UI.ULockTrafficLight);
     IncomingUW : LTLReq(Lock.LTL.UW.Actuator.c_r,  Lock.LTL.UW.Actuator.c_rg, Lock.LTL.UW.Actuator.c_g,
                         Lock.LTL.UW.Actuator.c_rr, Lock.UI.ULockTrafficLight);
-    BridgeUE   : BTLReq(Lock.BTL.DE.Actuator.c_r,  Lock.BTL.DE.Actuator.c_rg, Lock.BTL.DE.Actuator.c_g,
+    BridgeUE   : BTLReq(Lock.BTL.DE.Actuator.c_r,  Lock.BTL.DE.Actuator.c_g,
                         Lock.UI.DBridgeTraffigLight);
-    BridgeUW   : BTLReq(Lock.BTL.DW.Actuator.c_r,  Lock.BTL.DW.Actuator.c_rg, Lock.BTL.DW.Actuator.c_g,
+    BridgeUW   : BTLReq(Lock.BTL.DW.Actuator.c_r,  Lock.BTL.DW.Actuator.c_g,
                         Lock.UI.DBridgeTraffigLight);
 end

@@ -45,7 +45,7 @@ group EmergencyStopV:
     svgin  id "EmergencyLockA" event if Lock.EmergencyStop.Deactivated: Lock.EmergencyStop.u_activate
                                  else No.Event end;
     svgout id "EmergencyLockA" attr "fill" value if Lock.EmergencyStop.Activated: "yellowgreen" else "indianred" end;
-    svgin  id "EmergencyLockD" event if Lock.EmergencyStop.Activated: Lock.EmergencyStop.u_reset
+    svgin  id "EmergencyLockD" event if Lock.EmergencyStop.Activated: Lock.EmergencyStop.u_deactivate
                                  else No.Event end;
     svgout id "EmergencyLockD" attr "fill" value if Lock.EmergencyStop.Activated: "indianred" else "yellowgreen" end;
 end

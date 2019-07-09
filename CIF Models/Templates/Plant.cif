@@ -1,7 +1,7 @@
-//Plant templates as described in Section 4.1
+//Plant component templates as described in Section 5.1
 
 ///////////////////////////////////////////////////////////////////////
-//Single input - single output template as described in Section 4.1.1//
+//Single input - single output template as described in Section 5.1.1//
 ///////////////////////////////////////////////////////////////////////
 
 //Single Output Actuator
@@ -45,7 +45,7 @@ plant def SingleIODynamics(SingleInputSensor Sensor; alg bool On, Off):
 end
 
 ///////////////////////////////////////////////////////////////////////
-//Double input - double output template as described in Section 4.1.2//
+//Double input - double output template as described in Section 5.1.2//
 ///////////////////////////////////////////////////////////////////////
 
 //Double Output Actuator
@@ -123,37 +123,34 @@ plant def DoubleIODynamics(DoubleInputSensor Sensor; DoubleOutputActuator Actuat
 end
 
 ////////////////////////////////////////////////////////
-//Traffic light template as described in Section 4.1.3//
+//Traffic light template as described in Section 5.1.3//
 ////////////////////////////////////////////////////////
 
 //Lock Traffic Light Actuator
 plant def LockTrafficLightActuator():
-    controllable c_r, c_rr, c_rg, c_g, c_emerg;
+    controllable c_r, c_rr, c_rg, c_g, c_emrg;
     location RedRed:
         marked;
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
     location Red:
         initial; marked;
         edge c_rr goto RedRed;
         edge c_rg goto RedGreen;
     location RedGreen:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
         edge c_g  goto Green;
     location Green:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg  goto Red;
 end
 
 //Bridge Traffic Light Actuator
 plant def BridgeTrafficLightActuator():
-    controllable c_r, c_rg, c_g, c_emerg;
+    controllable c_r, c_g, c_emrg;
     location Red:
         marked; initial;
-        edge c_rg goto RedGreen;
-    location RedGreen:
-        edge c_r, c_emerg  goto Red;
-        edge c_g  goto Green;
+        edge c_g goto Green;
     location Green:
-        edge c_r, c_emerg  goto Red;
+        edge c_r, c_emrg goto Red;
 end
 
 ////////////////////////////////////////////////
@@ -178,7 +175,7 @@ plant def Timer(alg bool EnablementGuard, DisablementGuard):
 end
 
 /////////////////////////////////////////////////////////
-//User-interface template as described in Section 4.1.5//
+//User-interface template as described in Section 5.1.4//
 /////////////////////////////////////////////////////////
 
 //Movable components commands
@@ -217,12 +214,12 @@ end
 
 //Emergency stop command
 plant def EmergencyStopCommand():
-    uncontrollable u_activate, u_reset;
+    uncontrollable u_activate, u_deactivate;
     location Deactivated:
         initial; marked;
-        edge u_activate goto Activated;
+        edge u_activate   goto Activated;
     location Activated:
-        edge u_reset    goto Deactivated;
+        edge u_deactivate goto Deactivated;
 end
 
 //Lock Traffic Light commands.
@@ -244,13 +241,10 @@ end
 
 //Bridge Traffic Light commands.
 plant def BridgeTrafficLightCommands():
-    uncontrollable u_r, u_rg, u_g;
+    uncontrollable u_r, u_g;
     location Red:
         initial; marked;
-        edge u_rg goto RedGreen;
-    location RedGreen:
         edge u_g goto Green;
-        edge u_r goto Red;
     location Green:
         edge u_r  goto Red;
 end
@@ -308,7 +302,6 @@ group def BridgeTrafficLight():
     DynamicsG : SingleIODynamics(SensorG, not Actuator.Red, Actuator.Red);
 
     alg bool Red      = Actuator.Red      and SensorR.On  and SensorG.Off;
-    alg bool RedGreen = Actuator.RedGreen and SensorR.On  and SensorG.On;
     alg bool Green    = Actuator.Green    and SensorR.Off and SensorG.On;
 end
 

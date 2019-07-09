@@ -58,7 +58,7 @@ group EmergencyStopV:
                                  else No.Event end;
     svgout id "EmergencyBridgeA" attr "fill" value if Bridge.EmergencyStop.Activated: "yellowgreen" else "indianred" end;
 
-    svgin  id "EmergencyBridgeD" event if Bridge.EmergencyStop.Activated: Bridge.EmergencyStop.u_reset
+    svgin  id "EmergencyBridgeD" event if Bridge.EmergencyStop.Activated: Bridge.EmergencyStop.u_deactivate
                                  else No.Event end;
     svgout id "EmergencyBridgeD" attr "fill" value if Bridge.EmergencyStop.Activated: "indianred" else "yellowgreen" end;
 end

@@ -75,12 +75,10 @@ end
 //ID - The unique ID of the first command.
 //Command - The automaton that is visualized.
 group def BTLCommandsV(alg int ID; BridgeTrafficLightCommands Command):
-    svgin  id "Button" + <string> ID          event if not Command.Red:  Command.u_r  else No.Event end;
-    svgin  id "Button" + <string>(ID+1)       event if Command.RedGreen: Command.u_g  else No.Event end;
-    svgin  id "Button" + <string>(ID+1) + "b" event if Command.Red:      Command.u_rg else No.Event end;
+    svgin  id "Button" + <string> ID          event if not Command.Red: Command.u_r  else No.Event end;
+    svgin  id "Button" + <string>(ID+1)       event if     Command.Red: Command.u_g  else No.Event end;
     svgout id "Button" + <string> ID          attr "fill" value if Command.Red:      "yellowgreen" else "indianred" end;
     svgout id "Button" + <string>(ID+1)       attr "fill" value if Command.Green:    "yellowgreen" else "indianred" end;
-    svgout id "Button" + <string>(ID+1) + "b" attr "fill" value if Command.RedGreen: "yellowgreen" else "indianred" end;
 end
 
 // Trick to not execute an event for svg mapping.

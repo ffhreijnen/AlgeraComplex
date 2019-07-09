@@ -206,26 +206,22 @@ group Lock:
     end
     automaton DBridgeTraffigLight:
       uncontrollable u_r;
-      uncontrollable u_rg;
       uncontrollable u_g;
       location Red:
         initial;
-        edge u_rg goto RedGreen;
-      location RedGreen:
         edge u_g goto Green;
-        edge u_r goto Red;
       location Green:
         edge u_r goto Red;
     end
   end
   automaton EmergencyStop:
     uncontrollable u_activate;
-    uncontrollable u_reset;
+    uncontrollable u_deactivate;
     location Deactivated:
       initial;
       edge u_activate goto Activated;
     location Activated:
-      edge u_reset goto Deactivated;
+      edge u_deactivate goto Deactivated;
   end
   group LTL:
     group DE:
@@ -237,18 +233,18 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location RedRed:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
         location Red:
           initial;
           edge c_rr goto RedRed;
           edge c_rg goto RedGreen;
         location RedGreen:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR1:
         uncontrollable u_on;
@@ -317,18 +313,18 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location RedRed:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
         location Red:
           initial;
           edge c_rr goto RedRed;
           edge c_rg goto RedGreen;
         location RedGreen:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR1:
         uncontrollable u_on;
@@ -397,18 +393,18 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location RedRed:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
         location Red:
           initial;
           edge c_rr goto RedRed;
           edge c_rg goto RedGreen;
         location RedGreen:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR1:
         uncontrollable u_on;
@@ -477,18 +473,18 @@ group Lock:
         controllable c_rr;
         controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location RedRed:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
         location Red:
           initial;
           edge c_rr goto RedRed;
           edge c_rg goto RedGreen;
         location RedGreen:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR1:
         uncontrollable u_on;
@@ -555,17 +551,13 @@ group Lock:
       alg bool GreenOn = SensorG.On;
       automaton Actuator:
         controllable c_r;
-        controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location Red:
           initial;
-          edge c_rg goto RedGreen;
-        location RedGreen:
-          edge c_r, c_emerg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR:
         uncontrollable u_on;
@@ -611,17 +603,13 @@ group Lock:
       alg bool GreenOn = SensorG.On;
       automaton Actuator:
         controllable c_r;
-        controllable c_rg;
         controllable c_g;
-        controllable c_emerg;
+        controllable c_emrg;
         location Red:
           initial;
-          edge c_rg goto RedGreen;
-        location RedGreen:
-          edge c_r, c_emerg goto Red;
           edge c_g goto Green;
         location Green:
-          edge c_r, c_emerg goto Red;
+          edge c_r, c_emrg goto Red;
       end
       automaton SensorR:
         uncontrollable u_on;
@@ -1758,10 +1746,10 @@ group sup:
   end
   group requirement7:
     group LTL:
-      requirement invariant .Lock.LTL.DE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
-      requirement invariant .Lock.LTL.DW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
-      requirement invariant .Lock.LTL.UE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
-      requirement invariant .Lock.LTL.UW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.DE.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.DW.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.UE.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.LTL.UW.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
       requirement invariant .Lock.LTL.DE.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
       requirement invariant .Lock.LTL.DE.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
       requirement invariant .Lock.LTL.DE.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
@@ -1780,13 +1768,11 @@ group sup:
       requirement invariant .Lock.LTL.UW.Actuator.c_rr needs Lock.EmergencyStop.Deactivated;
     end
     group BTL:
-      requirement invariant .Lock.BTL.DE.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
-      requirement invariant .Lock.BTL.DW.Actuator.c_emerg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.BTL.DE.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
+      requirement invariant .Lock.BTL.DW.Actuator.c_emrg needs Lock.EmergencyStop.Activated;
       requirement invariant .Lock.BTL.DE.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
-      requirement invariant .Lock.BTL.DE.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
       requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
       requirement invariant .Lock.BTL.DW.Actuator.c_r needs Lock.EmergencyStop.Deactivated;
-      requirement invariant .Lock.BTL.DW.Actuator.c_rg needs Lock.EmergencyStop.Deactivated;
       requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.EmergencyStop.Deactivated;
     end
   end
@@ -1965,12 +1951,10 @@ group sup:
     end
     group BridgeUE:
       requirement invariant .Lock.BTL.DE.Actuator.c_r needs Lock.UI.DBridgeTraffigLight.Red;
-      requirement invariant .Lock.BTL.DE.Actuator.c_rg needs Lock.UI.DBridgeTraffigLight.RedGreen;
       requirement invariant .Lock.BTL.DE.Actuator.c_g needs Lock.UI.DBridgeTraffigLight.Green;
     end
     group BridgeUW:
       requirement invariant .Lock.BTL.DW.Actuator.c_r needs Lock.UI.DBridgeTraffigLight.Red;
-      requirement invariant .Lock.BTL.DW.Actuator.c_rg needs Lock.UI.DBridgeTraffigLight.RedGreen;
       requirement invariant .Lock.BTL.DW.Actuator.c_g needs Lock.UI.DBridgeTraffigLight.Green;
     end
   end
@@ -2170,10 +2154,7 @@ group sup:
         location Red:
           initial;
           marked;
-          edge .Lock.UI.DBridgeTraffigLight.u_rg goto RedGreen;
-        location RedGreen:
           edge .Lock.UI.DBridgeTraffigLight.u_g goto Green;
-          edge .Lock.UI.DBridgeTraffigLight.u_r goto Red;
         location Green:
           edge .Lock.UI.DBridgeTraffigLight.u_r goto Red;
       end
@@ -2184,7 +2165,7 @@ group sup:
         marked;
         edge .Lock.EmergencyStop.u_activate goto Activated;
       location Activated:
-        edge .Lock.EmergencyStop.u_reset goto Deactivated;
+        edge .Lock.EmergencyStop.u_deactivate goto Deactivated;
     end
     group LTL:
       alg bool DRed = DE.Red and DW.Red;
@@ -2199,17 +2180,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emrg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.DE.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.DE.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emrg goto Red;
             edge .Lock.LTL.DE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -2280,17 +2261,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emrg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.DW.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.DW.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emrg goto Red;
             edge .Lock.LTL.DW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -2361,17 +2342,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emrg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.UE.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.UE.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emrg goto Red;
             edge .Lock.LTL.UE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -2442,17 +2423,17 @@ group sup:
         plant automaton Actuator:
           location RedRed:
             marked;
-            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emrg goto Red;
           location Red:
             initial;
             marked;
             edge .Lock.LTL.UW.Actuator.c_rr goto RedRed;
             edge .Lock.LTL.UW.Actuator.c_rg goto RedGreen;
           location RedGreen:
-            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emrg goto Red;
             edge .Lock.LTL.UW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg goto Red;
+            edge .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR1:
           alg bool InitialLocationOn = true;
@@ -2520,18 +2501,14 @@ group sup:
       alg bool DRed = DE.Red and DW.Red;
       group DE:
         alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
-        alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
         alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
         plant automaton Actuator:
           location Red:
             initial;
             marked;
-            edge .Lock.BTL.DE.Actuator.c_rg goto RedGreen;
-          location RedGreen:
-            edge .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg goto Red;
             edge .Lock.BTL.DE.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg goto Red;
+            edge .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR:
           alg bool InitialLocationOn = true;
@@ -2576,18 +2553,14 @@ group sup:
       end
       group DW:
         alg bool Red = Actuator.Red and SensorR.On and SensorG.Off;
-        alg bool RedGreen = Actuator.RedGreen and SensorR.On and SensorG.On;
         alg bool Green = Actuator.Green and SensorR.Off and SensorG.On;
         plant automaton Actuator:
           location Red:
             initial;
             marked;
-            edge .Lock.BTL.DW.Actuator.c_rg goto RedGreen;
-          location RedGreen:
-            edge .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg goto Red;
             edge .Lock.BTL.DW.Actuator.c_g goto Green;
           location Green:
-            edge .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg goto Red;
+            edge .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emrg goto Red;
         end
         plant automaton SensorR:
           alg bool InitialLocationOn = true;
@@ -3545,18 +3518,16 @@ group sup:
     end
   end
   supervisor automaton sup:
-    alphabet .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emerg, .Lock.LTL.DE.Actuator.c_rr, .Lock.LTL.DE.Actuator.c_rg, .Lock.LTL.DE.Actuator.c_g, .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emerg, .Lock.LTL.DW.Actuator.c_rr, .Lock.LTL.DW.Actuator.c_rg, .Lock.LTL.DW.Actuator.c_g, .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emerg, .Lock.LTL.UE.Actuator.c_rr, .Lock.LTL.UE.Actuator.c_rg, .Lock.LTL.UE.Actuator.c_g, .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emerg, .Lock.LTL.UW.Actuator.c_rr, .Lock.LTL.UW.Actuator.c_rg, .Lock.LTL.UW.Actuator.c_g, .Lock.BTL.DE.Actuator.c_rg, .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emerg, .Lock.BTL.DE.Actuator.c_g, .Lock.BTL.DW.Actuator.c_rg, .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emerg, .Lock.BTL.DW.Actuator.c_g, .Lock.UpstreamEbb.EastGate.Actuator.c_open, .Lock.UpstreamEbb.EastGate.Actuator.c_close, .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestGate.Actuator.c_open, .Lock.UpstreamEbb.WestGate.Actuator.c_close, .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.EastPaddle.Actuator.c_open, .Lock.UpstreamEbb.EastPaddle.Actuator.c_close, .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestPaddle.Actuator.c_open, .Lock.UpstreamEbb.WestPaddle.Actuator.c_close, .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastGate.Actuator.c_open, .Lock.UpstreamFlood.EastGate.Actuator.c_close, .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestGate.Actuator.c_open, .Lock.UpstreamFlood.WestGate.Actuator.c_close, .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastPaddle.Actuator.c_open, .Lock.UpstreamFlood.EastPaddle.Actuator.c_close, .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestPaddle.Actuator.c_open, .Lock.UpstreamFlood.WestPaddle.Actuator.c_close, .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastGate.Actuator.c_open, .Lock.DownstreamEbb.EastGate.Actuator.c_close, .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestGate.Actuator.c_open, .Lock.DownstreamEbb.WestGate.Actuator.c_close, .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastPaddle.Actuator.c_open, .Lock.DownstreamEbb.EastPaddle.Actuator.c_close, .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestPaddle.Actuator.c_open, .Lock.DownstreamEbb.WestPaddle.Actuator.c_close, .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastGate.Actuator.c_open, .Lock.DownstreamFlood.EastGate.Actuator.c_close, .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestGate.Actuator.c_open, .Lock.DownstreamFlood.WestGate.Actuator.c_close, .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastGate.Actuator.c_open, .Lock.DownstreamStormFlood.EastGate.Actuator.c_close, .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestGate.Actuator.c_open, .Lock.DownstreamStormFlood.WestGate.Actuator.c_close, .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing;
+    alphabet .Lock.LTL.DE.Actuator.c_r, .Lock.LTL.DE.Actuator.c_emrg, .Lock.LTL.DE.Actuator.c_rr, .Lock.LTL.DE.Actuator.c_rg, .Lock.LTL.DE.Actuator.c_g, .Lock.LTL.DW.Actuator.c_r, .Lock.LTL.DW.Actuator.c_emrg, .Lock.LTL.DW.Actuator.c_rr, .Lock.LTL.DW.Actuator.c_rg, .Lock.LTL.DW.Actuator.c_g, .Lock.LTL.UE.Actuator.c_r, .Lock.LTL.UE.Actuator.c_emrg, .Lock.LTL.UE.Actuator.c_rr, .Lock.LTL.UE.Actuator.c_rg, .Lock.LTL.UE.Actuator.c_g, .Lock.LTL.UW.Actuator.c_r, .Lock.LTL.UW.Actuator.c_emrg, .Lock.LTL.UW.Actuator.c_rr, .Lock.LTL.UW.Actuator.c_rg, .Lock.LTL.UW.Actuator.c_g, .Lock.BTL.DE.Actuator.c_g, .Lock.BTL.DE.Actuator.c_r, .Lock.BTL.DE.Actuator.c_emrg, .Lock.BTL.DW.Actuator.c_g, .Lock.BTL.DW.Actuator.c_r, .Lock.BTL.DW.Actuator.c_emrg, .Lock.UpstreamEbb.EastGate.Actuator.c_open, .Lock.UpstreamEbb.EastGate.Actuator.c_close, .Lock.UpstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestGate.Actuator.c_open, .Lock.UpstreamEbb.WestGate.Actuator.c_close, .Lock.UpstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamEbb.EastPaddle.Actuator.c_open, .Lock.UpstreamEbb.EastPaddle.Actuator.c_close, .Lock.UpstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamEbb.WestPaddle.Actuator.c_open, .Lock.UpstreamEbb.WestPaddle.Actuator.c_close, .Lock.UpstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastGate.Actuator.c_open, .Lock.UpstreamFlood.EastGate.Actuator.c_close, .Lock.UpstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestGate.Actuator.c_open, .Lock.UpstreamFlood.WestGate.Actuator.c_close, .Lock.UpstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.UpstreamFlood.EastPaddle.Actuator.c_open, .Lock.UpstreamFlood.EastPaddle.Actuator.c_close, .Lock.UpstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.UpstreamFlood.WestPaddle.Actuator.c_open, .Lock.UpstreamFlood.WestPaddle.Actuator.c_close, .Lock.UpstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.UpstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastGate.Actuator.c_open, .Lock.DownstreamEbb.EastGate.Actuator.c_close, .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestGate.Actuator.c_open, .Lock.DownstreamEbb.WestGate.Actuator.c_close, .Lock.DownstreamEbb.WestGate.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamEbb.EastPaddle.Actuator.c_open, .Lock.DownstreamEbb.EastPaddle.Actuator.c_close, .Lock.DownstreamEbb.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamEbb.WestPaddle.Actuator.c_open, .Lock.DownstreamEbb.WestPaddle.Actuator.c_close, .Lock.DownstreamEbb.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamEbb.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastGate.Actuator.c_open, .Lock.DownstreamFlood.EastGate.Actuator.c_close, .Lock.DownstreamFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestGate.Actuator.c_open, .Lock.DownstreamFlood.WestGate.Actuator.c_close, .Lock.DownstreamFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamFlood.WestPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastGate.Actuator.c_open, .Lock.DownstreamStormFlood.EastGate.Actuator.c_close, .Lock.DownstreamStormFlood.EastGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestGate.Actuator.c_open, .Lock.DownstreamStormFlood.WestGate.Actuator.c_close, .Lock.DownstreamStormFlood.WestGate.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestGate.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.EastPaddle.Actuator.c_endStopClosing, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_close, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_emrgStop, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening, .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing;
     location:
       initial;
       marked;
-      edge .Lock.BTL.DE.Actuator.c_emerg when true;
+      edge .Lock.BTL.DE.Actuator.c_emrg when true;
       edge .Lock.BTL.DE.Actuator.c_g when true;
       edge .Lock.BTL.DE.Actuator.c_r when true;
-      edge .Lock.BTL.DE.Actuator.c_rg when true;
-      edge .Lock.BTL.DW.Actuator.c_emerg when true;
+      edge .Lock.BTL.DW.Actuator.c_emrg when true;
       edge .Lock.BTL.DW.Actuator.c_g when true;
       edge .Lock.BTL.DW.Actuator.c_r when true;
-      edge .Lock.BTL.DW.Actuator.c_rg when true;
       edge .Lock.DownstreamEbb.EastGate.Actuator.c_close when true;
       edge .Lock.DownstreamEbb.EastGate.Actuator.c_emrgStop when true;
       edge .Lock.DownstreamEbb.EastGate.Actuator.c_endStopClosing when true;
@@ -3617,22 +3588,22 @@ group sup:
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopClosing when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_endStopOpening when true;
       edge .Lock.DownstreamStormFlood.WestPaddle.Actuator.c_open when true;
-      edge .Lock.LTL.DE.Actuator.c_emerg when true;
+      edge .Lock.LTL.DE.Actuator.c_emrg when true;
       edge .Lock.LTL.DE.Actuator.c_g when true;
       edge .Lock.LTL.DE.Actuator.c_r when true;
       edge .Lock.LTL.DE.Actuator.c_rg when true;
       edge .Lock.LTL.DE.Actuator.c_rr when true;
-      edge .Lock.LTL.DW.Actuator.c_emerg when true;
+      edge .Lock.LTL.DW.Actuator.c_emrg when true;
       edge .Lock.LTL.DW.Actuator.c_g when true;
       edge .Lock.LTL.DW.Actuator.c_r when true;
       edge .Lock.LTL.DW.Actuator.c_rg when true;
       edge .Lock.LTL.DW.Actuator.c_rr when true;
-      edge .Lock.LTL.UE.Actuator.c_emerg when true;
+      edge .Lock.LTL.UE.Actuator.c_emrg when true;
       edge .Lock.LTL.UE.Actuator.c_g when true;
       edge .Lock.LTL.UE.Actuator.c_r when true;
       edge .Lock.LTL.UE.Actuator.c_rg when true;
       edge .Lock.LTL.UE.Actuator.c_rr when true;
-      edge .Lock.LTL.UW.Actuator.c_emerg when true;
+      edge .Lock.LTL.UW.Actuator.c_emrg when true;
       edge .Lock.LTL.UW.Actuator.c_g when true;
       edge .Lock.LTL.UW.Actuator.c_r when true;
       edge .Lock.LTL.UW.Actuator.c_rg when true;
@@ -3928,16 +3899,14 @@ end
 group Command202122:
   alg int ID = 20;
   svgin id "Button" + <string>ID event if not Lock.UI.DBridgeTraffigLight.Red: Lock.UI.DBridgeTraffigLight.u_r else No.Event end file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(ID + 1) event if Lock.UI.DBridgeTraffigLight.RedGreen: Lock.UI.DBridgeTraffigLight.u_g else No.Event end file "../../LockBridge/Image.svg";
-  svgin id "Button" + <string>(ID + 1) + "b" event if Lock.UI.DBridgeTraffigLight.Red: Lock.UI.DBridgeTraffigLight.u_rg else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "Button" + <string>(ID + 1) event if Lock.UI.DBridgeTraffigLight.Red: Lock.UI.DBridgeTraffigLight.u_g else No.Event end file "../../LockBridge/Image.svg";
   svgout id "Button" + <string>ID attr "fill" value if Lock.UI.DBridgeTraffigLight.Red: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
   svgout id "Button" + <string>(ID + 1) attr "fill" value if Lock.UI.DBridgeTraffigLight.Green: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgout id "Button" + <string>(ID + 1) + "b" attr "fill" value if Lock.UI.DBridgeTraffigLight.RedGreen: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
 end
 group EmergencyStopV:
   svgin id "EmergencyLockA" event if Lock.EmergencyStop.Deactivated: Lock.EmergencyStop.u_activate else No.Event end file "../../LockBridge/Image.svg";
   svgout id "EmergencyLockA" attr "fill" value if Lock.EmergencyStop.Activated: "yellowgreen" else "indianred" end file "../../LockBridge/Image.svg";
-  svgin id "EmergencyLockD" event if Lock.EmergencyStop.Activated: Lock.EmergencyStop.u_reset else No.Event end file "../../LockBridge/Image.svg";
+  svgin id "EmergencyLockD" event if Lock.EmergencyStop.Activated: Lock.EmergencyStop.u_deactivate else No.Event end file "../../LockBridge/Image.svg";
   svgout id "EmergencyLockD" attr "fill" value if Lock.EmergencyStop.Activated: "indianred" else "yellowgreen" end file "../../LockBridge/Image.svg";
 end
 automaton X:
